@@ -8,7 +8,7 @@
     <div class="row g-4">
       <div class="col-lg-4 col-md-6">
         <a href="index.html" class="d-inline-block mb-3" aria-label="Fleetezee">
-          <img src="assets/images/fleetezee-logo.svg" alt="Fleetezee Logo" width="190" height="34">
+          <img src="assets/images/fleetezee-logo.svg" alt="fleetezee" width="150" height="34">
         </a>
         <p class="footer-brand-bio">
           Technology for the businesses that keep the world moving. Fleetezee builds modern infrastructure for transportation.

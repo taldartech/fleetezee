@@ -11,7 +11,7 @@ if (!isset($activePage)) {
   <div class="container-fz">
     <div class="header-inner">
       <a href="index.html" class="header-logo-link" aria-label="Fleetezee Home">
-        <img src="assets/images/fleetezee-logo.svg" alt="Fleetezee — Transportation Technology" width="210" height="38">
+        <img src="assets/images/fleetezee-logo.svg" alt="fleetezee" width="160" height="36">
       </a>
       <nav aria-label="Primary Navigation">
         <ul class="nav-desktop-links">
