@@ -1,0 +1,46 @@
+[
+  {
+    "id": "delayed-freight-invoicing-cost",
+    "title": "The True Cost of Delayed Freight Invoicing: How Indian Transporters Lose 3.2% of Working Capital to Manual Slip Cycles",
+    "slug": "true-cost-delayed-freight-invoicing",
+    "category": "Freight Economics",
+    "readTime": "8 min read",
+    "date": "2026-10-01",
+    "author": "Fleetezee Research Group",
+    "excerpt": "When proof-of-delivery slips spend weeks trapped in physical truck cabins before reaching the billing desk, transporters absorb hidden financing interest, missed detention claims, and customer billing disputes.",
+    "featured": true
+  },
+  {
+    "id": "section-194c-tds-freight-guide",
+    "title": "Section 194C TDS in Freight: Resolving Form 26AS Mismatches",
+    "slug": "section-194c-tds-freight-guide",
+    "category": "Tax & Regulation",
+    "readTime": "5 min read",
+    "date": "2026-09-24",
+    "author": "Tax & Compliance Practice",
+    "excerpt": "A comprehensive guide to handling 1% individual vs 2% corporate TDS on freight bills, avoiding double taxation, and matching customer credit ledgers.",
+    "featured": false
+  },
+  {
+    "id": "whatsapp-to-event-streams",
+    "title": "From WhatsApp Dispatches to Event Streams",
+    "slug": "from-whatsapp-to-event-streams",
+    "category": "Engineering Architecture",
+    "readTime": "7 min read",
+    "date": "2026-09-18",
+    "author": "Systems Engineering Team",
+    "excerpt": "Why high-volume transport operations outgrow chat groups, and how an event-driven architecture brings deterministic control to depot movements.",
+    "featured": false
+  },
+  {
+    "id": "why-generic-erps-fail-in-trucking",
+    "title": "Why General-Purpose Accounting ERPs Fail in Trucking",
+    "slug": "why-generic-erps-fail-in-trucking",
+    "category": "Operations",
+    "readTime": "6 min read",
+    "date": "2026-09-10",
+    "author": "Fleet Strategy Desk",
+    "excerpt": "Tally and traditional business suites were created for static retail inventories, not rolling assets with FASTag debits, driver batta, and dynamic bilties.",
+    "featured": false
+  }
+]

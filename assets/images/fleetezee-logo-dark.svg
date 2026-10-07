@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 44" fill="none" class="fleetezee-brand-logo-dark">
+  <g class="logo-mark" transform="translate(2, 4)">
+    <defs>
+      <linearGradient id="fzLinearGlowDark" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#3AA68C" />
+        <stop offset="100%" stop-color="#3696D2" />
+      </linearGradient>
+    </defs>
+    <path d="M4 36L4 2C4 0.89543 4.89543 0 6 0H14C15.1046 0 16 0.89543 16 2V36C16 37.1046 15.1046 38 14 38H6C4.89543 38 4 37.1046 4 36Z" fill="#0B0D0F" />
+    <path d="M12 2H28C31.3137 2 34 4.68629 34 8C34 11.3137 31.3137 14 28 14H16V2Z" fill="url(#fzLinearGlowDark)" />
+    <path d="M12 18H25C27.2091 18 29 19.7909 29 22C29 24.2091 27.2091 26 25 26H16V18Z" fill="#1D715D" />
+    <circle cx="34" cy="8" r="3" fill="#3696D2" />
+    <circle cx="34" cy="8" r="6" stroke="#3696D2" stroke-width="1.5" stroke-opacity="0.4" />
+  </g>
+  <text x="50" y="27" fill="#0B0D0F" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="800" letter-spacing="0.22em">FLEETEZEE</text>
+  <text x="52" y="38" fill="#57606A" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="6.8" font-weight="600" letter-spacing="0.32em">TRANSPORTATION TECHNOLOGY</text>
+</svg>

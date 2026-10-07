@@ -1,0 +1,185 @@
+/* ==========================================================================
+   FLEETEZEE — Mobile-First Responsive Overrides & Breakpoint Polish
+   Tested for: 360px, 375px, 390px, 414px, 768px, 820px, 1024px, 1280px+
+   ========================================================================== */
+
+/* Tablet & Mobile Breakpoints (max-width: 991px) */
+@media (max-width: 991.98px) {
+  .nav-desktop-links,
+  .nav-desktop-cta {
+    display: none !important;
+  }
+
+  .hamburger-toggle {
+    display: flex !important;
+  }
+
+  /* Sticky Bottom Mobile Bar Visible on handhelds */
+  .sticky-mobile-cta {
+    display: block !important;
+  }
+
+  /* Add padding to body so bottom mobile bar doesn't obscure content */
+  body {
+    padding-bottom: 74px;
+  }
+
+  .transform-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .transform-divider-col {
+    transform: rotate(90deg);
+    padding: 0.5rem 0;
+  }
+
+  .tb-mock-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .tb-mock-panel {
+    overflow-x: auto;
+  }
+
+  .ai-pipeline-matrix {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .pipeline-arrow {
+    transform: rotate(90deg);
+    padding: 0.25rem 0;
+  }
+
+  .roadmap-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-cta-group {
+    width: 100%;
+  }
+
+  .hero-cta-group .btn-fz {
+    width: 100%;
+  }
+
+  .fz-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small Handhelds (max-width: 575.98px) - 360px, 375px, 390px, 414px */
+@media (max-width: 575.98px) {
+  :root {
+    --section-pad-y: 4rem;
+  }
+
+  .hero-section {
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+    min-height: auto;
+  }
+
+  .hero-metrics-strip {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .roadmap-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .transform-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .console-viewport {
+    padding: 1.25rem 0.85rem;
+  }
+
+  .console-header-bar {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .console-nav-tabs {
+    width: 100%;
+  }
+
+  .capabilities-track {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .ecosystem-hub-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .ecosystem-nodes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .corridor-cards-row {
+    grid-template-columns: 1fr;
+  }
+
+  .global-map-container {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .fz-modal-dialog {
+    padding: 0;
+    max-height: 95vh;
+  }
+
+  .fz-modal-header {
+    padding: 1.5rem 1.25rem 1rem;
+  }
+
+  .fz-modal-body {
+    padding: 1.25rem;
+  }
+
+  .btn-fz {
+    min-height: 48px; /* Comfortable mobile tap target */
+  }
+}
+
+/* Tablet Landscape / Small Desktop (992px to 1199px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nav-desktop-links {
+    gap: 1.25rem;
+  }
+
+  .roadmap-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Screens (1440px+) */
+@media (min-width: 1440px) {
+  .display-hero {
+    font-size: 4.85rem;
+  }
+}
+
+/* Reduced Motion Preference Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #heroCanvas {
+    display: none;
+  }
+}

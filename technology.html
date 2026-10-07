@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Technology Architecture, AI & APIs | Fleetezee</title>
+  <meta name="description" content="Explore Fleetezee's modern technology infrastructure: real-time event mesh, AI dispatch intelligence, compliance engines, and open transportation APIs.">
+  <meta name="keywords" content="Transport Technology Architecture, Logistics APIs, Fleet AI, E-Way Bill API, Vahan Integration, FASTag API Integration">
+  <meta name="author" content="Fleetezee Technologies">
+  <link rel="canonical" href="https://fleetezee.com/technology.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fleetezee.com/technology.html">
+  <meta property="og:title" content="Technology Architecture, AI & APIs | Fleetezee">
+  <meta property="og:description" content="Explore Fleetezee's modern technology infrastructure: real-time event mesh, AI dispatch intelligence, compliance engines, and open transportation APIs.">
+  <meta property="og:image" content="https://fleetezee.com/assets/images/fleetezee-logo.svg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fleetezee Technology Architecture">
+  <meta name="twitter:description" content="The technology layer for modern transportation.">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="fz-header" id="mainHeader">
+    <div class="container-fz">
+      <div class="header-inner">
+        <a href="index.html" class="header-logo-link" aria-label="Fleetezee Home">
+          <img src="assets/images/fleetezee-logo.svg" alt="Fleetezee — Transportation Technology" width="210" height="38">
+        </a>
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-desktop-links">
+            <li><a href="truckbill.html">TruckBill <span class="badge-flagship">Flagship</span></a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="technology.html" class="active">Technology</a></li>
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="about.html">Company</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav-desktop-cta">
+          <button class="btn-fz btn-fz-teal btn-fz-sm" data-open-demo data-demo-source="tech_header">
+            Book a Demo
+          </button>
+        </div>
+        <button class="hamburger-toggle" id="hamburgerBtn" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <div>
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <span class="eyebrow mb-0">Menu</span>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="truckbill.html"><span>TruckBill ERP</span> <span class="badge-flagship">Flagship</span></a></li>
+        <li><a href="solutions.html"><span>Solutions</span> <span>→</span></a></li>
+        <li><a href="technology.html"><span>Technology & AI</span> <span>→</span></a></li>
+        <li><a href="vision.html"><span>Our Vision</span> <span>→</span></a></li>
+        <li><a href="about.html"><span>Company & Story</span> <span>→</span></a></li>
+        <li><a href="insights.html"><span>Insights</span> <span>→</span></a></li>
+        <li><a href="contact.html"><span>Contact Us</span> <span>→</span></a></li>
+      </ul>
+    </div>
+    <div>
+      <button class="btn-fz btn-fz-teal w-100 py-3 mb-2" data-open-demo data-demo-source="tech_mobile_drawer">
+        Book a TruckBill Demo
+      </button>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <section class="section-dark" style="padding-top: 8.5rem;">
+      <div class="container-fz">
+        <div class="row">
+          <div class="col-lg-9">
+            <span class="eyebrow">Engineering Infrastructure</span>
+            <h1 class="display-hero text-white mb-3">
+              The technology layer for modern transportation.
+            </h1>
+            <p class="lead-text mb-4">
+              Transportation is an unforgiving physical industry operating 24/7 in harsh real-world environments. Our engineering stack is built for uninterrupted reliability, sub-second compliance sync, and verifiable data integrity.
+            </p>
+            <div class="d-flex gap-3 flex-wrap">
+              <a href="#event-mesh" class="btn-fz btn-fz-primary">Platform Mesh</a>
+              <a href="#ai-intelligence" class="btn-fz btn-fz-outline-dark">AI & Automation</a>
+              <a href="#open-apis" class="btn-fz btn-fz-outline-dark">Open Transport APIs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. EVENT MESH ARCHITECTURE -->
+    <section class="section-dark-charcoal" id="event-mesh">
+      <div class="container-fz">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="eyebrow">Distributed Core</span>
+            <h2 class="display-section text-white mb-3">Real-Time Logistics Event Mesh</h2>
+            <p class="lead-text mb-4">
+              Unlike legacy ERP databases that lock tables during freight calculations, Fleetezee runs on an asynchronous event mesh. Every state transition—from gate-in to FASTag toll debit—is processed as an immutable stream.
+            </p>
+            <div class="d-flex flex-column gap-3 text-white small">
+              <div class="p-3 rounded bg-surface-charcoal border border-charcoal">
+                <strong class="text-teal font-monospace d-block mb-1">01. SUB-SECOND EVENT PROPAGATION</strong>
+                Toll debits from NPCI FASTag streams automatically attach to corresponding open voyage manifests without manual human intervention.
+              </div>
+              <div class="p-3 rounded bg-surface-charcoal border border-charcoal">
+                <strong class="text-azure font-monospace d-block mb-1">02. MULTI-BRANCH CONCURRENCY</strong>
+                Dozens of regional depots across India issue Lorry Receipts simultaneously with zero collision, guaranteed unique serial keys, and instant central ledger synchronization.
+              </div>
+              <div class="p-3 rounded bg-surface-charcoal border border-charcoal">
+                <strong class="text-white font-monospace d-block mb-1">03. AUDIT-PROOF TIME-SERIES STORE</strong>
+                Every change to freight rates, fuel issuances, and driver balance advances retains an immutable cryptographic audit log for financial compliance.
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-4 p-md-5 rounded-16 bg-deep-charcoal border border-charcoal">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="badge-flagship">EVENT PIPELINE</span>
+                <span class="text-teal font-monospace small">STREAMING: ACTIVE</span>
+              </div>
+              <div class="font-monospace small text-muted-dark d-flex flex-column gap-2">
+                <div class="p-2 rounded bg-surface-charcoal border border-charcoal text-white">
+                  <span class="text-teal">18:24:02.102</span> [EVT] TRIP_DISPATCHED (Trip: TB-94102, Corridor: BOM-DEL)
+                </div>
+                <div class="p-2 rounded bg-surface-charcoal border border-charcoal text-white">
+                  <span class="text-azure">18:24:03.450</span> [NIC_SYNC] E-Way Bill #482910482012 Verified Valid
+                </div>
+                <div class="p-2 rounded bg-surface-charcoal border border-charcoal text-white">
+                  <span class="text-teal">18:24:04.210</span> [FIN_LEDGER] Driver Advance ₹45,000 Provisioned
+                </div>
+                <div class="p-2 rounded bg-surface-charcoal border border-charcoal text-white">
+                  <span class="text-muted-dark">18:24:05.001</span> [NOTIFY] WhatsApp LR dispatched to Jindal Steel Logistics
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. AI & AUTOMATION ENGINE -->
+    <section class="section-light" id="ai-intelligence">
+      <div class="container-fz">
+        <div class="row justify-content-between align-items-end mb-5">
+          <div class="col-lg-7">
+            <span class="eyebrow eyebrow-light">Applied Intelligence</span>
+            <h2 class="display-section mb-2">Automating Logistics Complexity</h2>
+          </div>
+          <div class="col-lg-5">
+            <p class="lead-text mb-0">
+              We apply machine learning specifically where physical logistics breaks down: damaged document proof, delayed invoice cycles, and credit exposure.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="p-4 rounded-16 bg-white border border-light h-100 shadow-sm">
+              <span class="badge bg-dark font-monospace mb-2">DOCUMENT VISION</span>
+              <h4 class="mb-2">POD Optical Extraction</h4>
+              <p class="text-muted-light small mb-0">
+                Driver uploads a crumpled mobile photo of the physical receiving slip. Our document vision pipeline extracts consignee receiving stamp, date, received weight, and shortage notes automatically.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-4 rounded-16 bg-white border border-light h-100 shadow-sm">
+              <span class="badge bg-dark font-monospace mb-2">RISK DETECTION</span>
+              <h4 class="mb-2">Credit Default Radar</h4>
+              <p class="text-muted-light small mb-0">
+                Continuously analyzes shipper payment lag against agreed credit terms. Flags accounts that exceed safe working capital thresholds before new trucks are allocated to unpaid routes.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="p-4 rounded-16 bg-white border border-light h-100 shadow-sm">
+              <span class="badge bg-dark font-monospace mb-2">CORRIDOR INTELLIGENCE</span>
+              <h4 class="mb-2">Detention Cost Forecasting</h4>
+              <p class="text-muted-light small mb-0">
+                Estimates unloading turnaround times at major industrial clusters, automatically generating detention invoice clauses when unloading exceeds contract SLAs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. OPEN TRANSPORT APIS -->
+    <section class="section-dark" id="open-apis">
+      <div class="container-fz">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <span class="eyebrow">Developer & Partner Platform</span>
+            <h2 class="display-section text-white mb-3">Open Transport APIs</h2>
+            <p class="lead-text mb-4">
+              Transportation should not be trapped in closed vendor walls. Fleetezee exposes secure REST interfaces and real-time webhooks so shippers, TMS platforms, and ERPs can integrate natively.
+            </p>
+            <div class="d-flex flex-column gap-3 text-muted-dark small mb-4">
+              <div>• <strong>JSON REST API:</strong> High-throughput endpoints for trips, LRs, consignments, and ledger vouchers.</div>
+              <div>• <strong>Webhook Subscriptions:</strong> Real-time callbacks for <code>trip.delivered</code>, <code>pod.verified</code>, and <code>invoice.generated</code>.</div>
+              <div>• <strong>Granular API Scopes:</strong> Enterprise API tokens with scoped read/write permissions per branch depot.</div>
+            </div>
+            <button class="btn-fz btn-fz-teal" data-open-demo data-demo-source="tech_api_docs">
+              Request API Access & Sandbox
+            </button>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-4 rounded-16 bg-deep-charcoal border border-charcoal">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="font-monospace text-teal small">POST /v1/trips/dispatch</span>
+                <span class="badge bg-secondary font-monospace small">HTTP 201 CREATED</span>
+              </div>
+              <pre class="m-0 p-3 rounded bg-surface-charcoal border border-charcoal text-white font-monospace small overflow-auto" style="max-height: 280px;"><code>{
+  "trip_id": "TB-94102",
+  "corridor": {
+    "origin": "IN-BOM-01",
+    "destination": "IN-DEL-04"
+  },
+  "vehicle": {
+    "reg_number": "MH04GP3829",
+    "ownership": "OWN_FLEET",
+    "vahan_verified": true
+  },
+  "freight": {
+    "consignor": "Jindal Steel Works",
+    "rate_per_ton": 3200.00,
+    "payload_mt": 28.50,
+    "total_amount": 91200.00
+  },
+  "eway_bill": {
+    "number": "482910482012",
+    "status": "NIC_PORTAL_ACTIVE"
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section-dark-charcoal text-center py-5">
+      <div class="container-fz">
+        <h2 class="display-section text-white mb-3">Build on Fleetezee Infrastructure</h2>
+        <p class="lead-text mx-auto mb-4">
+          Connect your logistics business to modern transportation technology.
+        </p>
+        <button class="btn-fz btn-fz-teal btn-fz-lg" data-open-demo data-demo-source="tech_bottom_cta">
+          Schedule Platform Briefing
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="fz-footer">
+    <div class="container-fz">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <a href="index.html" class="d-inline-block mb-3" aria-label="Fleetezee">
+            <img src="assets/images/fleetezee-logo.svg" alt="Fleetezee Logo" width="190" height="34">
+          </a>
+          <p class="footer-brand-bio">
+            Technology for the businesses that keep the world moving. Fleetezee builds modern infrastructure for transportation.
+          </p>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <div class="footer-heading">Products</div>
+          <ul class="footer-links">
+            <li><a href="truckbill.html">TruckBill ERP</a></li>
+            <li><a href="technology.html">Fleet Intelligence</a></li>
+            <li><a href="technology.html#open-apis">APIs</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <div class="footer-heading">Solutions</div>
+          <ul class="footer-links">
+            <li><a href="solutions.html#transporters">Transporters</a></li>
+            <li><a href="solutions.html#fleet-owners">Fleet Owners</a></li>
+            <li><a href="solutions.html#brokers">Brokers</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="vision.html">Vision</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <div class="footer-heading">Direct Connect</div>
+          <ul class="footer-links">
+            <li><a href="tel:+919820000000">+91 98200 00000</a></li>
+            <li><a href="mailto:contact@fleetezee.com">contact@fleetezee.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Fleetezee Technologies Private Limited. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <aside class="sticky-mobile-cta">
+    <div class="d-flex align-items-center justify-content-between gap-2">
+      <button class="btn-fz btn-fz-teal w-100 py-2 small" data-open-demo data-demo-source="sticky_tech">
+        Book a TruckBill Demo
+      </button>
+      <a href="https://wa.me/919820000000" target="_blank" rel="noopener" class="btn-fz btn-fz-outline-dark py-2 px-3 small">
+        WhatsApp
+      </a>
+    </div>
+  </aside>
+
+  <!-- MODAL -->
+  <div class="fz-modal-backdrop" id="demoModal" role="dialog" aria-modal="true">
+    <div class="fz-modal-dialog">
+      <div class="fz-modal-header">
+        <div>
+          <span class="eyebrow mb-1">PLATFORM ARCHITECTURE</span>
+          <h3 class="h4 text-white mb-0">Schedule Architecture Briefing</h3>
+        </div>
+        <button class="fz-modal-close" id="closeDemoModal">✕</button>
+      </div>
+      <div class="fz-modal-body" id="demoFormContainer">
+        <form id="fleetezeeDemoForm" novalidate>
+          <div class="fz-form-row">
+            <div class="fz-form-group">
+              <label class="fz-label">Your Name *</label>
+              <input type="text" class="fz-input" name="name" required placeholder="Full Name">
+            </div>
+            <div class="fz-form-group">
+              <label class="fz-label">Company Name *</label>
+              <input type="text" class="fz-input" name="company" required placeholder="Company">
+            </div>
+          </div>
+          <div class="fz-form-row">
+            <div class="fz-form-group">
+              <label class="fz-label">Mobile Number *</label>
+              <input type="tel" class="fz-input" name="mobile" required placeholder="Mobile">
+            </div>
+            <div class="fz-form-group">
+              <label class="fz-label">Primary Interest</label>
+              <select class="fz-select" name="interest">
+                <option value="TruckBill ERP">TruckBill ERP Walkthrough</option>
+                <option value="API Integration">Open API Integration</option>
+                <option value="Multi-Branch Cloud">Enterprise Multi-Branch Cloud</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn-fz btn-fz-teal w-100 py-3 mt-3">Request Briefing</button>
+        </form>
+      </div>
+      <div class="modal-success-state" id="demoSuccessState">
+        <div class="success-icon-badge">✓</div>
+        <h3 class="h4 text-white mb-2">Request Confirmed</h3>
+        <p class="text-muted-dark small mb-3">Our engineering team will connect with you within 2 hours.</p>
+        <a href="#" id="instantWhatsAppCta" target="_blank" rel="noopener" class="btn-fz btn-fz-teal py-3 w-100">
+          WhatsApp Instant Chat
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/interactive.js"></script>
+  <script src="assets/js/analytics.js"></script>
+</body>
+</html>
