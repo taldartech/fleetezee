@@ -1,12 +1,12 @@
 /**
- * FLEETEZEE — Pan-India Freight Network, Warehouses, Truckyards & Telematics Simulation
- * Expansive 70% screen width background simulation showing:
- *  - Complete geographical silhouette, contour mesh & national expressways of India across 70% of screen width
- *  - Strictly positioned on the right 70% of the canvas, keeping the left 30% crystal-clear for hero text
+ * FLEETEZEE — End-to-End Pan-India Freight Network, Warehouses, Truckyards & Telematics Simulation
+ * Expansive full-width background simulation spanning 100% of the screen from end to end:
+ *  - Comprehensive national logistics mesh spanning from 4% (West) to 96% (East) of screen width
  *  - Strategic Warehouses [WH] (Multi-Modal Logistics Parks & Fulfillment Hubs)
  *  - Strategic Truckyards [TY] (Transport Nagar Terminals, Port Container Yards)
- *  - Active fleet of 2D vector freight trucks cruising national corridors
- *  - Intelligent anti-collision badge engine (max 3-4 clean badges, zero badge overlap)
+ *  - Glowing dual-pass highway expressways with traveling electric telemetry data pulses
+ *  - Active fleet of 2D vector freight trucks cruising corridors with forward headlights & taillights
+ *  - Intelligent anti-collision badge engine (max 3-4 clean badges, zero overlapping)
  *  - Destination arrival telemetry radar pulses
  *  - Performance-optimized, DPI-scaled, auto-pauses off-screen
  */
@@ -29,107 +29,79 @@
     let height = 0;
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    // Complete India Boundary Polygon in normalized coordinates [0..1] x [0..1]
-    const INDIA_BOUNDARY = [
-      [0.48, 0.03], // North Kashmir / Siachen
-      [0.52, 0.05], // Ladakh East
-      [0.55, 0.10], // Himachal North
-      [0.57, 0.15], // Uttarakhand
-      [0.64, 0.18], // Western Nepal border
-      [0.71, 0.19], // Sikkim
-      [0.78, 0.20], // Bhutan
-      [0.86, 0.17], // Arunachal Pradesh (Tawang)
-      [0.93, 0.20], // Easternmost tip (Kibithu)
-      [0.92, 0.29], // Nagaland / Manipur
-      [0.86, 0.36], // Mizoram
-      [0.83, 0.32], // Tripura
-      [0.81, 0.30], // Meghalaya
-      [0.78, 0.35], // North Bengal / Bangladesh border
-      [0.75, 0.40], // Kolkata Sundarbans
-      [0.71, 0.48], // Odisha coast (Puri / Paradip)
-      [0.66, 0.58], // Visakhapatnam
-      [0.62, 0.68], // Vijayawada / Ongole
-      [0.59, 0.76], // Chennai / Puducherry
-      [0.56, 0.84], // Rameswaram
-      [0.52, 0.92], // Kanyakumari (Southernmost tip)
-      [0.49, 0.86], // Thiruvananthapuram
-      [0.47, 0.78], // Kochi / Kozhikode
-      [0.46, 0.70], // Mangaluru
-      [0.44, 0.61], // Goa (Mormugao)
-      [0.42, 0.54], // Mumbai / JNPT
-      [0.39, 0.49], // Surat / Daman
-      [0.35, 0.48], // Gulf of Khambhat
-      [0.30, 0.49], // Saurashtra / Gir
-      [0.25, 0.46], // Porbandar / Dwarka
-      [0.26, 0.40], // Gulf of Kutch / Kandla
-      [0.29, 0.35], // Rann of Kutch
-      [0.33, 0.31], // Barmer / West Rajasthan
-      [0.35, 0.23], // Jaisalmer / Bikaner
-      [0.39, 0.17], // Punjab / Amritsar
-      [0.43, 0.11]  // Jammu / Pir Panjal
+    // End-to-End Freight Nodes spanning full screen from 4% (Far West) to 96% (Far East)
+    const FREIGHT_NODES = [
+      // 1. Far West Gateway (4% to 18%)
+      { id: 'wh_mundra', name: 'MUNDRA PORT', type: 'wh', nx: 0.05, ny: 0.38, align: 'right' },
+      { id: 'ty_porbandar', name: 'PORBANDAR TY', type: 'ty', nx: 0.06, ny: 0.50, align: 'right' },
+      { id: 'wh_aslali', name: 'ASLALI WH', type: 'wh', nx: 0.16, ny: 0.44, align: 'top' },
+      { id: 'ty_vapi', name: 'VAPI GIDC TY', type: 'ty', nx: 0.19, ny: 0.56, align: 'right' },
+
+      // 2. West-Central & Mumbai-Pune Cluster (22% to 32%)
+      { id: 'ty_vkia', name: 'VKIA JAIPUR', type: 'ty', nx: 0.24, ny: 0.28, align: 'left' },
+      { id: 'wh_bhiwandi', name: 'BHIWANDI WH', type: 'wh', nx: 0.23, ny: 0.62, align: 'left' },
+      { id: 'ty_jnpt', name: 'JNPT YARD', type: 'ty', nx: 0.22, ny: 0.68, align: 'left' },
+      { id: 'wh_chakan', name: 'CHAKAN WH', type: 'wh', nx: 0.27, ny: 0.66, align: 'right' },
+      { id: 'node_goa', name: 'GOA PORT', type: 'metro', nx: 0.26, ny: 0.76, align: 'left' },
+      { id: 'node_mangaluru', name: 'MANGALURU', type: 'metro', nx: 0.28, ny: 0.84, align: 'left' },
+
+      // 3. North & North-Central Backbone (32% to 48%)
+      { id: 'node_srinagar', name: 'SRINAGAR', type: 'metro', nx: 0.32, ny: 0.08, align: 'right' },
+      { id: 'node_ludhiana', name: 'LUDHIANA', type: 'metro', nx: 0.35, ny: 0.17, align: 'left' },
+      { id: 'ty_sgtn', name: 'SGTN DELHI', type: 'ty', nx: 0.38, ny: 0.22, align: 'top' },
+      { id: 'wh_bilaspur', name: 'BILASPUR WH', type: 'wh', nx: 0.40, ny: 0.26, align: 'right' },
+      { id: 'ty_fazalganj', name: 'FAZALGANJ TY', type: 'ty', nx: 0.47, ny: 0.30, align: 'top' },
+      { id: 'node_lucknow', name: 'LUCKNOW', type: 'metro', nx: 0.49, ny: 0.28, align: 'right' },
+      { id: 'node_indore', name: 'INDORE', type: 'metro', nx: 0.31, ny: 0.45, align: 'left' },
+
+      // 4. Central Zero-Mile Nexus & Deccan (42% to 56%)
+      { id: 'ty_kalamna', name: 'KALAMNA YARD', type: 'ty', nx: 0.43, ny: 0.52, align: 'top' },
+      { id: 'wh_butibori', name: 'BUTIBORI WH', type: 'wh', nx: 0.45, ny: 0.56, align: 'right' },
+      { id: 'ty_autonagar', name: 'AUTONAGAR HYD', type: 'ty', nx: 0.46, ny: 0.68, align: 'right' },
+      { id: 'ty_nelamang', name: 'NELAMANGALA TY', type: 'ty', nx: 0.37, ny: 0.82, align: 'left' },
+      { id: 'wh_hoskote', name: 'HOSKOTE WH', type: 'wh', nx: 0.40, ny: 0.84, align: 'right' },
+      { id: 'wh_sricity', name: 'SRI CITY WH', type: 'wh', nx: 0.48, ny: 0.77, align: 'top' },
+      { id: 'ty_madhavaram', name: 'MADHAVARAM TY', type: 'ty', nx: 0.50, ny: 0.81, align: 'right' },
+      { id: 'node_kochi', name: 'KOCHI PORT', type: 'metro', nx: 0.33, ny: 0.91, align: 'left' },
+      { id: 'node_kanya', name: 'KANYAKUMARI', type: 'metro', nx: 0.40, ny: 0.96, align: 'right' },
+
+      // 5. Eastern Corridor & Coastal Trunk (58% to 76%)
+      { id: 'node_varanasi', name: 'VARANASI', type: 'metro', nx: 0.58, ny: 0.34, align: 'right' },
+      { id: 'node_patna', name: 'PATNA', type: 'metro', nx: 0.64, ny: 0.33, align: 'right' },
+      { id: 'node_raipur', name: 'RAIPUR', type: 'metro', nx: 0.55, ny: 0.50, align: 'right' },
+      { id: 'node_vizag', name: 'VIZAG PORT', type: 'metro', nx: 0.61, ny: 0.64, align: 'right' },
+      { id: 'node_bhuban', name: 'BHUBANESWAR', type: 'metro', nx: 0.68, ny: 0.52, align: 'right' },
+      { id: 'wh_dankuni', name: 'DANKUNI WH', type: 'wh', nx: 0.75, ny: 0.43, align: 'top' },
+
+      // 6. Northeast Arterial Corridor (78% to 96%)
+      { id: 'node_siliguri', name: 'SILIGURI', type: 'metro', nx: 0.81, ny: 0.28, align: 'top' },
+      { id: 'ty_amingaon', name: 'AMINGAON TY', type: 'ty', nx: 0.92, ny: 0.29, align: 'top' },
+      { id: 'node_dibrugarh', name: 'DIBRUGARH', type: 'metro', nx: 0.96, ny: 0.25, align: 'left' }
     ];
 
-    // Strategic Logistics Warehouses [WH] with explicit label offsets
-    const WAREHOUSES = [
-      { id: 'wh_bhiwandi', name: 'BHIWANDI WH', nx: 0.43, ny: 0.54, type: 'wh', labelAlign: 'left' },
-      { id: 'wh_bilaspur', name: 'BILASPUR WH', nx: 0.48, ny: 0.23, type: 'wh', labelAlign: 'right' },
-      { id: 'wh_hoskote', name: 'HOSKOTE WH', nx: 0.52, ny: 0.77, type: 'wh', labelAlign: 'right' },
-      { id: 'wh_aslali', name: 'ASLALI WH', nx: 0.37, ny: 0.44, type: 'wh', labelAlign: 'left' },
-      { id: 'wh_dankuni', name: 'DANKUNI WH', nx: 0.74, ny: 0.40, type: 'wh', labelAlign: 'right' },
-      { id: 'wh_chakan', name: 'CHAKAN WH', nx: 0.45, ny: 0.58, type: 'wh', labelAlign: 'left' },
-      { id: 'wh_butibori', name: 'BUTIBORI WH', nx: 0.54, ny: 0.49, type: 'wh', labelAlign: 'right' },
-      { id: 'wh_sricity', name: 'SRI CITY WH', nx: 0.58, ny: 0.76, type: 'wh', labelAlign: 'right' }
-    ];
-
-    // Strategic Truckyards [TY] (Transporter Terminals & Gateways)
-    const TRUCKYARDS = [
-      { id: 'ty_sgtn', name: 'SGTN DELHI', nx: 0.47, ny: 0.20, type: 'ty', labelAlign: 'top' },
-      { id: 'ty_jnpt', name: 'JNPT YARD', nx: 0.42, ny: 0.56, type: 'ty', labelAlign: 'left' },
-      { id: 'ty_kalamna', name: 'KALAMNA YARD', nx: 0.55, ny: 0.48, type: 'ty', labelAlign: 'top' },
-      { id: 'ty_vkia', name: 'VKIA JAIPUR', nx: 0.42, ny: 0.27, type: 'ty', labelAlign: 'left' },
-      { id: 'ty_autonagar', name: 'AUTONAGAR HYD', nx: 0.54, ny: 0.63, type: 'ty', labelAlign: 'right' },
-      { id: 'ty_nelamang', name: 'NELAMANGALA TY', nx: 0.50, ny: 0.75, type: 'ty', labelAlign: 'left' },
-      { id: 'ty_madhavaram', name: 'MADHAVARAM TY', nx: 0.59, ny: 0.74, type: 'ty', labelAlign: 'right' },
-      { id: 'ty_fazalganj', name: 'FAZALGANJ TY', nx: 0.56, ny: 0.28, type: 'ty', labelAlign: 'top' },
-      { id: 'ty_amingaon', name: 'AMINGAON TY', nx: 0.86, ny: 0.27, type: 'ty', labelAlign: 'right' },
-      { id: 'ty_vapi', name: 'VAPI GIDC TY', nx: 0.40, ny: 0.50, type: 'ty', labelAlign: 'left' }
-    ];
-
-    // Other Key Freight Interchange Metros
-    const METRO_NODES = [
-      { id: 'node_srinagar', name: 'SRINAGAR', nx: 0.45, ny: 0.08, type: 'metro' },
-      { id: 'node_ludhiana', name: 'LUDHIANA', nx: 0.44, ny: 0.16, type: 'metro' },
-      { id: 'node_lucknow', name: 'LUCKNOW', nx: 0.58, ny: 0.26, type: 'metro' },
-      { id: 'node_varanasi', name: 'VARANASI', nx: 0.63, ny: 0.31, type: 'metro' },
-      { id: 'node_patna', name: 'PATNA', nx: 0.68, ny: 0.30, type: 'metro' },
-      { id: 'node_siliguri', name: 'SILIGURI', nx: 0.76, ny: 0.26, type: 'metro' },
-      { id: 'node_bhuban', name: 'BHUBANESWAR', nx: 0.69, ny: 0.49, type: 'metro' },
-      { id: 'node_vizag', name: 'VIZAG PORT', nx: 0.65, ny: 0.59, type: 'metro' },
-      { id: 'node_vijayawada', name: 'VIJAYAWADA', nx: 0.60, ny: 0.67, type: 'metro' },
-      { id: 'node_surat', name: 'SURAT', nx: 0.39, ny: 0.48, type: 'metro' },
-      { id: 'node_indore', name: 'INDORE', nx: 0.45, ny: 0.41, type: 'metro' },
-      { id: 'node_raipur', name: 'RAIPUR', nx: 0.61, ny: 0.47, type: 'metro' },
-      { id: 'node_coimbatore', name: 'COIMBATORE', nx: 0.50, ny: 0.82, type: 'metro' },
-      { id: 'node_kochi', name: 'KOCHI PORT', nx: 0.48, ny: 0.84, type: 'metro' },
-      { id: 'node_kanya', name: 'KANYAKUMARI', nx: 0.52, ny: 0.91, type: 'metro' }
-    ];
-
-    // Arterial National Highway Connections
+    // Arterial National Highway Corridors Connecting End-to-End
     const CORRIDOR_CONNECTIONS = [
-      // Golden Quadrilateral & West Corridor
-      ['ty_sgtn', 'ty_vkia', 'NH-48'],
-      ['ty_vkia', 'wh_aslali', 'NH-48'],
-      ['wh_aslali', 'node_surat', 'NH-48'],
-      ['node_surat', 'ty_vapi', 'NH-48'],
+      // Far West Links
+      ['wh_mundra', 'ty_porbandar', 'Coastal'],
+      ['wh_mundra', 'wh_aslali', 'NH-41'],
+      ['ty_porbandar', 'wh_aslali', 'NH-27'],
+      ['wh_aslali', 'ty_vapi', 'NH-48'],
       ['ty_vapi', 'wh_bhiwandi', 'NH-48'],
+
+      // West-Central & Expressways
+      ['wh_aslali', 'ty_vkia', 'NH-48'],
+      ['ty_vkia', 'ty_sgtn', 'NH-48'],
+      ['wh_aslali', 'node_indore', 'NH-47'],
+      ['node_indore', 'ty_kalamna', 'NH-47'],
       ['wh_bhiwandi', 'ty_jnpt', 'Expway'],
       ['wh_bhiwandi', 'wh_chakan', 'Expway'],
+      ['wh_bhiwandi', 'ty_kalamna', 'Samruddhi'],
       ['wh_chakan', 'ty_nelamang', 'NH-48'],
-      ['ty_nelamang', 'wh_hoskote', 'NICE Rd'],
-      ['wh_hoskote', 'wh_sricity', 'NH-48'],
-      ['wh_sricity', 'ty_madhavaram', 'NH-16'],
+      ['wh_chakan', 'node_goa', 'NH-66'],
+      ['node_goa', 'node_mangaluru', 'NH-66'],
+      ['node_mangaluru', 'node_kochi', 'NH-66'],
 
-      // NH-44 North-South Backbone
+      // North-South Arterial NH-44
       ['node_srinagar', 'node_ludhiana', 'NH-44'],
       ['node_ludhiana', 'ty_sgtn', 'NH-44'],
       ['ty_sgtn', 'wh_bilaspur', 'NH-48'],
@@ -138,43 +110,44 @@
       ['ty_kalamna', 'wh_butibori', 'NH-44'],
       ['wh_butibori', 'ty_autonagar', 'NH-44'],
       ['ty_autonagar', 'ty_nelamang', 'NH-44'],
-      ['ty_nelamang', 'node_coimbatore', 'NH-44'],
-      ['node_coimbatore', 'node_kochi', 'NH-544'],
-      ['node_coimbatore', 'node_kanya', 'NH-44'],
+      ['ty_nelamang', 'wh_hoskote', 'NICE Rd'],
+      ['wh_hoskote', 'wh_sricity', 'NH-48'],
+      ['wh_sricity', 'ty_madhavaram', 'NH-16'],
+      ['ty_nelamang', 'node_kochi', 'NH-544'],
+      ['ty_nelamang', 'node_kanya', 'NH-44'],
+      ['node_kochi', 'node_kanya', 'NH-66'],
 
-      // NH-19 & NH-27 East-West Corridors
+      // East-West National Corridors & Gangetic Arterials
       ['ty_fazalganj', 'node_lucknow', 'NH-27'],
       ['node_lucknow', 'node_varanasi', 'NH-19'],
       ['node_varanasi', 'node_patna', 'NH-19'],
-      ['node_patna', 'node_siliguri', 'NH-27'],
-      ['node_siliguri', 'ty_amingaon', 'NH-27'],
-      ['node_varanasi', 'wh_dankuni', 'NH-19'],
-
-      // Eastern Coastal NH-16
-      ['wh_dankuni', 'node_bhuban', 'NH-16'],
-      ['node_bhuban', 'node_vizag', 'NH-16'],
-      ['node_vizag', 'node_vijayawada', 'NH-16'],
-      ['node_vijayawada', 'ty_madhavaram', 'NH-16'],
-
-      // Samruddhi Mahamarg & Central Corridors
-      ['wh_bhiwandi', 'ty_kalamna', 'Samruddhi'],
-      ['wh_aslali', 'node_indore', 'NH-47'],
-      ['node_indore', 'ty_kalamna', 'NH-47'],
+      ['node_patna', 'wh_dankuni', 'NH-19'],
+      ['ty_fazalganj', 'ty_kalamna', 'NH-34'],
       ['ty_kalamna', 'node_raipur', 'NH-53'],
       ['node_raipur', 'wh_dankuni', 'NH-53'],
-      ['node_vijayawada', 'ty_autonagar', 'NH-65']
+
+      // Eastern Coastal Arterials NH-16
+      ['wh_dankuni', 'node_bhuban', 'NH-16'],
+      ['node_bhuban', 'node_vizag', 'NH-16'],
+      ['node_vizag', 'ty_madhavaram', 'NH-16'],
+      ['ty_autonagar', 'node_vizag', 'NH-65'],
+
+      // Far East & Northeast Trunk Routes
+      ['node_patna', 'node_siliguri', 'NH-27'],
+      ['wh_dankuni', 'node_siliguri', 'NH-12'],
+      ['node_siliguri', 'ty_amingaon', 'NH-27'],
+      ['ty_amingaon', 'node_dibrugarh', 'NH-15']
     ];
 
-    const allNodes = [];
+    const nodes = [];
     const corridors = [];
     const trucks = [];
     const telemetryPings = [];
-    let transformedBoundary = [];
 
     function resize() {
       const parent = canvas.parentElement;
       width = parent.offsetWidth || window.innerWidth;
-      height = parent.offsetHeight || 600;
+      height = parent.offsetHeight || 580;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       ctx.scale(dpr, dpr);
@@ -185,57 +158,31 @@
     }
 
     function initNetwork() {
-      allNodes.length = 0;
+      nodes.length = 0;
       corridors.length = 0;
-      transformedBoundary.length = 0;
 
-      // WHOLE BACKGROUND FULL-BLEED SPREAD (NO ARTIFICIAL BOUNDARIES):
-      const animWidth = width * 0.94;
+      // End-to-End Canvas Coordinate Transformation spanning 96% width
+      const animWidth = width * 0.96;
       const animHeight = height * 0.88;
-      const offsetX = width * 0.03;
+      const offsetX = width * 0.02;
       const offsetY = height * 0.06;
 
-      // Geographic coordinate bounds of defined India points
-      const minNx = 0.24; // Porbandar / West Gujarat
-      const maxNx = 0.94; // Eastern Arunachal Pradesh
-      const spanNx = maxNx - minNx;
-
-      const minNy = 0.03; // North Kashmir
-      const maxNy = 0.92; // Kanyakumari South
-      const spanNy = maxNy - minNy;
-
-      function toScreen(nx, ny) {
-        return {
-          x: offsetX + ((nx - minNx) / spanNx) * animWidth,
-          y: offsetY + ((ny - minNy) / spanNy) * animHeight
-        };
-      }
-
-      // 1. Transform India Boundary Polygon
-      INDIA_BOUNDARY.forEach(([nx, ny]) => {
-        transformedBoundary.push(toScreen(nx, ny));
-      });
-
-      // 2. Populate Nodes (Warehouses, Truckyards, Metros)
-      const nodeDefinitions = [...WAREHOUSES, ...TRUCKYARDS, ...METRO_NODES];
-      nodeDefinitions.forEach(def => {
-        const pt = toScreen(def.nx, def.ny);
-        allNodes.push({
+      FREIGHT_NODES.forEach(def => {
+        nodes.push({
           id: def.id,
           name: def.name,
           type: def.type, // 'wh', 'ty', or 'metro'
-          labelAlign: def.labelAlign || 'right',
-          x: pt.x,
-          y: pt.y,
+          align: def.align || 'right',
+          x: offsetX + def.nx * animWidth,
+          y: offsetY + def.ny * animHeight,
           pingRadius: Math.random() * 18,
           pingAlpha: 0.8
         });
       });
 
       const nodeMap = {};
-      allNodes.forEach(n => { nodeMap[n.id] = n; });
+      nodes.forEach(n => { nodeMap[n.id] = n; });
 
-      // 3. Populate Corridors
       CORRIDOR_CONNECTIONS.forEach(([fromId, toId, code]) => {
         const from = nodeMap[fromId];
         const to = nodeMap[toId];
@@ -259,9 +206,9 @@
         this.reversed = Math.random() > 0.5;
         this.progress = Math.random();
         // Cruising speed
-        this.speed = 0.0010 + Math.random() * 0.0012;
+        this.speed = 0.0011 + Math.random() * 0.0013;
 
-        // Vehicle Plate & Mission Data
+        // Vehicle Plate & Logistics Data
         const states = ['MH', 'GJ', 'DL', 'KA', 'RJ', 'HR', 'WB', 'TN', 'UP', 'TS'];
         const state = states[Math.floor(Math.random() * states.length)];
         const num = Math.floor(1000 + Math.random() * 9000);
@@ -276,13 +223,11 @@
           'GPS LOCKED'
         ];
         this.status = statuses[Math.floor(Math.random() * statuses.length)];
-        this.kmh = Math.floor(54 + Math.random() * 16);
 
         this.truckLength = 17;
         this.truckWidth = 7;
-
-        // Controlled badge visibility: Only a few trucks show badges at once to eliminate clutter!
-        this.badgeEligible = (this.index % 4 === 0);
+        // Only 3-4 trucks active with badges to keep canvas pristine and zero-clutter
+        this.badgeEligible = (this.index % 5 === 0);
       }
 
       update() {
@@ -314,24 +259,24 @@
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
 
-        // 1. Forward Headlights Beam
+        // 1. Forward Headlights Glowing Beam
         ctx.save();
-        const beamGrad = ctx.createRadialGradient(8, 0, 1, 30, 0, 13);
-        beamGrad.addColorStop(0, 'rgba(13, 148, 136, 0.40)');
-        beamGrad.addColorStop(0.5, 'rgba(37, 99, 235, 0.14)');
+        const beamGrad = ctx.createRadialGradient(8, 0, 1, 32, 0, 14);
+        beamGrad.addColorStop(0, 'rgba(13, 148, 136, 0.45)');
+        beamGrad.addColorStop(0.5, 'rgba(37, 99, 235, 0.18)');
         beamGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
         ctx.fillStyle = beamGrad;
         ctx.beginPath();
-        ctx.moveTo(8, -2);
-        ctx.lineTo(32, -9);
-        ctx.lineTo(32, 9);
-        ctx.lineTo(8, 2);
+        ctx.moveTo(8, -2.2);
+        ctx.lineTo(34, -10);
+        ctx.lineTo(34, 10);
+        ctx.lineTo(8, 2.2);
         ctx.closePath();
         ctx.fill();
         ctx.restore();
 
         // 2. Chassis Shadow
-        ctx.fillStyle = 'rgba(15, 23, 42, 0.08)';
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.10)';
         ctx.fillRect(-10, -this.truckWidth / 2 + 1, this.truckLength, this.truckWidth);
 
         // 3. Cargo Trailer (Deep Slate)
@@ -340,7 +285,7 @@
         roundRect(ctx, -10, -this.truckWidth / 2, 11, this.truckWidth, 1.5);
         ctx.fill();
 
-        // Teal Brand Stripe on Cargo Trailer
+        // Vibrant Teal Brand Stripe on Cargo Trailer
         ctx.fillStyle = '#0D9488';
         ctx.fillRect(-7.5, -this.truckWidth / 2 + 0.8, 5.5, 1.1);
         ctx.fillRect(-7.5, this.truckWidth / 2 - 1.9, 5.5, 1.1);
@@ -367,18 +312,17 @@
 
         ctx.restore();
 
-        // 5. Floating Telemetry Badge with Intelligent Anti-Collision
-        if (this.badgeEligible && width > 700) {
+        // 5. Anti-Collision Floating Telemetry Badges
+        if (this.badgeEligible && width > 768) {
           const badgeX = this.x + 8;
           const badgeY = this.y - 10;
-          const badgeW = 92;
+          const badgeW = 94;
           const badgeH = 13;
 
-          // Check collision with already rendered badges on this frame
           let collides = false;
           for (let i = 0; i < renderedBadges.length; i++) {
             const b = renderedBadges[i];
-            if (Math.abs(badgeX - b.x) < 70 && Math.abs(badgeY - b.y) < 22) {
+            if (Math.abs(badgeX - b.x) < 75 && Math.abs(badgeY - b.y) < 22) {
               collides = true;
               break;
             }
@@ -391,9 +335,9 @@
             ctx.font = '600 7.5px "JetBrains Mono", monospace';
             const text = `${this.plate} • ${this.status}`;
 
-            // Frosted pill
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.90)';
-            ctx.strokeStyle = 'rgba(226, 232, 240, 0.85)';
+            // Frosted white pill
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
+            ctx.strokeStyle = 'rgba(226, 232, 240, 0.90)';
             ctx.lineWidth = 1;
             ctx.beginPath();
             roundRect(ctx, badgeX - 3, badgeY - 8, badgeW, badgeH, 3);
@@ -406,7 +350,7 @@
             ctx.arc(badgeX + 1.5, badgeY - 1.5, 1.8, 0, Math.PI * 2);
             ctx.fill();
 
-            // Text label
+            // Label
             ctx.fillStyle = '#0F172A';
             ctx.fillText(text, badgeX + 6.5, badgeY + 1);
             ctx.restore();
@@ -417,61 +361,55 @@
 
     function initTrucks() {
       trucks.length = 0;
-      // 16 total trucks cruising across the 70% width network
-      const count = width < 768 ? 8 : 16;
+      // 20 trucks active across the end-to-end network
+      const count = width < 768 ? 10 : 20;
       for (let i = 0; i < count; i++) {
         trucks.push(new MovingTruck(i));
       }
     }
 
-    // 1. Draw Complete India Geographical Boundary & Topographic Grid
-    function drawIndiaLandmass() {
-      if (transformedBoundary.length < 3) return;
-
-      // Seamless Full-Background Ambient Grid (No Artificial Boundaries)
+    // 1. Draw High-Tech Ambient Matrix Dots across the Whole Canvas
+    function drawBackgroundMatrix() {
       ctx.save();
-      ctx.strokeStyle = 'rgba(15, 23, 42, 0.025)';
-      ctx.lineWidth = 0.8;
-      ctx.setLineDash([3, 10]);
-
-      // Parallels
-      for (let y = 0; y < height; y += 48) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.04)';
+      const step = 48;
+      for (let x = step / 2; x < width; x += step) {
+        for (let y = step / 2; y < height; y += step) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
-
-      // Meridians
-      for (let x = 0; x < width; x += 48) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      ctx.setLineDash([]);
       ctx.restore();
     }
 
-    // 2. Draw Arterial National Corridors
+    // 2. Draw Dual-Pass Expressways with Traveling Energy Pulses
     function drawCorridors() {
       corridors.forEach(c => {
-        // Base highway track
+        // Under-glow pass
         ctx.beginPath();
         ctx.moveTo(c.from.x, c.from.y);
         ctx.lineTo(c.to.x, c.to.y);
-        ctx.strokeStyle = 'rgba(13, 148, 136, 0.16)';
-        ctx.lineWidth = 1.4;
+        ctx.strokeStyle = 'rgba(13, 148, 136, 0.18)';
+        ctx.lineWidth = 2.4;
+        ctx.stroke();
+
+        // Crisp active road track
+        ctx.beginPath();
+        ctx.moveTo(c.from.x, c.from.y);
+        ctx.lineTo(c.to.x, c.to.y);
+        ctx.strokeStyle = 'rgba(13, 148, 136, 0.35)';
+        ctx.lineWidth = 1.3;
         ctx.stroke();
 
         // Traveling dashed telemetry data pulse
         ctx.beginPath();
         ctx.moveTo(c.from.x, c.from.y);
         ctx.lineTo(c.to.x, c.to.y);
-        ctx.strokeStyle = 'rgba(37, 99, 235, 0.28)';
+        ctx.strokeStyle = 'rgba(2, 132, 199, 0.65)';
         ctx.lineWidth = 1.2;
         ctx.setLineDash([3, 7]);
-        c.dashOffset = (c.dashOffset - 0.35) % 10;
+        c.dashOffset = (c.dashOffset - 0.4) % 10;
         ctx.lineDashOffset = c.dashOffset;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -480,8 +418,8 @@
 
     // 3. Draw Nodes (Warehouses, Truckyards, Metros)
     function drawNodes() {
-      allNodes.forEach(node => {
-        // Pulse ring
+      nodes.forEach(node => {
+        // Radar pulse ring
         node.pingRadius += 0.28;
         node.pingAlpha = Math.max(0, 1 - node.pingRadius / 22);
         if (node.pingRadius > 22) {
@@ -497,37 +435,37 @@
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.pingRadius, 0, Math.PI * 2);
         ctx.strokeStyle = color;
-        ctx.globalAlpha = node.pingAlpha * 0.4;
+        ctx.globalAlpha = node.pingAlpha * 0.45;
         ctx.lineWidth = 1.1;
         ctx.stroke();
         ctx.globalAlpha = 1;
 
         if (isWH) {
-          // --- WAREHOUSE ICON [WH]: Gabled Roof Logistics Shed ---
+          // --- WAREHOUSE ICON [WH]: Gabled Logistics Shed ---
           ctx.save();
           ctx.translate(node.x, node.y);
 
           ctx.fillStyle = '#0D9488';
           ctx.beginPath();
           ctx.moveTo(-4.5, -1);
-          ctx.lineTo(0, -5);   // Ridge
+          ctx.lineTo(0, -5);   // Roof ridge
           ctx.lineTo(4.5, -1);
           ctx.lineTo(4.5, 4);  // Base
           ctx.lineTo(-4.5, 4);
           ctx.closePath();
           ctx.fill();
 
-          // Loading dock cutout
+          // White loading dock bay
           ctx.fillStyle = '#FFFFFF';
           ctx.fillRect(-1.5, 1, 3, 3);
           ctx.restore();
 
-          // Clean non-colliding label
+          // Non-colliding label
           if (width > 720) {
             ctx.font = '700 7px "JetBrains Mono", monospace';
             ctx.fillStyle = '#0F172A';
-            const lx = node.labelAlign === 'left' ? (node.x - 62) : (node.x + 7);
-            const ly = node.y - 2;
+            const lx = node.align === 'left' ? (node.x - 62) : (node.align === 'top' ? node.x - 24 : node.x + 7);
+            const ly = node.align === 'top' ? (node.y - 8) : (node.y - 2);
             ctx.fillText(node.name, lx, ly);
           }
         } else if (isTY) {
@@ -540,22 +478,22 @@
           roundRect(ctx, -4.5, -4.5, 9, 9, 2);
           ctx.fill();
 
-          // Gantry / Bay P glyph
+          // Parking P glyph
           ctx.fillStyle = '#FFFFFF';
           ctx.font = '800 6px "JetBrains Mono", monospace';
           ctx.fillText('P', -2, 2.5);
           ctx.restore();
 
-          // Clean non-colliding label
+          // Non-colliding label
           if (width > 720) {
             ctx.font = '700 7px "JetBrains Mono", monospace';
             ctx.fillStyle = '#0F172A';
-            const lx = node.labelAlign === 'left' ? (node.x - 60) : (node.labelAlign === 'top' ? node.x - 24 : node.x + 7);
-            const ly = node.labelAlign === 'top' ? (node.y - 8) : (node.y - 2);
+            const lx = node.align === 'left' ? (node.x - 60) : (node.align === 'top' ? node.x - 24 : node.x + 7);
+            const ly = node.align === 'top' ? (node.y - 8) : (node.y - 2);
             ctx.fillText(node.name, lx, ly);
           }
         } else {
-          // --- METRO INTERCHANGE NODE: Clean Dot ---
+          // --- METRO NODE: Glowing Dot ---
           ctx.beginPath();
           ctx.arc(node.x, node.y, 2.5, 0, Math.PI * 2);
           ctx.fillStyle = '#64748B';
@@ -566,7 +504,7 @@
 
           if (width > 860) {
             ctx.font = '500 6.5px "JetBrains Mono", monospace';
-            ctx.fillStyle = 'rgba(71, 85, 105, 0.70)';
+            ctx.fillStyle = 'rgba(71, 85, 105, 0.75)';
             ctx.fillText(node.name, node.x + 5, node.y - 1);
           }
         }
@@ -588,30 +526,28 @@
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.strokeStyle = p.color;
-        ctx.lineWidth = 1.3;
+        ctx.lineWidth = 1.4;
         ctx.globalAlpha = p.alpha;
         ctx.stroke();
         ctx.globalAlpha = 1;
       }
     }
 
-    // 5. Draw Ambient HUD Legend / Telemetry Tag
+    // 5. Draw Ambient HUD Legend
     function drawAmbientHud() {
       if (width >= 992) {
         ctx.save();
         ctx.font = '600 8px "JetBrains Mono", monospace';
 
-        // Right side badge
-        ctx.fillStyle = 'rgba(13, 148, 136, 0.80)';
-        const text1 = 'BHARAT FREIGHT CORRIDORS • 70% NETWORK MESH';
-        const txtWidth1 = ctx.measureText(text1).width;
-        ctx.fillText(text1, width - txtWidth1 - 32, 28);
+        // Top left telemetry indicator
+        ctx.fillStyle = 'rgba(13, 148, 136, 0.85)';
+        const text1 = 'BHARAT FREIGHT CORRIDORS • FULL-WIDTH TELEMATICS MESH';
+        ctx.fillText(text1, 32, 28);
 
         // Sub legend
-        ctx.fillStyle = 'rgba(100, 116, 139, 0.70)';
+        ctx.fillStyle = 'rgba(100, 116, 139, 0.75)';
         const text2 = '■ [WH] WAREHOUSES  ● [TY] TRUCKYARDS  ─ TRUCKS IN TRANSIT';
-        const txtWidth2 = ctx.measureText(text2).width;
-        ctx.fillText(text2, width - txtWidth2 - 32, 42);
+        ctx.fillText(text2, 32, 42);
         ctx.restore();
       }
     }
@@ -635,8 +571,8 @@
 
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw complete India landmass & mesh across 70% of canvas width
-      drawIndiaLandmass();
+      // 1. Draw subtle background matrix dots
+      drawBackgroundMatrix();
 
       // 2. Draw national express corridors
       drawCorridors();
