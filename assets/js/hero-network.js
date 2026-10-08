@@ -597,21 +597,23 @@
       }
     }
 
-    // 5. Draw Ambient HUD Legend
+    // 5. Draw Ambient HUD Legend (Positioned top-right to balance left-aligned hero card)
     function drawAmbientHud() {
       if (width >= 992) {
         ctx.save();
         ctx.font = '600 8px "JetBrains Mono", monospace';
 
-        // Top left telemetry indicator
+        // Top right telemetry indicator
         ctx.fillStyle = 'rgba(13, 148, 136, 0.85)';
         const text1 = 'BHARAT FREIGHT CORRIDORS • FULL-WIDTH TELEMATICS MESH';
-        ctx.fillText(text1, 32, 28);
+        const w1 = ctx.measureText(text1).width;
+        ctx.fillText(text1, width - w1 - 36, 28);
 
         // Sub legend
         ctx.fillStyle = 'rgba(100, 116, 139, 0.75)';
         const text2 = '■ [WH] WAREHOUSES  ● [TY] TRUCKYARDS  ─ TRUCKS IN TRANSIT';
-        ctx.fillText(text2, 32, 42);
+        const w2 = ctx.measureText(text2).width;
+        ctx.fillText(text2, width - w2 - 36, 42);
         ctx.restore();
       }
     }
