@@ -177,17 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const formData = {
         name: demoForm.name ? demoForm.name.value.trim() : '',
-        company: demoForm.company ? demoForm.company.value.trim() : '',
-        mobile: demoForm.mobile ? demoForm.mobile.value.trim() : '',
         email: demoForm.email ? demoForm.email.value.trim() : '',
-        businessType: demoForm.businessType ? demoForm.businessType.value : '',
-        vehicleCount: demoForm.vehicleCount ? demoForm.vehicleCount.value : '',
-        currentMethod: demoForm.currentMethod ? demoForm.currentMethod.value.trim() : '',
-        notes: demoForm.notes ? demoForm.notes.value.trim() : ''
+        mobile: demoForm.mobile ? demoForm.mobile.value.trim() : '',
+        company: demoForm.company ? demoForm.company.value.trim() : '',
+        city: demoForm.city ? demoForm.city.value.trim() : '',
+        state: demoForm.state ? demoForm.state.value.trim() : '',
+        remark: demoForm.remark ? demoForm.remark.value.trim() : (demoForm.notes ? demoForm.notes.value.trim() : '')
       };
 
-      if (!formData.name || !formData.mobile) {
-        alert('Please provide your name and mobile number to request a demo.');
+      if (!formData.name || !formData.email || !formData.mobile || !formData.company || !formData.city || !formData.state) {
+        alert('Please fill in all required fields (Name, Email, Mobile, Company, City, State).');
         return;
       }
 
@@ -225,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const waText = encodeURIComponent(
               `Hello Fleetezee Team, I am ${formData.name} from ${formData.company || 'transport business'}. I would like to schedule a demo of TruckBill ERP for our fleet (${formData.vehicleCount || 'operations'}).`
             );
-            whatsappCta.href = `https://wa.me/919820000000?text=${waText}`;
+            whatsappCta.href = `https://wa.me/919784451256?text=${waText}`;
           }
         }
       }, 700);

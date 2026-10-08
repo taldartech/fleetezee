@@ -56,9 +56,9 @@
       <div class="col-lg-2 col-md-3 col-6">
         <div class="footer-heading">Direct Connect</div>
         <ul class="footer-links">
-          <li><a href="tel:+919820000000">+91 98200 00000</a></li>
+          <li><a href="tel:+919784451256">+91 97844 51256</a></li>
           <li><a href="mailto:contact@fleetezee.com">contact@fleetezee.com</a></li>
-          <li><a href="https://wa.me/919820000000" target="_blank" rel="noopener">WhatsApp Support</a></li>
+          <li><a href="https://wa.me/919784451256" target="_blank" rel="noopener">WhatsApp Support</a></li>
         </ul>
       </div>
     </div>

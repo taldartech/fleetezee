@@ -18,71 +18,55 @@
         Experience how TruckBill transforms trips, bills, FASTag, TDS, and fleet profitability in 30 minutes.
       </p>
 
-      <form id="fleetezeeDemoForm" novalidate>
-        <div class="fz-form-row">
-          <div class="fz-form-group">
-            <label class="fz-label" for="leadName">Your Name *</label>
-            <input type="text" class="fz-input" id="leadName" name="name" placeholder="e.g. Rajesh Sharma" required>
+              <form id="fleetezeeDemoForm" novalidate>
+          <div class="fz-form-row">
+            <div class="fz-form-group">
+              <label class="fz-label" for="leadName">Name *</label>
+              <input type="text" class="fz-input" id="leadName" name="name" placeholder="e.g. Rajesh Sharma" required autocomplete="name">
+            </div>
+            <div class="fz-form-group">
+              <label class="fz-label" for="leadEmail">Email *</label>
+              <input type="email" class="fz-input" id="leadEmail" name="email" placeholder="e.g. rajesh@company.com" required autocomplete="email">
+            </div>
           </div>
-          <div class="fz-form-group">
-            <label class="fz-label" for="leadCompany">Company Name *</label>
-            <input type="text" class="fz-input" id="leadCompany" name="company" placeholder="e.g. Apex Freight Logistics" required>
-          </div>
-        </div>
 
-        <div class="fz-form-row">
-          <div class="fz-form-group">
-            <label class="fz-label" for="leadMobile">Mobile Number *</label>
-            <input type="tel" class="fz-input" id="leadMobile" name="mobile" placeholder="e.g. 98201 23456" required>
+          <div class="fz-form-row">
+            <div class="fz-form-group">
+              <label class="fz-label" for="leadMobile">Mobile *</label>
+              <input type="tel" class="fz-input" id="leadMobile" name="mobile" placeholder="e.g. 98765 43210" required autocomplete="tel">
+            </div>
+            <div class="fz-form-group">
+              <label class="fz-label" for="leadCompany">Company *</label>
+              <input type="text" class="fz-input" id="leadCompany" name="company" placeholder="e.g. Sharma Roadways Pvt Ltd" required autocomplete="organization">
+            </div>
           </div>
-          <div class="fz-form-group">
-            <label class="fz-label" for="leadEmail">Work Email</label>
-            <input type="email" class="fz-input" id="leadEmail" name="email" placeholder="name@company.com">
+
+          <div class="fz-form-row">
+            <div class="fz-form-group">
+              <label class="fz-label" for="leadCity">City *</label>
+              <input type="text" class="fz-input" id="leadCity" name="city" placeholder="e.g. Jaipur, Mumbai, Ahmedabad" required autocomplete="address-level2">
+            </div>
+            <div class="fz-form-group">
+              <label class="fz-label" for="leadState">State *</label>
+              <input type="text" class="fz-input" id="leadState" name="state" placeholder="e.g. Rajasthan, Maharashtra" required autocomplete="address-level1">
+            </div>
           </div>
-        </div>
 
-        <div class="fz-form-row">
           <div class="fz-form-group">
-            <label class="fz-label" for="leadBusinessType">Business Type</label>
-            <select class="fz-select" id="leadBusinessType" name="businessType">
-              <option value="Transporter">Transporter (Fleet + Market)</option>
-              <option value="Fleet Owner">Fleet Owner (Dedicated Assets)</option>
-              <option value="Freight Broker / Commission Agent">Freight Broker / Commission Agent</option>
-              <option value="3PL / Logistics Enterprise">3PL / Logistics Enterprise</option>
-              <option value="Other">Other Transportation Business</option>
-            </select>
+            <label class="fz-label" for="leadRemark">Remark <span class="text-muted-dark small">(Optional)</span></label>
+            <textarea class="fz-textarea" id="leadRemark" name="remark" rows="2" placeholder="Tell us about your fleet operations or specific requirements..."></textarea>
           </div>
-          <div class="fz-form-group">
-            <label class="fz-label" for="leadVehicleCount">Number of Vehicles</label>
-            <select class="fz-select" id="leadVehicleCount" name="vehicleCount">
-              <option value="1-5 Vehicles">1 - 5 Vehicles</option>
-              <option value="6-20 Vehicles">6 - 20 Vehicles</option>
-              <option value="21-50 Vehicles">21 - 50 Vehicles</option>
-              <option value="50+ Vehicles">50+ Vehicles</option>
-              <option value="Broker / Non-Asset">Broker / Zero Fleet (Asset-Light)</option>
-            </select>
+
+          <div class="mt-4">
+            <button type="submit" class="btn-fz btn-fz-teal w-100 py-3">
+              Request a Walkthrough
+            </button>
+            <div class="d-flex justify-content-between align-items-center mt-2 font-monospace" style="font-size: 0.75rem;">
+              <span class="text-muted-dark">🔒 100% Free • No Credit Card</span>
+              <span class="text-muted-dark">Call: <a href="tel:+919784451256" class="text-teal">+91 97844 51256</a> / <a href="tel:+919001010007" class="text-teal">+91 9001010007</a></span>
+            </div>
           </div>
-        </div>
-
-        <div class="fz-form-group">
-          <label class="fz-label" for="leadCurrentMethod">Current Software / Method</label>
-          <input type="text" class="fz-input" id="leadCurrentMethod" name="currentMethod" placeholder="e.g. Excel + Tally / Manual Register / Another ERP">
-        </div>
-
-        <div class="fz-form-group">
-          <label class="fz-label" for="leadNotes">Message / Key Requirement (Optional)</label>
-          <textarea class="fz-textarea" id="leadNotes" name="notes" rows="2" placeholder="Tell us about your operations or branches..."></textarea>
-        </div>
-
-        <div class="mt-4">
-          <button type="submit" class="btn-fz btn-fz-teal w-100 py-3">
-            Request a Walkthrough
-          </button>
-          <p class="text-center text-muted-dark small mt-2 mb-0 font-monospace">
-            🔒 Zero spam. Direct engineer demo.
-          </p>
-        </div>
-      </form>
+        </form>
     </div>
 
     <div class="modal-success-state" id="demoSuccessState">
