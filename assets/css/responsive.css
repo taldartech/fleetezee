@@ -163,10 +163,10 @@
   }
 }
 
-/* Large Screens (1440px+) */
+/* Large Screens (1440px+) - Keep hero heading refined, classy and compact */
 @media (min-width: 1440px) {
   .display-hero {
-    font-size: 4.85rem;
+    font-size: clamp(1.4rem, 2vw, 1.85rem);
   }
 }
 

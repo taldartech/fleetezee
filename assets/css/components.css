@@ -70,6 +70,17 @@
   z-index: 3;
 }
 
+/* Strictly Lock Hero Headings to Grand, Classy & Compact Scale Across All 8 Pages */
+.hero-section .display-hero,
+.page-hero-section .display-hero,
+.hero-content h1 {
+  font-size: clamp(1.35rem, 2vw, 1.85rem) !important;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
+  margin-bottom: 0.75rem;
+}
+
 /* Modern Frosted Translucent Pill Badge */
 .hero-badge-pill {
   display: inline-flex;

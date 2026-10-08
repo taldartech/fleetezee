@@ -150,10 +150,10 @@ a {
 
 /* Display Headings (Refined Grand & Classy First-Fold Consistency Across All Pages) */
 .display-hero {
-  font-size: clamp(1.75rem, 2.5vw, 2.35rem);
+  font-size: clamp(1.35rem, 2vw, 1.85rem);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.2;
+  letter-spacing: -0.025em;
+  line-height: 1.22;
   color: var(--fz-slate-900);
 }
 
