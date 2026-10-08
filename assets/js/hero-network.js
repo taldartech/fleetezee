@@ -73,45 +73,45 @@
     const WAREHOUSES = [
       { id: 'wh_bhiwandi', name: 'BHIWANDI WH', nx: 0.43, ny: 0.54, type: 'wh', labelAlign: 'left' },
       { id: 'wh_bilaspur', name: 'BILASPUR WH', nx: 0.48, ny: 0.23, type: 'wh', labelAlign: 'right' },
-      { id: 'wh_hoskote',  name: 'HOSKOTE WH',  nx: 0.52, ny: 0.77, type: 'wh', labelAlign: 'right' },
-      { id: 'wh_aslali',   name: 'ASLALI WH',   nx: 0.37, ny: 0.44, type: 'wh', labelAlign: 'left' },
-      { id: 'wh_dankuni',  name: 'DANKUNI WH',  nx: 0.74, ny: 0.40, type: 'wh', labelAlign: 'right' },
-      { id: 'wh_chakan',   name: 'CHAKAN WH',   nx: 0.45, ny: 0.58, type: 'wh', labelAlign: 'left' },
+      { id: 'wh_hoskote', name: 'HOSKOTE WH', nx: 0.52, ny: 0.77, type: 'wh', labelAlign: 'right' },
+      { id: 'wh_aslali', name: 'ASLALI WH', nx: 0.37, ny: 0.44, type: 'wh', labelAlign: 'left' },
+      { id: 'wh_dankuni', name: 'DANKUNI WH', nx: 0.74, ny: 0.40, type: 'wh', labelAlign: 'right' },
+      { id: 'wh_chakan', name: 'CHAKAN WH', nx: 0.45, ny: 0.58, type: 'wh', labelAlign: 'left' },
       { id: 'wh_butibori', name: 'BUTIBORI WH', nx: 0.54, ny: 0.49, type: 'wh', labelAlign: 'right' },
-      { id: 'wh_sricity',  name: 'SRI CITY WH', nx: 0.58, ny: 0.76, type: 'wh', labelAlign: 'right' }
+      { id: 'wh_sricity', name: 'SRI CITY WH', nx: 0.58, ny: 0.76, type: 'wh', labelAlign: 'right' }
     ];
 
     // Strategic Truckyards [TY] (Transporter Terminals & Gateways)
     const TRUCKYARDS = [
-      { id: 'ty_sgtn',     name: 'SGTN DELHI',    nx: 0.47, ny: 0.20, type: 'ty', labelAlign: 'top' },
-      { id: 'ty_jnpt',     name: 'JNPT YARD',     nx: 0.42, ny: 0.56, type: 'ty', labelAlign: 'left' },
-      { id: 'ty_kalamna',  name: 'KALAMNA YARD',  nx: 0.55, ny: 0.48, type: 'ty', labelAlign: 'top' },
-      { id: 'ty_vkia',     name: 'VKIA JAIPUR',   nx: 0.42, ny: 0.27, type: 'ty', labelAlign: 'left' },
-      { id: 'ty_autonagar',name: 'AUTONAGAR HYD', nx: 0.54, ny: 0.63, type: 'ty', labelAlign: 'right' },
-      { id: 'ty_nelamang', name: 'NELAMANGALA TY',nx: 0.50, ny: 0.75, type: 'ty', labelAlign: 'left' },
-      { id: 'ty_madhavaram',name:'MADHAVARAM TY', nx: 0.59, ny: 0.74, type: 'ty', labelAlign: 'right' },
-      { id: 'ty_fazalganj',name: 'FAZALGANJ TY',  nx: 0.56, ny: 0.28, type: 'ty', labelAlign: 'top' },
-      { id: 'ty_amingaon', name: 'AMINGAON TY',   nx: 0.86, ny: 0.27, type: 'ty', labelAlign: 'right' },
-      { id: 'ty_vapi',     name: 'VAPI GIDC TY',  nx: 0.40, ny: 0.50, type: 'ty', labelAlign: 'left' }
+      { id: 'ty_sgtn', name: 'SGTN DELHI', nx: 0.47, ny: 0.20, type: 'ty', labelAlign: 'top' },
+      { id: 'ty_jnpt', name: 'JNPT YARD', nx: 0.42, ny: 0.56, type: 'ty', labelAlign: 'left' },
+      { id: 'ty_kalamna', name: 'KALAMNA YARD', nx: 0.55, ny: 0.48, type: 'ty', labelAlign: 'top' },
+      { id: 'ty_vkia', name: 'VKIA JAIPUR', nx: 0.42, ny: 0.27, type: 'ty', labelAlign: 'left' },
+      { id: 'ty_autonagar', name: 'AUTONAGAR HYD', nx: 0.54, ny: 0.63, type: 'ty', labelAlign: 'right' },
+      { id: 'ty_nelamang', name: 'NELAMANGALA TY', nx: 0.50, ny: 0.75, type: 'ty', labelAlign: 'left' },
+      { id: 'ty_madhavaram', name: 'MADHAVARAM TY', nx: 0.59, ny: 0.74, type: 'ty', labelAlign: 'right' },
+      { id: 'ty_fazalganj', name: 'FAZALGANJ TY', nx: 0.56, ny: 0.28, type: 'ty', labelAlign: 'top' },
+      { id: 'ty_amingaon', name: 'AMINGAON TY', nx: 0.86, ny: 0.27, type: 'ty', labelAlign: 'right' },
+      { id: 'ty_vapi', name: 'VAPI GIDC TY', nx: 0.40, ny: 0.50, type: 'ty', labelAlign: 'left' }
     ];
 
     // Other Key Freight Interchange Metros
     const METRO_NODES = [
       { id: 'node_srinagar', name: 'SRINAGAR', nx: 0.45, ny: 0.08, type: 'metro' },
       { id: 'node_ludhiana', name: 'LUDHIANA', nx: 0.44, ny: 0.16, type: 'metro' },
-      { id: 'node_lucknow',  name: 'LUCKNOW',  nx: 0.58, ny: 0.26, type: 'metro' },
+      { id: 'node_lucknow', name: 'LUCKNOW', nx: 0.58, ny: 0.26, type: 'metro' },
       { id: 'node_varanasi', name: 'VARANASI', nx: 0.63, ny: 0.31, type: 'metro' },
-      { id: 'node_patna',    name: 'PATNA',    nx: 0.68, ny: 0.30, type: 'metro' },
+      { id: 'node_patna', name: 'PATNA', nx: 0.68, ny: 0.30, type: 'metro' },
       { id: 'node_siliguri', name: 'SILIGURI', nx: 0.76, ny: 0.26, type: 'metro' },
-      { id: 'node_bhuban',   name: 'BHUBANESWAR', nx: 0.69, ny: 0.49, type: 'metro' },
-      { id: 'node_vizag',    name: 'VIZAG PORT', nx: 0.65, ny: 0.59, type: 'metro' },
+      { id: 'node_bhuban', name: 'BHUBANESWAR', nx: 0.69, ny: 0.49, type: 'metro' },
+      { id: 'node_vizag', name: 'VIZAG PORT', nx: 0.65, ny: 0.59, type: 'metro' },
       { id: 'node_vijayawada', name: 'VIJAYAWADA', nx: 0.60, ny: 0.67, type: 'metro' },
-      { id: 'node_surat',    name: 'SURAT',    nx: 0.39, ny: 0.48, type: 'metro' },
-      { id: 'node_indore',   name: 'INDORE',   nx: 0.45, ny: 0.41, type: 'metro' },
-      { id: 'node_raipur',   name: 'RAIPUR',   nx: 0.61, ny: 0.47, type: 'metro' },
-      { id: 'node_coimbatore',name: 'COIMBATORE',nx: 0.50, ny: 0.82, type: 'metro' },
-      { id: 'node_kochi',    name: 'KOCHI PORT',nx: 0.48, ny: 0.84, type: 'metro' },
-      { id: 'node_kanya',    name: 'KANYAKUMARI',nx: 0.52, ny: 0.91, type: 'metro' }
+      { id: 'node_surat', name: 'SURAT', nx: 0.39, ny: 0.48, type: 'metro' },
+      { id: 'node_indore', name: 'INDORE', nx: 0.45, ny: 0.41, type: 'metro' },
+      { id: 'node_raipur', name: 'RAIPUR', nx: 0.61, ny: 0.47, type: 'metro' },
+      { id: 'node_coimbatore', name: 'COIMBATORE', nx: 0.50, ny: 0.82, type: 'metro' },
+      { id: 'node_kochi', name: 'KOCHI PORT', nx: 0.48, ny: 0.84, type: 'metro' },
+      { id: 'node_kanya', name: 'KANYAKUMARI', nx: 0.52, ny: 0.91, type: 'metro' }
     ];
 
     // Arterial National Highway Connections

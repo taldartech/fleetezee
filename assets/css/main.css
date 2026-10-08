@@ -12,7 +12,7 @@
   --fz-offwhite: #F8FAFC;
   --fz-canvas-subtle: #F1F5F9;
   --fz-canvas-warm: #FAFBF9;
-  
+
   --fz-light-surface: #FFFFFF;
   --fz-light-surface-subtle: #F8FAFC;
   --fz-light-border: #E2E8F0;
@@ -71,7 +71,9 @@
 }
 
 /* Base Reset & Typography */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -94,7 +96,12 @@ body {
 }
 
 /* Headings & Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-sans);
   font-weight: 800;
   letter-spacing: -0.035em;
@@ -143,6 +150,7 @@ a {
 .eyebrow.eyebrow-light {
   color: var(--tb-teal);
 }
+
 .eyebrow.eyebrow-light::before {
   background: var(--tb-teal);
   box-shadow: 0 0 8px rgba(13, 148, 136, 0.4);
@@ -462,9 +470,11 @@ a {
 .hamburger-toggle.active .hamburger-line:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
+
 .hamburger-toggle.active .hamburger-line:nth-child(2) {
   opacity: 0;
 }
+
 .hamburger-toggle.active .hamburger-line:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
@@ -589,6 +599,7 @@ a {
   font-size: 1.1rem;
   transition: color 0.2s ease;
 }
+
 .social-links a:hover {
   color: var(--tb-teal-light);
 }
@@ -610,13 +621,33 @@ a {
 }
 
 /* Utilities */
-.text-teal { color: var(--tb-teal) !important; }
-.text-azure { color: var(--tb-azure) !important; }
-.text-muted-dark { color: var(--fz-slate-600) !important; }
-.text-muted-light { color: var(--fz-slate-600) !important; }
-.bg-deep-charcoal { background-color: var(--fz-offwhite) !important; }
-.bg-surface-charcoal { background-color: #FFFFFF !important; }
-.border-charcoal { border-color: var(--fz-light-border) !important; }
+.text-teal {
+  color: var(--tb-teal) !important;
+}
+
+.text-azure {
+  color: var(--tb-azure) !important;
+}
+
+.text-muted-dark {
+  color: var(--fz-slate-600) !important;
+}
+
+.text-muted-light {
+  color: var(--fz-slate-600) !important;
+}
+
+.bg-deep-charcoal {
+  background-color: var(--fz-offwhite) !important;
+}
+
+.bg-surface-charcoal {
+  background-color: #FFFFFF !important;
+}
+
+.border-charcoal {
+  border-color: var(--fz-light-border) !important;
+}
 
 /* Crisp Card Container Utility */
 .card-light-modern {
