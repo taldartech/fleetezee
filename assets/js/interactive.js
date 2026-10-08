@@ -4,6 +4,60 @@
  * demo modals, and micro-interactions.
  */
 
+// Lead submission — every enquiry is processed centrally by truckbill.in/submit.php
+const LEAD_SUBMIT_URL = window.location.hostname.endsWith('.test')
+  ? 'https://truckbill.test/submit.php'
+  : 'https://www.truckbill.in/submit.php';
+const LEAD_TRACKING_KEY = 'fleetezee_lead_tracking';
+const LEAD_SUBMIT_ERROR = 'We could not submit your request right now. Please try again or call +91 97844 51256.';
+
+const getLeadTracking = () => {
+  try {
+    const stored = sessionStorage.getItem(LEAD_TRACKING_KEY);
+    if (stored) return JSON.parse(stored);
+  } catch (err) {}
+
+  const params = new URLSearchParams(window.location.search);
+  const data = {
+    utm_source: params.get('utm_source') || '',
+    utm_medium: params.get('utm_medium') || '',
+    utm_campaign: params.get('utm_campaign') || '',
+    landing_url: window.location.href,
+    referrer: document.referrer || ''
+  };
+
+  try {
+    sessionStorage.setItem(LEAD_TRACKING_KEY, JSON.stringify(data));
+  } catch (err) {}
+
+  return data;
+};
+
+const submitLead = (form, formName) => {
+  const body = new URLSearchParams(new FormData(form));
+  body.set('userType', 'Demo Request');
+  body.set('form_name', formName);
+  body.set('page_url', window.location.href);
+
+  const tracking = getLeadTracking();
+  Object.keys(tracking).forEach((key) => {
+    if (tracking[key]) body.set(key, tracking[key]);
+  });
+
+  return fetch(LEAD_SUBMIT_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: body
+  })
+    .then((response) => response.json().catch(() => ({})), () => ({}))
+    .then((result) => {
+      if (result && result.success) return result;
+      throw new Error((result && result.message) || LEAD_SUBMIT_ERROR);
+    });
+};
+
+getLeadTracking();
+
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
@@ -209,8 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Simulate instantaneous processing & personalized thank you
-      setTimeout(() => {
+      submitLead(demoForm, 'demo_modal').then(() => {
         if (modalFormContainer) modalFormContainer.style.display = 'none';
         if (modalSuccessState) {
           modalSuccessState.classList.add('active');
@@ -229,7 +282,13 @@ document.addEventListener('DOMContentLoaded', () => {
             whatsappCta.href = `https://wa.me/919784451256?text=${waText}`;
           }
         }
-      }, 700);
+      }).catch((err) => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
+        alert(err.message || LEAD_SUBMIT_ERROR);
+      });
     });
   }
 

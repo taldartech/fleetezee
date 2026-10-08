@@ -597,6 +597,7 @@
         }
 
         const submitBtn = cpForm.querySelector('button[type="submit"]');
+        const submitBtnHtml = submitBtn ? submitBtn.innerHTML : '';
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.innerHTML = 'Submitting Request...';
@@ -608,7 +609,7 @@
           });
         }
 
-        setTimeout(() => {
+        submitLead(cpForm, 'contact_page').then(() => {
           cpForm.style.display = 'none';
           if (cpSuccess) {
             cpSuccess.style.display = 'block';
@@ -619,7 +620,13 @@
               cpWALink.href = `https://wa.me/919784451256?text=${waText}`;
             }
           }
-        }, 600);
+        }).catch((err) => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = submitBtnHtml;
+          }
+          alert(err.message || LEAD_SUBMIT_ERROR);
+        });
       });
     }
   </script>
