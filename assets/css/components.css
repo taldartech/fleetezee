@@ -20,7 +20,8 @@
   overflow: hidden;
 }
 
-#heroCanvas {
+#heroCanvas,
+.telematics-bg-canvas {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,6 +29,20 @@
   height: 100%;
   z-index: 1;
   pointer-events: auto;
+}
+
+.page-hero-section {
+  position: relative;
+  min-height: 44vh;
+  display: flex;
+  align-items: center;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  background-color: var(--fz-white);
+  background-image: 
+    radial-gradient(circle at 78% 25%, rgba(13, 148, 136, 0.08) 0%, rgba(37, 99, 235, 0.05) 35%, transparent 65%),
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
+  overflow: hidden;
 }
 
 .hero-vignette {
