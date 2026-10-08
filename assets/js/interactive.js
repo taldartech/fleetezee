@@ -100,14 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
           const desc = node.dataset.detail || (node.querySelector('p') ? node.querySelector('p').textContent : '');
           const techSpec = node.dataset.tech || 'REST / gRPC / Webhook streaming / Event Mesh';
 
+          const nodeTag = node.querySelector('.node-tag') ? node.querySelector('.node-tag').textContent : 'CONNECTED NODE';
+
           ecoDetailDisplay.innerHTML = `
-            <div class="eco-detail-box p-3 rounded bg-surface-charcoal border border-charcoal">
-              <span class="badge-flagship">${node.querySelector('.node-tag') ? node.querySelector('.node-tag').textContent : 'CONNECTED NODE'}</span>
-              <h4 class="text-white mt-2 mb-1">${title}</h4>
-              <p class="text-muted-dark mb-2 font-monospace small">${desc}</p>
+            <div class="eco-detail-box p-3 rounded bg-white border border-light-subtle shadow-sm">
+              <span class="badge-flagship">CONNECTED ${nodeTag}</span>
+              <h4 class="text-dark mt-2 mb-1" style="color: #0F172A !important; font-weight: 800;">${title}</h4>
+              <p class="mb-2 font-monospace small" style="color: #475569 !important;">${desc}</p>
               <div class="d-flex align-items-center gap-2 small text-teal">
                 <span class="hero-badge-dot"></span>
-                <span>Active Data Stream: ${techSpec}</span>
+                <span style="color: #0D9488 !important; font-weight: 600;">Active Data Stream: ${techSpec}</span>
               </div>
             </div>
           `;
