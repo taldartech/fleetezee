@@ -57,7 +57,7 @@
         <div class="footer-heading">Direct Connect</div>
         <ul class="footer-links">
           <li><a href="tel:+919784451256">+91 97844 51256</a></li>
-          <li><a href="mailto:contact@fleetezee.com">contact@fleetezee.com</a></li>
+          <li><a href="mailto:fleetezee@gmail.com">fleetezee@gmail.com</a></li>
           <li><a href="https://wa.me/919784451256" target="_blank" rel="noopener">WhatsApp Support</a></li>
         </ul>
       </div>
