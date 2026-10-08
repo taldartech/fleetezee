@@ -136,7 +136,20 @@
       ['node_patna', 'node_siliguri', 'NH-27'],
       ['wh_dankuni', 'node_siliguri', 'NH-12'],
       ['node_siliguri', 'ty_amingaon', 'NH-27'],
-      ['ty_amingaon', 'node_dibrugarh', 'NH-15']
+      ['ty_amingaon', 'node_dibrugarh', 'NH-15'],
+
+      // Cross-Regional Dense Expressways filling Central & Eastern India
+      ['node_lucknow', 'node_raipur', 'NH-30'],
+      ['node_varanasi', 'node_raipur', 'NH-30'],
+      ['node_patna', 'node_bhuban', 'NH-20'],
+      ['node_raipur', 'node_vizag', 'NH-26'],
+      ['ty_kalamna', 'node_vizag', 'NH-353'],
+      ['ty_autonagar', 'node_bhuban', 'NH-65'],
+      ['wh_bilaspur', 'node_lucknow', 'NH-27'],
+      ['node_indore', 'node_lucknow', 'NH-27'],
+      ['node_raipur', 'ty_autonagar', 'NH-30'],
+      ['ty_vkia', 'node_lucknow', 'NH-21'],
+      ['ty_kalamna', 'node_patna', 'NH-30']
     ];
 
     // Mobile Freight Nodes: Clean, well-spaced arterial network optimized for portrait handheld viewports
@@ -208,14 +221,31 @@
       corridors.length = 0;
 
       const isMobile = width < 768;
+      const isTablet = width >= 768 && width < 992;
+      const isLaptop = width >= 992 && width < 1200;
+
       const activeNodes = isMobile ? MOBILE_FREIGHT_NODES : FREIGHT_NODES;
       const activeCorridors = isMobile ? MOBILE_CORRIDOR_CONNECTIONS : CORRIDOR_CONNECTIONS;
 
-      // Coordinate transformation adapted for viewport aspect ratio
-      const animWidth = isMobile ? (width * 0.90) : (width * 0.96);
-      const animHeight = isMobile ? (height * 0.88) : (height * 0.88);
-      const offsetX = isMobile ? (width * 0.05) : (width * 0.02);
-      const offsetY = isMobile ? (height * 0.06) : (height * 0.06);
+      // Coordinate transformation adapted for viewport: shift to the RIGHT on desktop so right side is fully filled
+      let offsetX, animWidth;
+      if (isMobile) {
+        offsetX = width * 0.05;
+        animWidth = width * 0.90;
+      } else if (isTablet) {
+        offsetX = width * 0.28;
+        animWidth = width * 0.68;
+      } else if (isLaptop) {
+        offsetX = width * 0.34;
+        animWidth = width * 0.63;
+      } else {
+        // Desktop (1200px+): Shift animation to the right (x: 36% to 98%) so the right canvas looks completely filled
+        offsetX = width * 0.36;
+        animWidth = width * 0.62;
+      }
+
+      const animHeight = height * 0.88;
+      const offsetY = height * 0.06;
 
       activeNodes.forEach(def => {
         nodes.push({
@@ -279,7 +309,7 @@
         this.truckLength = 17;
         this.truckWidth = 7;
         // Badges only active on desktop for zero-clutter on mobile
-        this.badgeEligible = !isMobile && (this.index % 5 === 0);
+        this.badgeEligible = !isMobile && (this.index % 4 === 0);
       }
 
       update() {
@@ -418,7 +448,7 @@
 
     function initTrucks() {
       trucks.length = 0;
-      const count = width < 576 ? 8 : (width < 768 ? 12 : 20);
+      const count = width < 576 ? 8 : (width < 768 ? 12 : 26);
       for (let i = 0; i < count; i++) {
         trucks.push(new MovingTruck(i));
       }
