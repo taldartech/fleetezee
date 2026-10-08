@@ -72,9 +72,9 @@
   }
 
   .hero-glass-card {
-    background: rgba(255, 255, 255, 0.70);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.52);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border-radius: 18px;
     padding: 1.35rem 1.15rem;
     margin-top: 0.5rem;

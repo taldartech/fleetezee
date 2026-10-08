@@ -227,21 +227,22 @@
       const activeNodes = isMobile ? MOBILE_FREIGHT_NODES : FREIGHT_NODES;
       const activeCorridors = isMobile ? MOBILE_CORRIDOR_CONNECTIONS : CORRIDOR_CONNECTIONS;
 
-      // Coordinate transformation adapted for viewport: shift to the RIGHT on desktop so right side is fully filled
+      // Full-width Pan-India Network: Spans from 4% (West) to 96% (East) so animation is actively visible
+      // directly BEHIND the left hero cards while simultaneously populating the center and right screen
       let offsetX, animWidth;
       if (isMobile) {
+        offsetX = width * 0.04;
+        animWidth = width * 0.92;
+      } else if (isTablet) {
         offsetX = width * 0.05;
         animWidth = width * 0.90;
-      } else if (isTablet) {
-        offsetX = width * 0.28;
-        animWidth = width * 0.68;
       } else if (isLaptop) {
-        offsetX = width * 0.34;
-        animWidth = width * 0.63;
+        offsetX = width * 0.05;
+        animWidth = width * 0.90;
       } else {
-        // Desktop (1200px+): Shift animation to the right (x: 36% to 98%) so the right canvas looks completely filled
-        offsetX = width * 0.36;
-        animWidth = width * 0.62;
+        // Desktop (1200px+): Spans across the entire viewport (x: 5% to 95%)
+        offsetX = width * 0.05;
+        animWidth = width * 0.90;
       }
 
       const animHeight = height * 0.88;
@@ -399,8 +400,8 @@
 
         ctx.restore();
 
-        // 5. Anti-Collision Floating Telemetry Badges (Desktop Only)
-        if (this.badgeEligible && width > 768) {
+        // 5. Anti-Collision Floating Telemetry Badges (Desktop Only, rendered in open canvas areas)
+        if (this.badgeEligible && width > 768 && this.x > (width * 0.40)) {
           const badgeX = this.x + 8;
           const badgeY = this.y - 10;
           const badgeW = 94;
@@ -448,7 +449,7 @@
 
     function initTrucks() {
       trucks.length = 0;
-      const count = width < 576 ? 8 : (width < 768 ? 12 : 26);
+      const count = width < 576 ? 10 : (width < 768 ? 16 : 32);
       for (let i = 0; i < count; i++) {
         trucks.push(new MovingTruck(i));
       }
