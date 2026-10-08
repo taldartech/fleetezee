@@ -139,6 +139,52 @@
       ['ty_amingaon', 'node_dibrugarh', 'NH-15']
     ];
 
+    // Mobile Freight Nodes: Clean, well-spaced arterial network optimized for portrait handheld viewports
+    const MOBILE_FREIGHT_NODES = [
+      // North Arterial
+      { id: 'node_srinagar', name: 'SRINAGAR', type: 'metro', nx: 0.35, ny: 0.08, align: 'right' },
+      { id: 'ty_sgtn', name: 'DELHI SGTN', type: 'ty', nx: 0.44, ny: 0.18, align: 'top' },
+      { id: 'node_lucknow', name: 'LUCKNOW', type: 'metro', nx: 0.70, ny: 0.22, align: 'right' },
+      // West Arterial & Ports
+      { id: 'wh_mundra', name: 'MUNDRA PORT', type: 'wh', nx: 0.12, ny: 0.34, align: 'right' },
+      { id: 'wh_aslali', name: 'ASLALI WH', type: 'wh', nx: 0.32, ny: 0.36, align: 'top' },
+      { id: 'ty_jnpt', name: 'JNPT MUMBAI', type: 'ty', nx: 0.22, ny: 0.54, align: 'left' },
+      { id: 'wh_chakan', name: 'PUNE WH', type: 'wh', nx: 0.38, ny: 0.58, align: 'right' },
+      // Central Zero-Mile Hub
+      { id: 'ty_kalamna', name: 'NAGPUR YARD', type: 'ty', nx: 0.58, ny: 0.46, align: 'top' },
+      // Eastern Trunk & Gangetic Corridor
+      { id: 'node_patna', name: 'PATNA', type: 'metro', nx: 0.82, ny: 0.30, align: 'left' },
+      { id: 'wh_dankuni', name: 'KOLKATA WH', type: 'wh', nx: 0.86, ny: 0.48, align: 'left' },
+      { id: 'node_vizag', name: 'VIZAG PORT', type: 'metro', nx: 0.74, ny: 0.65, align: 'right' },
+      // Deccan & Southern Corridors
+      { id: 'ty_autonagar', name: 'HYDERABAD TY', type: 'ty', nx: 0.55, ny: 0.68, align: 'right' },
+      { id: 'ty_nelamang', name: 'BENGALURU TY', type: 'ty', nx: 0.42, ny: 0.80, align: 'left' },
+      { id: 'ty_madhavaram', name: 'CHENNAI TY', type: 'ty', nx: 0.70, ny: 0.82, align: 'right' },
+      { id: 'node_kochi', name: 'KOCHI PORT', type: 'metro', nx: 0.36, ny: 0.94, align: 'left' }
+    ];
+
+    const MOBILE_CORRIDOR_CONNECTIONS = [
+      ['node_srinagar', 'ty_sgtn', 'NH-44'],
+      ['ty_sgtn', 'node_lucknow', 'NH-19'],
+      ['node_lucknow', 'node_patna', 'NH-19'],
+      ['node_patna', 'wh_dankuni', 'NH-19'],
+      ['wh_mundra', 'wh_aslali', 'NH-41'],
+      ['ty_sgtn', 'wh_aslali', 'NH-48'],
+      ['wh_aslali', 'ty_jnpt', 'NH-48'],
+      ['ty_jnpt', 'wh_chakan', 'Expway'],
+      ['wh_aslali', 'ty_kalamna', 'NH-53'],
+      ['ty_kalamna', 'wh_dankuni', 'NH-53'],
+      ['wh_chakan', 'ty_autonagar', 'NH-65'],
+      ['ty_kalamna', 'ty_autonagar', 'NH-44'],
+      ['wh_dankuni', 'node_vizag', 'NH-16'],
+      ['node_vizag', 'ty_madhavaram', 'NH-16'],
+      ['ty_autonagar', 'ty_nelamang', 'NH-44'],
+      ['ty_autonagar', 'node_vizag', 'NH-65'],
+      ['wh_chakan', 'ty_nelamang', 'NH-48'],
+      ['ty_nelamang', 'ty_madhavaram', 'NH-48'],
+      ['ty_nelamang', 'node_kochi', 'NH-544']
+    ];
+
     const nodes = [];
     const corridors = [];
     const trucks = [];
@@ -161,13 +207,17 @@
       nodes.length = 0;
       corridors.length = 0;
 
-      // End-to-End Canvas Coordinate Transformation spanning 96% width
-      const animWidth = width * 0.96;
-      const animHeight = height * 0.88;
-      const offsetX = width * 0.02;
-      const offsetY = height * 0.06;
+      const isMobile = width < 768;
+      const activeNodes = isMobile ? MOBILE_FREIGHT_NODES : FREIGHT_NODES;
+      const activeCorridors = isMobile ? MOBILE_CORRIDOR_CONNECTIONS : CORRIDOR_CONNECTIONS;
 
-      FREIGHT_NODES.forEach(def => {
+      // Coordinate transformation adapted for viewport aspect ratio
+      const animWidth = isMobile ? (width * 0.90) : (width * 0.96);
+      const animHeight = isMobile ? (height * 0.88) : (height * 0.88);
+      const offsetX = isMobile ? (width * 0.05) : (width * 0.02);
+      const offsetY = isMobile ? (height * 0.06) : (height * 0.06);
+
+      activeNodes.forEach(def => {
         nodes.push({
           id: def.id,
           name: def.name,
@@ -175,7 +225,7 @@
           align: def.align || 'right',
           x: offsetX + def.nx * animWidth,
           y: offsetY + def.ny * animHeight,
-          pingRadius: Math.random() * 18,
+          pingRadius: Math.random() * (isMobile ? 12 : 18),
           pingAlpha: 0.8
         });
       });
@@ -183,7 +233,7 @@
       const nodeMap = {};
       nodes.forEach(n => { nodeMap[n.id] = n; });
 
-      CORRIDOR_CONNECTIONS.forEach(([fromId, toId, code]) => {
+      activeCorridors.forEach(([fromId, toId, code]) => {
         const from = nodeMap[fromId];
         const to = nodeMap[toId];
         if (from && to) {
@@ -205,8 +255,10 @@
         this.corridor = corridors[Math.floor(Math.random() * corridors.length)];
         this.reversed = Math.random() > 0.5;
         this.progress = Math.random();
-        // Cruising speed
-        this.speed = 0.0011 + Math.random() * 0.0013;
+        
+        const isMobile = width < 768;
+        // Cruising speed adapted for screen distance
+        this.speed = isMobile ? (0.0016 + Math.random() * 0.0015) : (0.0011 + Math.random() * 0.0013);
 
         // Vehicle Plate & Logistics Data
         const states = ['MH', 'GJ', 'DL', 'KA', 'RJ', 'HR', 'WB', 'TN', 'UP', 'TS'];
@@ -226,8 +278,8 @@
 
         this.truckLength = 17;
         this.truckWidth = 7;
-        // Only 3-4 trucks active with badges to keep canvas pristine and zero-clutter
-        this.badgeEligible = (this.index % 5 === 0);
+        // Badges only active on desktop for zero-clutter on mobile
+        this.badgeEligible = !isMobile && (this.index % 5 === 0);
       }
 
       update() {
@@ -255,9 +307,14 @@
       }
 
       draw(renderedBadges) {
+        const isMobile = width < 768;
+        const isSmallMobile = width < 576;
+        const scale = isSmallMobile ? 0.72 : (isMobile ? 0.84 : 1.0);
+
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
+        ctx.scale(scale, scale);
 
         // 1. Forward Headlights Glowing Beam
         ctx.save();
@@ -312,7 +369,7 @@
 
         ctx.restore();
 
-        // 5. Anti-Collision Floating Telemetry Badges
+        // 5. Anti-Collision Floating Telemetry Badges (Desktop Only)
         if (this.badgeEligible && width > 768) {
           const badgeX = this.x + 8;
           const badgeY = this.y - 10;
@@ -361,8 +418,7 @@
 
     function initTrucks() {
       trucks.length = 0;
-      // 20 trucks active across the end-to-end network
-      const count = width < 768 ? 10 : 20;
+      const count = width < 576 ? 8 : (width < 768 ? 12 : 20);
       for (let i = 0; i < count; i++) {
         trucks.push(new MovingTruck(i));
       }
@@ -371,8 +427,9 @@
     // 1. Draw High-Tech Ambient Matrix Dots across the Whole Canvas
     function drawBackgroundMatrix() {
       ctx.save();
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.04)';
-      const step = 48;
+      const isMobile = width < 768;
+      ctx.fillStyle = isMobile ? 'rgba(15, 23, 42, 0.035)' : 'rgba(15, 23, 42, 0.045)';
+      const step = isMobile ? 54 : 44;
       for (let x = step / 2; x < width; x += step) {
         for (let y = step / 2; y < height; y += step) {
           ctx.beginPath();
@@ -385,31 +442,32 @@
 
     // 2. Draw Dual-Pass Expressways with Traveling Energy Pulses
     function drawCorridors() {
+      const isMobile = width < 768;
       corridors.forEach(c => {
         // Under-glow pass
         ctx.beginPath();
         ctx.moveTo(c.from.x, c.from.y);
         ctx.lineTo(c.to.x, c.to.y);
         ctx.strokeStyle = 'rgba(13, 148, 136, 0.18)';
-        ctx.lineWidth = 2.4;
+        ctx.lineWidth = isMobile ? 1.8 : 2.4;
         ctx.stroke();
 
         // Crisp active road track
         ctx.beginPath();
         ctx.moveTo(c.from.x, c.from.y);
         ctx.lineTo(c.to.x, c.to.y);
-        ctx.strokeStyle = 'rgba(13, 148, 136, 0.35)';
-        ctx.lineWidth = 1.3;
+        ctx.strokeStyle = 'rgba(13, 148, 136, 0.38)';
+        ctx.lineWidth = isMobile ? 1.0 : 1.3;
         ctx.stroke();
 
         // Traveling dashed telemetry data pulse
         ctx.beginPath();
         ctx.moveTo(c.from.x, c.from.y);
         ctx.lineTo(c.to.x, c.to.y);
-        ctx.strokeStyle = 'rgba(2, 132, 199, 0.65)';
-        ctx.lineWidth = 1.2;
+        ctx.strokeStyle = 'rgba(2, 132, 199, 0.70)';
+        ctx.lineWidth = isMobile ? 0.9 : 1.2;
         ctx.setLineDash([3, 7]);
-        c.dashOffset = (c.dashOffset - 0.4) % 10;
+        c.dashOffset = (c.dashOffset - (isMobile ? 0.45 : 0.4)) % 10;
         ctx.lineDashOffset = c.dashOffset;
         ctx.stroke();
         ctx.setLineDash([]);
@@ -418,11 +476,15 @@
 
     // 3. Draw Nodes (Warehouses, Truckyards, Metros)
     function drawNodes() {
+      const isMobile = width < 768;
+      const maxPing = isMobile ? 16 : 22;
+      const pingStep = isMobile ? 0.22 : 0.28;
+
       nodes.forEach(node => {
         // Radar pulse ring
-        node.pingRadius += 0.28;
-        node.pingAlpha = Math.max(0, 1 - node.pingRadius / 22);
-        if (node.pingRadius > 22) {
+        node.pingRadius += pingStep;
+        node.pingAlpha = Math.max(0, 1 - node.pingRadius / maxPing);
+        if (node.pingRadius > maxPing) {
           node.pingRadius = 2.5;
           node.pingAlpha = 0.8;
         }
@@ -435,8 +497,8 @@
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.pingRadius, 0, Math.PI * 2);
         ctx.strokeStyle = color;
-        ctx.globalAlpha = node.pingAlpha * 0.45;
-        ctx.lineWidth = 1.1;
+        ctx.globalAlpha = node.pingAlpha * (isMobile ? 0.40 : 0.45);
+        ctx.lineWidth = isMobile ? 0.9 : 1.1;
         ctx.stroke();
         ctx.globalAlpha = 1;
 
@@ -444,6 +506,7 @@
           // --- WAREHOUSE ICON [WH]: Gabled Logistics Shed ---
           ctx.save();
           ctx.translate(node.x, node.y);
+          if (isMobile) ctx.scale(0.85, 0.85);
 
           ctx.fillStyle = '#0D9488';
           ctx.beginPath();
@@ -460,7 +523,7 @@
           ctx.fillRect(-1.5, 1, 3, 3);
           ctx.restore();
 
-          // Non-colliding label
+          // Non-colliding label on desktop only
           if (width > 720) {
             ctx.font = '700 7px "JetBrains Mono", monospace';
             ctx.fillStyle = '#0F172A';
@@ -472,6 +535,7 @@
           // --- TRUCKYARD ICON [TY]: Terminal Gantry / Parking Bay ---
           ctx.save();
           ctx.translate(node.x, node.y);
+          if (isMobile) ctx.scale(0.85, 0.85);
 
           ctx.fillStyle = '#0284C7';
           ctx.beginPath();
@@ -484,7 +548,7 @@
           ctx.fillText('P', -2, 2.5);
           ctx.restore();
 
-          // Non-colliding label
+          // Non-colliding label on desktop only
           if (width > 720) {
             ctx.font = '700 7px "JetBrains Mono", monospace';
             ctx.fillStyle = '#0F172A';
@@ -495,7 +559,7 @@
         } else {
           // --- METRO NODE: Glowing Dot ---
           ctx.beginPath();
-          ctx.arc(node.x, node.y, 2.5, 0, Math.PI * 2);
+          ctx.arc(node.x, node.y, isMobile ? 2 : 2.5, 0, Math.PI * 2);
           ctx.fillStyle = '#64748B';
           ctx.fill();
           ctx.strokeStyle = '#FFFFFF';
