@@ -193,11 +193,14 @@
   <main>
     <!-- HERO SECTION -->
     <section class="hero-section">
+      <canvas class="hero-telematics-canvas" aria-hidden="true"></canvas>
+      <div class="hero-vignette"></div>
+
       <div class="container-fz position-relative" style="z-index: 3;">
-        <div class="row align-items-center g-4 g-xl-5">
-          <div class="col-lg-6 hero-content-col">
+        <div class="row">
+          <div class="col-lg-7 col-xl-6 hero-content">
             <!-- Official TruckBill Brand Badge -->
-            <div class="mb-4 d-inline-flex align-items-center gap-3 p-3 px-4 rounded-16 bg-white border border-light-subtle shadow-sm">
+            <div class="mb-4 d-inline-flex align-items-center gap-3 p-3 px-4 rounded-16 bg-white border border-light-subtle shadow-sm" style="background: rgba(255, 255, 255, 0.75) !important; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);">
               <a href="https://www.truckbill.in/" target="_blank" rel="noopener" class="d-inline-flex align-items-center gap-3 text-decoration-none">
                 <img src="assets/images/truckbill-logo.png" alt="TruckBill Logo" class="tb-logo-img tb-logo-img-lg">
                 <div class="border-start border-charcoal ps-3 text-start">
@@ -213,7 +216,7 @@
             <h1 class="display-hero text-dark mb-3">
               Meet TruckBill.<br><span class="text-teal">The operating system for transport businesses.</span>
             </h1>
-            <p class="lead-text mb-4">
+            <p class="hero-lead-text mb-4">
               TruckBill unifies operations, digital LR, compliance, billing, settlements, and live trip profitability in one cohesive platform. Built specifically for Indian freight complexity.
             </p>
             <div class="d-flex align-items-center gap-3 flex-wrap">
@@ -228,42 +231,11 @@
               </a>
             </div>
 
-            <!-- Smart Connector around text synced with India map -->
+            <!-- Smart Translucent Connector -->
             <div class="hero-text-connector d-none d-lg-flex align-items-center gap-2 mt-4">
               <span class="connector-dot"></span>
               <span class="connector-line"></span>
               <span class="connector-label">Enterprise ERP Engine &bull; Live Telematics Synced</span>
-            </div>
-          </div>
-
-          <!-- RIGHT COLUMN: Dedicated India Map Telematics Console -->
-          <div class="col-lg-6 hero-visual-col">
-            <div class="telematics-map-console">
-              <div class="telematics-console-header">
-                <div class="console-signal">
-                  <span class="signal-dot"></span>
-                  <span class="signal-text">TRUCKBILL DISPATCH MESH</span>
-                </div>
-                <div class="console-metrics">
-                  <span class="console-chip">BHARAT FREIGHT GRID</span>
-                  <span class="console-chip text-teal">ACTIVE TELEMETRY</span>
-                </div>
-              </div>
-
-              <div class="telematics-canvas-wrapper">
-                <canvas class="telematics-india-canvas" aria-hidden="true"></canvas>
-              </div>
-
-              <div class="telematics-console-footer">
-                <div class="console-stat-pill">
-                  <span class="stat-label">Active Corridors:</span>
-                  <span class="stat-val">Golden Quad + NH-44</span>
-                </div>
-                <div class="console-stat-pill">
-                  <span class="stat-label">GPS Sync:</span>
-                  <span class="stat-val text-teal">99.98% Real-Time</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -148,25 +148,25 @@ a {
   box-shadow: 0 0 8px rgba(13, 148, 136, 0.4);
 }
 
-/* Display Headings */
+/* Display Headings (Refined Grand & Classy Proportions) */
 .display-hero {
-  font-size: clamp(2.35rem, 5.2vw, 4.5rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.08;
+  font-size: clamp(2rem, 3.4vw, 3.15rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
   color: var(--fz-slate-900);
 }
 
 .display-section {
-  font-size: clamp(2rem, 3.8vw, 3.25rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
   font-weight: 800;
-  letter-spacing: -0.035em;
-  line-height: 1.12;
+  letter-spacing: -0.03em;
+  line-height: 1.16;
   color: var(--fz-slate-900);
 }
 
 .display-sub {
-  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.4;
@@ -174,11 +174,11 @@ a {
 }
 
 .lead-text {
-  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
-  line-height: 1.65;
-  color: var(--fz-slate-600);
+  font-size: clamp(1rem, 1.25vw, 1.125rem);
+  line-height: 1.68;
+  color: rgba(51, 65, 85, 0.82);
   font-weight: 400;
-  max-width: 680px;
+  max-width: 640px;
 }
 
 /* Modern Section Architecture (Crisp White / Soft Light Slate) */

@@ -8,14 +8,14 @@
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  min-height: calc(100vh - 72px);
+  min-height: 560px;
   display: flex;
   align-items: center;
   padding-top: 7.5rem;
   padding-bottom: 5rem;
   background-color: #FFFFFF;
   background-image: 
-    radial-gradient(circle at 85% 30%, rgba(13, 148, 136, 0.05) 0%, rgba(37, 99, 235, 0.03) 40%, transparent 70%),
+    radial-gradient(circle at 75% 35%, rgba(13, 148, 136, 0.05) 0%, rgba(37, 99, 235, 0.02) 45%, transparent 75%),
     linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   overflow: hidden;
 }
@@ -29,161 +29,84 @@
   padding-bottom: 4.5rem;
   background-color: #FFFFFF;
   background-image: 
-    radial-gradient(circle at 85% 30%, rgba(13, 148, 136, 0.05) 0%, rgba(37, 99, 235, 0.03) 40%, transparent 70%),
+    radial-gradient(circle at 75% 35%, rgba(13, 148, 136, 0.05) 0%, rgba(37, 99, 235, 0.02) 45%, transparent 75%),
     linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   overflow: hidden;
 }
 
-.hero-content-col {
-  position: relative;
-  z-index: 3;
-}
-
-.hero-visual-col {
-  position: relative;
-  z-index: 3;
-}
-
-/* Standardized India Map Telematics Console */
-.telematics-map-console {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  min-height: 500px;
-  max-height: 500px;
-  background: #FFFFFF;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  border-radius: 20px;
-  box-shadow: 
-    0 20px 45px -12px rgba(15, 23, 42, 0.08),
-    0 4px 16px -4px rgba(13, 148, 136, 0.06),
-    0 0 0 1px rgba(13, 148, 136, 0.12);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.telematics-map-console:hover {
-  box-shadow: 
-    0 25px 50px -12px rgba(15, 23, 42, 0.12),
-    0 8px 24px -4px rgba(13, 148, 136, 0.10),
-    0 0 0 1px rgba(13, 148, 136, 0.25);
-}
-
-.telematics-console-header {
-  padding: 0.75rem 1.25rem;
-  background: #F8FAFC;
-  border-bottom: 1px solid var(--fz-light-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 2;
-}
-
-.console-signal {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.signal-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #0D9488;
-  box-shadow: 0 0 8px rgba(13, 148, 136, 0.8);
-  animation: radarPulse 1.6s infinite ease-out;
-}
-
-.signal-text {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--fz-slate-800);
-  letter-spacing: 0.08em;
-}
-
-.console-metrics {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.console-chip {
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 0.2rem 0.55rem;
-  background: #FFFFFF;
-  border: 1px solid var(--fz-light-border);
-  border-radius: 6px;
-  color: var(--fz-slate-600);
-}
-
-.console-chip.text-teal {
-  color: #0D9488 !important;
-  border-color: rgba(13, 148, 136, 0.25);
-  background: rgba(13, 148, 136, 0.05);
-}
-
-.telematics-canvas-wrapper {
-  position: relative;
-  flex: 1;
-  width: 100%;
-  min-height: 0;
-  background: #FFFFFF;
-  overflow: hidden;
-}
-
-.telematics-canvas-wrapper canvas,
-.telematics-india-canvas {
+/* Full-bleed seamless background canvas across the whole hero */
+.hero-telematics-canvas,
+.telematics-india-canvas,
+#heroCanvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: block;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.telematics-console-footer {
-  padding: 0.65rem 1.25rem;
-  background: #F8FAFC;
-  border-top: 1px solid var(--fz-light-border);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Soft horizontal gradient vignette keeping left text area pure & crystal clear, while revealing moving trucks on the right */
+.hero-vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(255, 255, 255, 0.95) 42%, 
+    rgba(255, 255, 255, 0.45) 65%, 
+    rgba(255, 255, 255, 0.02) 100%
+  );
   z-index: 2;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  pointer-events: none;
 }
 
-.console-stat-pill {
-  display: flex;
+.hero-content {
+  position: relative;
+  z-index: 3;
+}
+
+/* Modern Frosted Translucent Pill Badge */
+.hero-badge-pill {
+  display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-}
-
-.console-stat-pill .stat-label {
-  color: var(--fz-slate-500);
-}
-
-.console-stat-pill .stat-val {
-  color: var(--fz-slate-800);
+  gap: 0.65rem;
+  padding: 0.4rem 1.1rem;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
   font-weight: 700;
+  color: rgba(15, 23, 42, 0.85);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
 }
 
-/* Connector around text synced with India map */
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--tb-teal);
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.6);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
 .badge-live-pulse {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  background: rgba(13, 148, 136, 0.1);
+  background: rgba(13, 148, 136, 0.08);
   color: #0D9488;
-  font-size: 0.6875rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.06em;
 }
@@ -198,20 +121,94 @@
   animation: radarPulse 1.8s ease-out infinite;
 }
 
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+/* Refined Grand Classy Hero Typography */
+.hero-lead-text {
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  line-height: 1.68;
+  color: rgba(51, 65, 85, 0.82) !important;
+  font-weight: 400;
+  max-width: 600px;
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Translucent Frosted Glass Metric Strip */
+.hero-metrics-strip {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(226, 232, 240, 0.65);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.hero-metric-item {
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(226, 232, 240, 0.70);
+  border-radius: 14px;
+  padding: 1.15rem 1.35rem;
+  box-shadow: 0 4px 16px -4px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s ease;
+}
+
+.hero-metric-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.06);
+  border-color: rgba(13, 148, 136, 0.35);
+}
+
+.hero-metric-item h4 {
+  font-family: var(--font-mono);
+  font-size: 1.65rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+  color: var(--fz-slate-900);
+}
+
+.hero-metric-item p {
+  font-size: 0.78rem;
+  color: rgba(71, 85, 105, 0.80);
+  margin-bottom: 0;
+  line-height: 1.42;
+  font-weight: 500;
+}
+
+/* Translucent Connector Line */
 .hero-text-connector {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.5rem 0.85rem;
-  background: rgba(248, 250, 252, 0.85);
-  border: 1px solid var(--fz-light-border);
+  padding: 0.45rem 0.85rem;
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.65);
   border-radius: 8px;
   width: fit-content;
 }
 
 .connector-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #0D9488;
   position: relative;
@@ -227,102 +224,17 @@
 }
 
 .connector-line {
-  width: 36px;
+  width: 32px;
   height: 2px;
-  background: linear-gradient(90deg, #0D9488, rgba(37, 99, 235, 0.4), transparent);
+  background: linear-gradient(90deg, #0D9488, rgba(37, 99, 235, 0.3), transparent);
 }
 
 .connector-label {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  color: var(--fz-slate-600);
+  color: rgba(71, 85, 105, 0.78);
   letter-spacing: 0.04em;
-}
-
-@keyframes radarPulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.15); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
-}
-
-.hero-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.4rem 1rem;
-  background: #FFFFFF;
-  border: 1px solid var(--fz-light-border);
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--fz-slate-800);
-  letter-spacing: 0.08em;
-  margin-bottom: 1.75rem;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
-}
-
-.hero-badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--tb-teal);
-  box-shadow: 0 0 8px rgba(13, 148, 136, 0.5);
-  animation: pulseDot 2s infinite ease-in-out;
-}
-
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
-}
-
-.hero-cta-group {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2.25rem;
-}
-
-.hero-metrics-strip {
-  margin-top: 3.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--fz-light-border);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.25rem;
-}
-
-.hero-metric-item {
-  background: #FFFFFF;
-  border: 1px solid var(--fz-light-border);
-  border-radius: 14px;
-  padding: 1.35rem 1.5rem;
-  box-shadow: var(--shadow-card);
-  transition: all 0.25s ease;
-}
-
-.hero-metric-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: var(--fz-light-border-dark);
-}
-
-.hero-metric-item h4 {
-  font-family: var(--font-mono);
-  font-size: 1.85rem;
-  font-weight: 800;
-  margin-bottom: 0.25rem;
-  color: var(--fz-slate-900);
-}
-
-.hero-metric-item p {
-  font-size: 0.8125rem;
-  color: var(--fz-slate-500);
-  margin-bottom: 0;
-  line-height: 1.4;
-  font-weight: 500;
 }
 
 /* --------------------------------------------------------------------------
