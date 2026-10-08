@@ -163,6 +163,7 @@ a {
   letter-spacing: -0.025em;
   line-height: 1.22;
   color: var(--fz-slate-900);
+  text-align: left;
 }
 
 .display-section {

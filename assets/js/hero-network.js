@@ -189,13 +189,10 @@
       corridors.length = 0;
       transformedBoundary.length = 0;
 
-      // 70% WIDTH EXPANSIVE SPREAD:
-      // On desktop, the animation covers 70% of the screen width (from 0.30 * width to 0.98 * width).
-      // This leaves the left 30% strictly pristine for hero text and metrics!
-      const isDesktop = width >= 992;
-      const animWidth = isDesktop ? width * 0.68 : width * 0.90;
+      // WHOLE BACKGROUND FULL-BLEED SPREAD (NO ARTIFICIAL BOUNDARIES):
+      const animWidth = width * 0.94;
       const animHeight = height * 0.88;
-      const offsetX = isDesktop ? width * 0.30 : width * 0.05;
+      const offsetX = width * 0.03;
       const offsetY = height * 0.06;
 
       // Geographic coordinate bounds of defined India points
@@ -431,35 +428,14 @@
     function drawIndiaLandmass() {
       if (transformedBoundary.length < 3) return;
 
+      // Seamless Full-Background Ambient Grid (No Artificial Boundaries)
       ctx.save();
-
-      // Outer Boundary Path
-      ctx.beginPath();
-      ctx.moveTo(transformedBoundary[0].x, transformedBoundary[0].y);
-      for (let i = 1; i < transformedBoundary.length; i++) {
-        ctx.lineTo(transformedBoundary[i].x, transformedBoundary[i].y);
-      }
-      ctx.closePath();
-
-      // Subtle filled landmass tint
-      ctx.fillStyle = 'rgba(13, 148, 136, 0.025)';
-      ctx.fill();
-
-      // Refined boundary glow outline
-      ctx.strokeStyle = 'rgba(13, 148, 136, 0.24)';
-      ctx.lineWidth = 1.3;
-      ctx.stroke();
-
-      // Internal Latitude / Longitude Topographic Grid
-      ctx.save();
-      ctx.clip(); // Constrained inside India landmass
-
-      ctx.strokeStyle = 'rgba(15, 23, 42, 0.035)';
+      ctx.strokeStyle = 'rgba(15, 23, 42, 0.025)';
       ctx.lineWidth = 0.8;
-      ctx.setLineDash([3, 8]);
+      ctx.setLineDash([3, 10]);
 
       // Parallels
-      for (let y = 0; y < height; y += 46) {
+      for (let y = 0; y < height; y += 48) {
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(width, y);
@@ -467,15 +443,13 @@
       }
 
       // Meridians
-      for (let x = 0; x < width; x += 46) {
+      for (let x = 0; x < width; x += 48) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
         ctx.lineTo(x, height);
         ctx.stroke();
       }
       ctx.setLineDash([]);
-      ctx.restore();
-
       ctx.restore();
     }
 
