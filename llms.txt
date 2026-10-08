@@ -1,0 +1,47 @@
+# Fleetezee — Technology for Modern Transportation
+> Fleetezee is a transportation technology company building digital infrastructure, intelligent cloud workflows, and modern operating systems for the businesses that move goods.
+
+## Company & Flagship Platform
+- **Organization**: Fleetezee Technologies Pvt Ltd
+- **Mission**: Building the digital infrastructure for modern transportation.
+- **Flagship Platform**: TruckBill ERP (Comprehensive transport operations and billing operating system)
+- **Primary Functionality**: Automates digital LR (Lorry Receipt / Bilty) generation, trip dispatch & vehicle allocation, market vehicle broker settlements, diesel pump slip reconciliation, driver advances & passbooks, FASTag toll audits, customer GST billing, and Section 194C TDS compliance.
+- **Geographic Coverage**: Pan-India (Delhi-NCR, Mumbai, JNPT, Ahmedabad, Bengaluru, Chennai, Kolkata, Pune, Indore, Ludhiana, Jaipur, Hyderabad).
+- **Official Website**: https://fleetezee.com/
+- **Flagship Portal**: https://www.truckbill.in/
+- **Contact Line**: +91 98200 00000
+- **Email**: contact@fleetezee.com
+- **Headquarters**: Bengaluru, Karnataka, India
+
+## Flagship Platform: TruckBill ERP (12 Specialized Operational Modules)
+1. **Digital LR & Bilty Engine**: Auto-sequenced LRs aligning with pre-printed stationery, multi-item details, GST tax rates, and WhatsApp PDF dispatch.
+2. **Trip Dispatch & Vehicle Allocation**: Allocate own fleet, attached trucks, or market broker vehicles with verified loading slips.
+3. **Market Vehicle & Broker Settlement**: Calculate lorry hire rate vs party freight rate, diesel slip advances, cash deductions, and broker commission.
+4. **Customer Invoicing & TDS Management**: Single or multi-LR tax invoices with detention charges and automated Section 194C TDS (1% or 2%) calculation.
+5. **Diesel & FASTag Audit**: Pump slip reconciliation, toll debits, route mileage audit, and en-route cash vouchers.
+6. **Mobile POD Capture**: Driver smartphone photo upload of physically stamped Proof of Delivery to unblock customer payment submission.
+7. **Transport Accounting & Khata**: Double-entry party ledgers, broker khata, driver passbook, and cash books tailored to Indian transport customs.
+8. **Vehicle-Wise Net Profit & Loss**: Track revenue, fuel costs, driver wages, maintenance, and EMI per truck every month.
+9. **Driver Trip Passbook**: Driver trip allowances, route advances, and proof of delivery tracking to prevent disputes.
+10. **Permit, Fitness & Insurance Alerts**: Proactive automated expiry alerts for commercial vehicle documents via WhatsApp and SMS.
+11. **Multi-Branch Hierarchy**: Centralized head office visibility over booking branches and delivery hubs across India.
+12. **WhatsApp Business Intelligence**: Automated delivery of LRs, tracking links, POD copies, and invoice payment reminders.
+
+## Target Segments
+- **Transport Contractors & FTL Agencies**: Corporate contract rates, multi-LR monthly invoicing, detention billing, and POD dispatch tracking.
+- **Fleet Owners (Own Commercial Trucks)**: Vehicle P&L, diesel mileage audit, driver advances, FASTag reconciliation, and document expiries.
+- **Commission Agents & Freight Brokers**: Dual-rate lorry vouchers, commission margin locks, supplier TDS compliance, and broker khata.
+- **Logistics Hubs & Depots**: Multi-branch transshipment hubs, depot inventory, and cross-docking visibility.
+
+## Technology Architecture & Standards
+- **Event-Driven Distributed Backend**: High concurrency handling millions of transaction states during peak market dispatch hours.
+- **Sub-100ms API Latency**: Rapid response times across all web and mobile endpoints.
+- **WhatsApp Cloud API Integration**: Direct document delivery without third-party delay.
+- **Offline-Tolerant Capture**: Resilient mobile data capture at remote loading docks with intermittent network connectivity.
+- **Enterprise Security**: 256-bit TLS encryption, role-based branch permissions, and hourly cloud backups.
+
+## Indian Compliance & Localization
+- **GST Compliance**: Support for Reverse Charge Mechanism (RCM) & Forward Charge Mechanism (FCM).
+- **Income Tax**: Automated Section 194C TDS deduction (1% individual/HUF, 2% company) and Pan-10 truck declaration recordkeeping.
+- **E-Way Bill**: E-Way bill number tracking and portal compatibility.
+- **FASTag & Fuel**: Direct toll and petrol pump slip reconciliation.
