@@ -1,11 +1,13 @@
 /**
- * FLEETEZEE — Complete India Freight Network, Warehouses, Truckyards & Telematics Simulation
- * Full-width background canvas across the entire hero showing:
- *  - Complete geographical silhouette, contour mesh & national arterial highway grid of India
+ * FLEETEZEE — Pan-India Freight Network, Warehouses, Truckyards & Telematics Simulation
+ * Expansive 70% screen width background simulation showing:
+ *  - Complete geographical silhouette, contour mesh & national expressways of India across 70% of screen width
+ *  - Strictly positioned on the right 70% of the canvas, keeping the left 30% crystal-clear for hero text
  *  - Strategic Warehouses [WH] (Multi-Modal Logistics Parks & Fulfillment Hubs)
  *  - Strategic Truckyards [TY] (Transport Nagar Terminals, Port Container Yards)
- *  - Active fleet of 2D vector freight trucks cruising corridors with headlights, taillights & live telemetry badges
- *  - Destination arrival radar pulses and live logistics event signals
+ *  - Active fleet of 2D vector freight trucks cruising national corridors
+ *  - Intelligent anti-collision badge engine (max 3-4 clean badges, zero badge overlap)
+ *  - Destination arrival telemetry radar pulses
  *  - Performance-optimized, DPI-scaled, auto-pauses off-screen
  */
 
@@ -67,33 +69,33 @@
       [0.43, 0.11]  // Jammu / Pir Panjal
     ];
 
-    // Strategic Logistics Warehouses [WH]
+    // Strategic Logistics Warehouses [WH] with explicit label offsets
     const WAREHOUSES = [
-      { id: 'wh_bhiwandi', name: 'BHIWANDI WH', full: 'Bhiwandi Logistics Park', nx: 0.43, ny: 0.54, type: 'wh' },
-      { id: 'wh_bilaspur', name: 'BILASPUR WH', full: 'NCR Bilaspur Multi-Modal Hub', nx: 0.48, ny: 0.23, type: 'wh' },
-      { id: 'wh_hoskote',  name: 'HOSKOTE WH',  full: 'Hoskote Logistics Cluster', nx: 0.52, ny: 0.77, type: 'wh' },
-      { id: 'wh_aslali',   name: 'ASLALI WH',   full: 'Aslali ICD Logistics Park', nx: 0.37, ny: 0.44, type: 'wh' },
-      { id: 'wh_dankuni',  name: 'DANKUNI WH',  full: 'Dankuni Multi-Modal Terminal', nx: 0.74, ny: 0.40, type: 'wh' },
-      { id: 'wh_chakan',   name: 'CHAKAN WH',   full: 'Chakan Auto-Logistics Park', nx: 0.45, ny: 0.58, type: 'wh' },
-      { id: 'wh_butibori', name: 'BUTIBORI WH', full: 'Butibori Zero-Mile Hub', nx: 0.54, ny: 0.49, type: 'wh' },
-      { id: 'wh_sricity',  name: 'SRI CITY WH', full: 'Sri City Integrated Logistics', nx: 0.58, ny: 0.76, type: 'wh' }
+      { id: 'wh_bhiwandi', name: 'BHIWANDI WH', nx: 0.43, ny: 0.54, type: 'wh', labelAlign: 'left' },
+      { id: 'wh_bilaspur', name: 'BILASPUR WH', nx: 0.48, ny: 0.23, type: 'wh', labelAlign: 'right' },
+      { id: 'wh_hoskote',  name: 'HOSKOTE WH',  nx: 0.52, ny: 0.77, type: 'wh', labelAlign: 'right' },
+      { id: 'wh_aslali',   name: 'ASLALI WH',   nx: 0.37, ny: 0.44, type: 'wh', labelAlign: 'left' },
+      { id: 'wh_dankuni',  name: 'DANKUNI WH',  nx: 0.74, ny: 0.40, type: 'wh', labelAlign: 'right' },
+      { id: 'wh_chakan',   name: 'CHAKAN WH',   nx: 0.45, ny: 0.58, type: 'wh', labelAlign: 'left' },
+      { id: 'wh_butibori', name: 'BUTIBORI WH', nx: 0.54, ny: 0.49, type: 'wh', labelAlign: 'right' },
+      { id: 'wh_sricity',  name: 'SRI CITY WH', nx: 0.58, ny: 0.76, type: 'wh', labelAlign: 'right' }
     ];
 
     // Strategic Truckyards [TY] (Transporter Terminals & Gateways)
     const TRUCKYARDS = [
-      { id: 'ty_sgtn',     name: 'SGTN DELHI',    full: 'Sanjay Gandhi Transport Nagar', nx: 0.47, ny: 0.20, type: 'ty' },
-      { id: 'ty_jnpt',     name: 'JNPT YARD',     full: 'JNPT Port Container Terminal', nx: 0.42, ny: 0.56, type: 'ty' },
-      { id: 'ty_kalamna',  name: 'KALAMNA YARD',  full: 'Kalamna 0-Mile Truck Terminal', nx: 0.55, ny: 0.48, type: 'ty' },
-      { id: 'ty_vkia',     name: 'VKIA JAIPUR',   full: 'Transport Nagar VKIA Jaipur', nx: 0.42, ny: 0.27, type: 'ty' },
-      { id: 'ty_autonagar',name: 'AUTONAGAR HYD', full: 'Autonagar Truck Terminal Hyd', nx: 0.54, ny: 0.63, type: 'ty' },
-      { id: 'ty_nelamang', name: 'NELAMANGALA TY',full: 'Nelamangala Truck Terminal Blr', nx: 0.50, ny: 0.75, type: 'ty' },
-      { id: 'ty_madhavaram',name:'MADHAVARAM TY', full: 'Madhavaram Truck Terminal Chn', nx: 0.59, ny: 0.74, type: 'ty' },
-      { id: 'ty_fazalganj',name: 'FAZALGANJ TY',  full: 'Fazalganj Transport Nagar Knp', nx: 0.56, ny: 0.28, type: 'ty' },
-      { id: 'ty_amingaon', name: 'AMINGAON TY',   full: 'Amingaon Container Depot Guw', nx: 0.86, ny: 0.27, type: 'ty' },
-      { id: 'ty_vapi',     name: 'VAPI GIDC TY',  full: 'Vapi Industrial Truck Yard', nx: 0.40, ny: 0.50, type: 'ty' }
+      { id: 'ty_sgtn',     name: 'SGTN DELHI',    nx: 0.47, ny: 0.20, type: 'ty', labelAlign: 'top' },
+      { id: 'ty_jnpt',     name: 'JNPT YARD',     nx: 0.42, ny: 0.56, type: 'ty', labelAlign: 'left' },
+      { id: 'ty_kalamna',  name: 'KALAMNA YARD',  nx: 0.55, ny: 0.48, type: 'ty', labelAlign: 'top' },
+      { id: 'ty_vkia',     name: 'VKIA JAIPUR',   nx: 0.42, ny: 0.27, type: 'ty', labelAlign: 'left' },
+      { id: 'ty_autonagar',name: 'AUTONAGAR HYD', nx: 0.54, ny: 0.63, type: 'ty', labelAlign: 'right' },
+      { id: 'ty_nelamang', name: 'NELAMANGALA TY',nx: 0.50, ny: 0.75, type: 'ty', labelAlign: 'left' },
+      { id: 'ty_madhavaram',name:'MADHAVARAM TY', nx: 0.59, ny: 0.74, type: 'ty', labelAlign: 'right' },
+      { id: 'ty_fazalganj',name: 'FAZALGANJ TY',  nx: 0.56, ny: 0.28, type: 'ty', labelAlign: 'top' },
+      { id: 'ty_amingaon', name: 'AMINGAON TY',   nx: 0.86, ny: 0.27, type: 'ty', labelAlign: 'right' },
+      { id: 'ty_vapi',     name: 'VAPI GIDC TY',  nx: 0.40, ny: 0.50, type: 'ty', labelAlign: 'left' }
     ];
 
-    // Other Key Freight Nodes / Metros
+    // Other Key Freight Interchange Metros
     const METRO_NODES = [
       { id: 'node_srinagar', name: 'SRINAGAR', nx: 0.45, ny: 0.08, type: 'metro' },
       { id: 'node_ludhiana', name: 'LUDHIANA', nx: 0.44, ny: 0.16, type: 'metro' },
@@ -112,9 +114,9 @@
       { id: 'node_kanya',    name: 'KANYAKUMARI',nx: 0.52, ny: 0.91, type: 'metro' }
     ];
 
-    // National Highway Arterial Connections
+    // Arterial National Highway Connections
     const CORRIDOR_CONNECTIONS = [
-      // Golden Quadrilateral & NH-48 West
+      // Golden Quadrilateral & West Corridor
       ['ty_sgtn', 'ty_vkia', 'NH-48'],
       ['ty_vkia', 'wh_aslali', 'NH-48'],
       ['wh_aslali', 'node_surat', 'NH-48'],
@@ -154,7 +156,7 @@
       ['node_vizag', 'node_vijayawada', 'NH-16'],
       ['node_vijayawada', 'ty_madhavaram', 'NH-16'],
 
-      // Samruddhi Mahamarg & Central Links
+      // Samruddhi Mahamarg & Central Corridors
       ['wh_bhiwandi', 'ty_kalamna', 'Samruddhi'],
       ['wh_aslali', 'node_indore', 'NH-47'],
       ['node_indore', 'ty_kalamna', 'NH-47'],
@@ -187,21 +189,28 @@
       corridors.length = 0;
       transformedBoundary.length = 0;
 
-      // Transform normalized coordinates to fill the full hero canvas gracefully
-      // On wide screens (>= 1200px), center India across the canvas with generous scale
-      const isWide = width >= 992;
-      const mapHeight = height * 0.88;
-      const mapWidth = mapHeight * 0.95; // Natural geographic aspect ratio of India
-
-      // Center the map horizontally across the full canvas
-      // On desktop, shift slightly to 54% to leave breathing room for left typography
-      const offsetX = isWide ? (width * 0.54 - mapWidth * 0.5) : (width * 0.5 - mapWidth * 0.5);
+      // 70% WIDTH EXPANSIVE SPREAD:
+      // On desktop, the animation covers 70% of the screen width (from 0.30 * width to 0.98 * width).
+      // This leaves the left 30% strictly pristine for hero text and metrics!
+      const isDesktop = width >= 992;
+      const animWidth = isDesktop ? width * 0.68 : width * 0.90;
+      const animHeight = height * 0.88;
+      const offsetX = isDesktop ? width * 0.30 : width * 0.05;
       const offsetY = height * 0.06;
+
+      // Geographic coordinate bounds of defined India points
+      const minNx = 0.24; // Porbandar / West Gujarat
+      const maxNx = 0.94; // Eastern Arunachal Pradesh
+      const spanNx = maxNx - minNx;
+
+      const minNy = 0.03; // North Kashmir
+      const maxNy = 0.92; // Kanyakumari South
+      const spanNy = maxNy - minNy;
 
       function toScreen(nx, ny) {
         return {
-          x: offsetX + nx * mapWidth,
-          y: offsetY + ny * mapHeight
+          x: offsetX + ((nx - minNx) / spanNx) * animWidth,
+          y: offsetY + ((ny - minNy) / spanNy) * animHeight
         };
       }
 
@@ -217,8 +226,8 @@
         allNodes.push({
           id: def.id,
           name: def.name,
-          full: def.full,
           type: def.type, // 'wh', 'ty', or 'metro'
+          labelAlign: def.labelAlign || 'right',
           x: pt.x,
           y: pt.y,
           pingRadius: Math.random() * 18,
@@ -229,7 +238,7 @@
       const nodeMap = {};
       allNodes.forEach(n => { nodeMap[n.id] = n; });
 
-      // 3. Populate Arterial Corridors
+      // 3. Populate Corridors
       CORRIDOR_CONNECTIONS.forEach(([fromId, toId, code]) => {
         const from = nodeMap[fromId];
         const to = nodeMap[toId];
@@ -253,7 +262,7 @@
         this.reversed = Math.random() > 0.5;
         this.progress = Math.random();
         // Cruising speed
-        this.speed = 0.0011 + Math.random() * 0.0013;
+        this.speed = 0.0010 + Math.random() * 0.0012;
 
         // Vehicle Plate & Mission Data
         const states = ['MH', 'GJ', 'DL', 'KA', 'RJ', 'HR', 'WB', 'TN', 'UP', 'TS'];
@@ -272,9 +281,11 @@
         this.status = statuses[Math.floor(Math.random() * statuses.length)];
         this.kmh = Math.floor(54 + Math.random() * 16);
 
-        this.truckLength = 18;
-        this.truckWidth = 7.5;
-        this.showBadge = Math.random() > 0.40;
+        this.truckLength = 17;
+        this.truckWidth = 7;
+
+        // Controlled badge visibility: Only a few trucks show badges at once to eliminate clutter!
+        this.badgeEligible = (this.index % 4 === 0);
       }
 
       update() {
@@ -301,22 +312,22 @@
         this.angle = Math.atan2(end.y - start.y, end.x - start.x);
       }
 
-      draw() {
+      draw(renderedBadges) {
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
 
         // 1. Forward Headlights Beam
         ctx.save();
-        const beamGrad = ctx.createRadialGradient(8, 0, 1, 32, 0, 14);
+        const beamGrad = ctx.createRadialGradient(8, 0, 1, 30, 0, 13);
         beamGrad.addColorStop(0, 'rgba(13, 148, 136, 0.40)');
         beamGrad.addColorStop(0.5, 'rgba(37, 99, 235, 0.14)');
         beamGrad.addColorStop(1, 'rgba(255, 255, 255, 0)');
         ctx.fillStyle = beamGrad;
         ctx.beginPath();
         ctx.moveTo(8, -2);
-        ctx.lineTo(34, -10);
-        ctx.lineTo(34, 10);
+        ctx.lineTo(32, -9);
+        ctx.lineTo(32, 9);
         ctx.lineTo(8, 2);
         ctx.closePath();
         ctx.fill();
@@ -324,83 +335,99 @@
 
         // 2. Chassis Shadow
         ctx.fillStyle = 'rgba(15, 23, 42, 0.08)';
-        ctx.fillRect(-11, -this.truckWidth / 2 + 1, this.truckLength, this.truckWidth);
+        ctx.fillRect(-10, -this.truckWidth / 2 + 1, this.truckLength, this.truckWidth);
 
         // 3. Cargo Trailer (Deep Slate)
         ctx.fillStyle = '#0F172A';
         ctx.beginPath();
-        roundRect(ctx, -11, -this.truckWidth / 2, 12, this.truckWidth, 1.5);
+        roundRect(ctx, -10, -this.truckWidth / 2, 11, this.truckWidth, 1.5);
         ctx.fill();
 
         // Teal Brand Stripe on Cargo Trailer
         ctx.fillStyle = '#0D9488';
-        ctx.fillRect(-8, -this.truckWidth / 2 + 0.8, 6, 1.2);
-        ctx.fillRect(-8, this.truckWidth / 2 - 2.0, 6, 1.2);
+        ctx.fillRect(-7.5, -this.truckWidth / 2 + 0.8, 5.5, 1.1);
+        ctx.fillRect(-7.5, this.truckWidth / 2 - 1.9, 5.5, 1.1);
 
         // 4. Driver Cabin (Front)
         ctx.fillStyle = '#1E293B';
         ctx.beginPath();
-        roundRect(ctx, 1.5, -this.truckWidth / 2 + 0.5, 6, this.truckWidth - 1, 1.5);
+        roundRect(ctx, 1.5, -this.truckWidth / 2 + 0.5, 5.5, this.truckWidth - 1, 1.5);
         ctx.fill();
 
         // Windshield Glass (Azure)
         ctx.fillStyle = '#38BDF8';
-        ctx.fillRect(4.0, -this.truckWidth / 2 + 1.2, 1.8, this.truckWidth - 2.4);
+        ctx.fillRect(3.8, -this.truckWidth / 2 + 1.2, 1.6, this.truckWidth - 2.4);
 
         // Front Headlights
         ctx.fillStyle = '#FFFFFF';
-        ctx.fillRect(7.2, -this.truckWidth / 2 + 0.8, 0.8, 1.2);
-        ctx.fillRect(7.2, this.truckWidth / 2 - 2.0, 0.8, 1.2);
+        ctx.fillRect(6.8, -this.truckWidth / 2 + 0.8, 0.8, 1.1);
+        ctx.fillRect(6.8, this.truckWidth / 2 - 1.9, 0.8, 1.1);
 
         // Rear Brake Stoplights
         ctx.fillStyle = '#EF4444';
-        ctx.fillRect(-11, -this.truckWidth / 2 + 0.8, 0.8, 1.2);
-        ctx.fillRect(-11, this.truckWidth / 2 - 2.0, 0.8, 1.2);
+        ctx.fillRect(-10, -this.truckWidth / 2 + 0.8, 0.8, 1.1);
+        ctx.fillRect(-10, this.truckWidth / 2 - 1.9, 0.8, 1.1);
 
         ctx.restore();
 
-        // 5. Floating Telemetry Badge (Monospace, unrotated)
-        if (this.showBadge && width > 640) {
-          ctx.save();
-          const badgeX = this.x + 10;
+        // 5. Floating Telemetry Badge with Intelligent Anti-Collision
+        if (this.badgeEligible && width > 700) {
+          const badgeX = this.x + 8;
           const badgeY = this.y - 10;
+          const badgeW = 92;
+          const badgeH = 13;
 
-          ctx.font = '600 8px "JetBrains Mono", monospace';
-          const text = `${this.plate} • ${this.status}`;
-          const textWidth = ctx.measureText(text).width;
+          // Check collision with already rendered badges on this frame
+          let collides = false;
+          for (let i = 0; i < renderedBadges.length; i++) {
+            const b = renderedBadges[i];
+            if (Math.abs(badgeX - b.x) < 70 && Math.abs(badgeY - b.y) < 22) {
+              collides = true;
+              break;
+            }
+          }
 
-          // Frosted pill background
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.92)';
-          ctx.strokeStyle = 'rgba(226, 232, 240, 0.85)';
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          roundRect(ctx, badgeX - 3, badgeY - 8, textWidth + 10, 13, 3);
-          ctx.fill();
-          ctx.stroke();
+          if (!collides) {
+            renderedBadges.push({ x: badgeX, y: badgeY });
 
-          // Green live status dot
-          ctx.fillStyle = '#0D9488';
-          ctx.beginPath();
-          ctx.arc(badgeX + 1, badgeY - 1.5, 1.8, 0, Math.PI * 2);
-          ctx.fill();
+            ctx.save();
+            ctx.font = '600 7.5px "JetBrains Mono", monospace';
+            const text = `${this.plate} • ${this.status}`;
 
-          // Text label
-          ctx.fillStyle = '#0F172A';
-          ctx.fillText(text, badgeX + 6, badgeY + 1);
-          ctx.restore();
+            // Frosted pill
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.90)';
+            ctx.strokeStyle = 'rgba(226, 232, 240, 0.85)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            roundRect(ctx, badgeX - 3, badgeY - 8, badgeW, badgeH, 3);
+            ctx.fill();
+            ctx.stroke();
+
+            // Status indicator dot
+            ctx.fillStyle = '#0D9488';
+            ctx.beginPath();
+            ctx.arc(badgeX + 1.5, badgeY - 1.5, 1.8, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Text label
+            ctx.fillStyle = '#0F172A';
+            ctx.fillText(text, badgeX + 6.5, badgeY + 1);
+            ctx.restore();
+          }
         }
       }
     }
 
     function initTrucks() {
       trucks.length = 0;
-      const count = width < 768 ? 8 : 18;
+      // 16 total trucks cruising across the 70% width network
+      const count = width < 768 ? 8 : 16;
       for (let i = 0; i < count; i++) {
         trucks.push(new MovingTruck(i));
       }
     }
 
-    // 1. Draw Complete India Geographical Boundary & Mesh
+    // 1. Draw Complete India Geographical Boundary & Topographic Grid
     function drawIndiaLandmass() {
       if (transformedBoundary.length < 3) return;
 
@@ -415,32 +442,32 @@
       ctx.closePath();
 
       // Subtle filled landmass tint
-      ctx.fillStyle = 'rgba(13, 148, 136, 0.022)';
+      ctx.fillStyle = 'rgba(13, 148, 136, 0.025)';
       ctx.fill();
 
-      // Subtle boundary outline glow
-      ctx.strokeStyle = 'rgba(13, 148, 136, 0.22)';
+      // Refined boundary glow outline
+      ctx.strokeStyle = 'rgba(13, 148, 136, 0.24)';
       ctx.lineWidth = 1.3;
       ctx.stroke();
 
-      // Internal Latitude / Longitude Topographic Grid Mesh
+      // Internal Latitude / Longitude Topographic Grid
       ctx.save();
-      ctx.clip(); // Clip inside India landmass
+      ctx.clip(); // Constrained inside India landmass
 
       ctx.strokeStyle = 'rgba(15, 23, 42, 0.035)';
       ctx.lineWidth = 0.8;
       ctx.setLineDash([3, 8]);
 
-      // Horizontal parallels
-      for (let y = 0; y < height; y += 42) {
+      // Parallels
+      for (let y = 0; y < height; y += 46) {
         ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(width, y);
         ctx.stroke();
       }
 
-      // Vertical meridians
-      for (let x = 0; x < width; x += 42) {
+      // Meridians
+      for (let x = 0; x < width; x += 46) {
         ctx.beginPath();
         ctx.moveTo(x, 0);
         ctx.lineTo(x, height);
@@ -455,11 +482,11 @@
     // 2. Draw Arterial National Corridors
     function drawCorridors() {
       corridors.forEach(c => {
-        // Base highway road
+        // Base highway track
         ctx.beginPath();
         ctx.moveTo(c.from.x, c.from.y);
         ctx.lineTo(c.to.x, c.to.y);
-        ctx.strokeStyle = 'rgba(13, 148, 136, 0.15)';
+        ctx.strokeStyle = 'rgba(13, 148, 136, 0.16)';
         ctx.lineWidth = 1.4;
         ctx.stroke();
 
@@ -467,7 +494,7 @@
         ctx.beginPath();
         ctx.moveTo(c.from.x, c.from.y);
         ctx.lineTo(c.to.x, c.to.y);
-        ctx.strokeStyle = 'rgba(37, 99, 235, 0.25)';
+        ctx.strokeStyle = 'rgba(37, 99, 235, 0.28)';
         ctx.lineWidth = 1.2;
         ctx.setLineDash([3, 7]);
         c.dashOffset = (c.dashOffset - 0.35) % 10;
@@ -477,7 +504,7 @@
       });
     }
 
-    // 3. Draw Nodes (Warehouses, Truckyards, Metros) with custom iconography
+    // 3. Draw Nodes (Warehouses, Truckyards, Metros)
     function drawNodes() {
       allNodes.forEach(node => {
         // Pulse ring
@@ -506,53 +533,55 @@
           ctx.save();
           ctx.translate(node.x, node.y);
 
-          // Mini warehouse building shape
           ctx.fillStyle = '#0D9488';
           ctx.beginPath();
           ctx.moveTo(-4.5, -1);
-          ctx.lineTo(0, -5);   // Roof ridge
+          ctx.lineTo(0, -5);   // Ridge
           ctx.lineTo(4.5, -1);
           ctx.lineTo(4.5, 4);  // Base
           ctx.lineTo(-4.5, 4);
           ctx.closePath();
           ctx.fill();
 
-          // Loading bay dock (white cutout)
+          // Loading dock cutout
           ctx.fillStyle = '#FFFFFF';
           ctx.fillRect(-1.5, 1, 3, 3);
           ctx.restore();
 
-          // Label
-          if (width > 680) {
-            ctx.font = '700 7.5px "JetBrains Mono", monospace';
+          // Clean non-colliding label
+          if (width > 720) {
+            ctx.font = '700 7px "JetBrains Mono", monospace';
             ctx.fillStyle = '#0F172A';
-            ctx.fillText(node.name, node.x + 7, node.y - 2);
+            const lx = node.labelAlign === 'left' ? (node.x - 62) : (node.x + 7);
+            const ly = node.y - 2;
+            ctx.fillText(node.name, lx, ly);
           }
         } else if (isTY) {
-          // --- TRUCKYARD ICON [TY]: Parking Bay / Gantry Terminal ---
+          // --- TRUCKYARD ICON [TY]: Terminal Gantry / Parking Bay ---
           ctx.save();
           ctx.translate(node.x, node.y);
 
-          // Rounded terminal gantry
           ctx.fillStyle = '#0284C7';
           ctx.beginPath();
           roundRect(ctx, -4.5, -4.5, 9, 9, 2);
           ctx.fill();
 
-          // Parking / Bay glyph (P symbol)
+          // Gantry / Bay P glyph
           ctx.fillStyle = '#FFFFFF';
           ctx.font = '800 6px "JetBrains Mono", monospace';
           ctx.fillText('P', -2, 2.5);
           ctx.restore();
 
-          // Label
-          if (width > 680) {
-            ctx.font = '700 7.5px "JetBrains Mono", monospace';
+          // Clean non-colliding label
+          if (width > 720) {
+            ctx.font = '700 7px "JetBrains Mono", monospace';
             ctx.fillStyle = '#0F172A';
-            ctx.fillText(node.name, node.x + 7, node.y - 2);
+            const lx = node.labelAlign === 'left' ? (node.x - 60) : (node.labelAlign === 'top' ? node.x - 24 : node.x + 7);
+            const ly = node.labelAlign === 'top' ? (node.y - 8) : (node.y - 2);
+            ctx.fillText(node.name, lx, ly);
           }
         } else {
-          // --- METRO NODE: Clean Dot ---
+          // --- METRO INTERCHANGE NODE: Clean Dot ---
           ctx.beginPath();
           ctx.arc(node.x, node.y, 2.5, 0, Math.PI * 2);
           ctx.fillStyle = '#64748B';
@@ -561,9 +590,9 @@
           ctx.lineWidth = 1;
           ctx.stroke();
 
-          if (width > 768) {
-            ctx.font = '500 7px "JetBrains Mono", monospace';
-            ctx.fillStyle = 'rgba(71, 85, 105, 0.75)';
+          if (width > 860) {
+            ctx.font = '500 6.5px "JetBrains Mono", monospace';
+            ctx.fillStyle = 'rgba(71, 85, 105, 0.70)';
             ctx.fillText(node.name, node.x + 5, node.y - 1);
           }
         }
@@ -599,12 +628,12 @@
         ctx.font = '600 8px "JetBrains Mono", monospace';
 
         // Right side badge
-        ctx.fillStyle = 'rgba(13, 148, 136, 0.75)';
-        const text1 = 'BHARAT FREIGHT CORRIDORS • COMPLETE PAN-INDIA MESH';
+        ctx.fillStyle = 'rgba(13, 148, 136, 0.80)';
+        const text1 = 'BHARAT FREIGHT CORRIDORS • 70% NETWORK MESH';
         const txtWidth1 = ctx.measureText(text1).width;
         ctx.fillText(text1, width - txtWidth1 - 32, 28);
 
-        // Sub legend: Warehouses & Truckyards
+        // Sub legend
         ctx.fillStyle = 'rgba(100, 116, 139, 0.70)';
         const text2 = '■ [WH] WAREHOUSES  ● [TY] TRUCKYARDS  ─ TRUCKS IN TRANSIT';
         const txtWidth2 = ctx.measureText(text2).width;
@@ -632,10 +661,10 @@
 
       ctx.clearRect(0, 0, width, height);
 
-      // 1. Draw complete India landmass & mesh across full background
+      // 1. Draw complete India landmass & mesh across 70% of canvas width
       drawIndiaLandmass();
 
-      // 2. Draw national highway corridors connecting hubs
+      // 2. Draw national express corridors
       drawCorridors();
 
       // 3. Draw strategic Warehouses, Truckyards, and Metros
@@ -644,10 +673,11 @@
       // 4. Draw depot arrival telemetry pings
       drawTelemetryPings();
 
-      // 5. Update & draw moving trucks fleet
+      // 5. Update & draw moving trucks fleet with anti-collision badge tracker
+      const renderedBadges = [];
       trucks.forEach(truck => {
         truck.update();
-        truck.draw();
+        truck.draw(renderedBadges);
       });
 
       // 6. Draw ambient telemetry HUD
