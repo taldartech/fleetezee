@@ -1,5 +1,6 @@
 /* ==========================================================================
    FLEETEZEE — Component Architecture & Interactive Elements
+   Fresh, Modern, High-Contrast White Aesthetics
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -7,12 +8,15 @@
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  min-height: 100vh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
-  padding-top: 7.5rem;
-  padding-bottom: 5rem;
-  background-color: var(--fz-black);
+  padding-top: 8rem;
+  padding-bottom: 5.5rem;
+  background-color: var(--fz-white);
+  background-image: 
+    radial-gradient(circle at 78% 25%, rgba(13, 148, 136, 0.08) 0%, rgba(37, 99, 235, 0.05) 35%, transparent 65%),
+    linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   overflow: hidden;
 }
 
@@ -32,7 +36,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 65% 45%, rgba(58, 166, 140, 0.08) 0%, rgba(11, 13, 15, 0.6) 50%, #0B0D0F 100%);
+  background: radial-gradient(circle at 65% 45%, rgba(13, 148, 136, 0.03) 0%, rgba(248, 250, 252, 0.4) 60%, rgba(255, 255, 255, 0.9) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -46,24 +50,25 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.35rem 0.95rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.4rem 1rem;
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: #D1D5DB;
+  font-weight: 700;
+  color: var(--fz-slate-800);
   letter-spacing: 0.08em;
   margin-bottom: 1.75rem;
-  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
 .hero-badge-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--tb-teal);
-  box-shadow: 0 0 8px var(--tb-teal);
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.5);
   animation: pulseDot 2s infinite ease-in-out;
 }
 
@@ -83,36 +88,52 @@
 .hero-metrics-strip {
   margin-top: 3.5rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--fz-light-border);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 2rem;
+  gap: 1.25rem;
+}
+
+.hero-metric-item {
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
+  border-radius: 14px;
+  padding: 1.35rem 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.25s ease;
+}
+
+.hero-metric-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--fz-light-border-dark);
 }
 
 .hero-metric-item h4 {
   font-family: var(--font-mono);
   font-size: 1.85rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 0.25rem;
-  color: #FFFFFF;
+  color: var(--fz-slate-900);
 }
 
 .hero-metric-item p {
   font-size: 0.8125rem;
-  color: var(--fz-gray-muted);
+  color: var(--fz-slate-500);
   margin-bottom: 0;
   line-height: 1.4;
+  font-weight: 500;
 }
 
 /* --------------------------------------------------------------------------
-   2. THE INDUSTRY TRANSFORMATION (DARK TO LIGHT)
+   2. THE INDUSTRY TRANSFORMATION (FRESH LIGHT ARCHITECTURE)
    -------------------------------------------------------------------------- */
 .transformation-section {
   position: relative;
   background-color: var(--fz-offwhite);
-  color: var(--fz-charcoal);
-  padding: clamp(5rem, 8vw, 8.5rem) 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--fz-slate-900);
+  padding: clamp(5rem, 7.5vw, 7.5rem) 0;
+  border-top: 1px solid var(--fz-light-border);
 }
 
 .transform-grid {
@@ -125,29 +146,31 @@
 
 .transform-card {
   padding: 2.5rem;
-  border-radius: 16px;
+  border-radius: 18px;
   transition: transform 0.3s var(--ease-snappy);
   display: flex;
   flex-direction: column;
 }
 
 .transform-card-legacy {
-  background: #ECECE7;
-  border: 1px solid var(--fz-light-border);
-  color: #3C4249;
+  background: #FFF5F5;
+  border: 1px solid #FEE2E2;
+  color: var(--fz-slate-800);
+  box-shadow: var(--shadow-card);
 }
 
 .transform-card-legacy .transform-badge {
-  color: #8C4444;
+  color: #B91C1C;
   background: rgba(220, 38, 38, 0.08);
   border: 1px solid rgba(220, 38, 38, 0.2);
+  font-weight: 700;
 }
 
 .transform-card-modern {
-  background: #0B0D0F;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--fz-offwhite);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.16);
+  background: #FFFFFF;
+  border: 2px solid var(--tb-teal);
+  color: var(--fz-slate-900);
+  box-shadow: 0 20px 40px -10px rgba(13, 148, 136, 0.15);
   position: relative;
   overflow: hidden;
 }
@@ -158,18 +181,19 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
   background: var(--tb-gradient);
 }
 
 .transform-card-modern .transform-badge {
   color: var(--tb-teal);
   background: var(--tb-teal-soft);
-  border: 1px solid rgba(58, 166, 140, 0.3);
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  font-weight: 700;
 }
 
 .transform-card-modern h3 {
-  color: #FFFFFF;
+  color: var(--fz-slate-900);
 }
 
 .transform-divider-col {
@@ -182,14 +206,15 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--fz-black);
-  color: var(--tb-teal);
+  background: var(--tb-teal);
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
-  border: 2px solid rgba(58, 166, 140, 0.4);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  font-size: 1.35rem;
+  font-weight: bold;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.25);
 }
 
 .transform-list {
@@ -207,6 +232,11 @@
   gap: 0.85rem;
   font-size: 0.95rem;
   line-height: 1.5;
+  color: var(--fz-slate-700);
+}
+
+.transform-item strong {
+  color: var(--fz-slate-900);
 }
 
 .transform-item-icon {
@@ -218,12 +248,13 @@
   align-items: center;
   justify-content: center;
   font-size: 0.75rem;
+  font-weight: bold;
   margin-top: 2px;
 }
 
 .transform-item-icon.icon-legacy {
-  background: rgba(140, 68, 68, 0.15);
-  color: #B91C1C;
+  background: rgba(220, 38, 38, 0.12);
+  color: #DC2626;
 }
 
 .transform-item-icon.icon-modern {
@@ -232,23 +263,23 @@
 }
 
 /* --------------------------------------------------------------------------
-   3. FLEETEZEE VISION & ECOSYSTEM ARCHITECTURE
+   3. FLEETEZEE VISION & ECOSYSTEM ARCHITECTURE (CRISP WHITE)
    -------------------------------------------------------------------------- */
 .vision-ecosystem-section {
-  background-color: var(--fz-black);
-  color: var(--fz-offwhite);
-  padding: clamp(5rem, 8vw, 8.5rem) 0;
+  background-color: var(--fz-white);
+  color: var(--fz-slate-900);
+  padding: clamp(5rem, 7.5vw, 7.5rem) 0;
   position: relative;
-  overflow: hidden;
+  border-top: 1px solid var(--fz-light-border);
 }
 
 .ecosystem-hub-container {
   margin-top: 4rem;
-  padding: 2.5rem;
+  padding: 3rem 2.5rem;
   border-radius: 20px;
-  background: radial-gradient(circle at center, rgba(21, 25, 29, 0.9) 0%, rgba(11, 13, 15, 0.95) 100%);
-  border: 1px solid var(--fz-charcoal-border);
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+  background: var(--fz-offwhite);
+  border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
   position: relative;
 }
 
@@ -256,11 +287,11 @@
   text-align: center;
   max-width: 480px;
   margin: 0 auto 3.5rem;
-  padding: 2rem;
+  padding: 2.25rem 2rem;
   border-radius: 16px;
-  background: rgba(28, 34, 39, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(12px);
+  background: #FFFFFF;
+  border: 2px solid var(--tb-teal);
+  box-shadow: 0 12px 32px rgba(13, 148, 136, 0.12);
   position: relative;
 }
 
@@ -275,6 +306,10 @@
   background: linear-gradient(to bottom, var(--tb-teal), transparent);
 }
 
+.ecosystem-core-node h3 {
+  color: var(--fz-slate-900);
+}
+
 .ecosystem-nodes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -282,10 +317,11 @@
 }
 
 .ecosystem-node-card {
-  padding: 1.35rem;
-  border-radius: 12px;
-  background: rgba(21, 25, 29, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
   transition: all 0.25s var(--ease-snappy);
   cursor: pointer;
   position: relative;
@@ -293,10 +329,10 @@
 
 .ecosystem-node-card:hover,
 .ecosystem-node-card.active {
-  background: rgba(28, 34, 39, 0.95);
-  border-color: rgba(58, 166, 140, 0.4);
+  background: #FFFFFF;
+  border-color: var(--tb-teal);
   transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .ecosystem-node-card .node-tag {
@@ -306,37 +342,44 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .ecosystem-node-card h4 {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   margin-bottom: 0.35rem;
-  color: #FFFFFF;
+  color: var(--fz-slate-900);
 }
 
 .ecosystem-node-card p {
   font-size: 0.8125rem;
-  color: var(--fz-gray-muted);
+  color: var(--fz-slate-500);
   margin-bottom: 0;
   line-height: 1.45;
 }
 
 /* --------------------------------------------------------------------------
-   4. FLAGSHIP PRODUCT — TRUCKBILL LAYERED UI
+   4. FLAGSHIP PRODUCT — TRUCKBILL LAYERED UI (HIGH-CONTRAST CONSOLE)
    -------------------------------------------------------------------------- */
 .truckbill-showcase-section {
-  background-color: var(--fz-charcoal-deep);
-  color: var(--fz-offwhite);
-  padding: clamp(5rem, 8vw, 8.5rem) 0;
+  background-color: var(--fz-offwhite);
+  color: var(--fz-slate-900);
+  padding: clamp(5rem, 7.5vw, 7.5rem) 0;
   position: relative;
+  border-top: 1px solid var(--fz-light-border);
+}
+
+.truckbill-showcase-section h2 {
+  color: var(--fz-slate-900);
 }
 
 .product-console-wrapper {
   margin-top: 3.5rem;
   border-radius: 18px;
-  background: #0B0D0F;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 36px 80px rgba(0, 0, 0, 0.65);
+  background: #0F172A;
+  border: 1px solid #1E293B;
+  box-shadow: 0 32px 80px rgba(15, 23, 42, 0.22);
   overflow: hidden;
 }
 
@@ -374,10 +417,10 @@
 .console-tab-btn {
   background: transparent;
   border: none;
-  color: var(--fz-gray-muted);
+  color: #94A3B8;
   font-size: 0.8125rem;
-  font-weight: 500;
-  padding: 0.4rem 0.85rem;
+  font-weight: 600;
+  padding: 0.45rem 0.95rem;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -387,7 +430,7 @@
 .console-tab-btn.active,
 .console-tab-btn:hover {
   color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .console-viewport {
@@ -395,7 +438,6 @@
   min-height: 440px;
 }
 
-/* Realistic Product Interface Mockups */
 .tb-mock-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -446,56 +488,23 @@
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   text-transform: uppercase;
-  color: var(--fz-gray-muted);
+  color: #94A3B8;
   letter-spacing: 0.08em;
-  padding: 0.6rem 0.75rem;
-  text-align: left;
+  padding: 0.65rem 0.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .tb-table-preview td {
-  padding: 0.85rem 0.75rem;
-  color: #D1D5DB;
+  padding: 0.75rem 0.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.tb-status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.6875rem;
-  font-family: var(--font-mono);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  font-weight: 500;
-}
-
-.tb-status-in-transit {
-  background: rgba(54, 150, 210, 0.15);
-  color: #5CB6F5;
-  border: 1px solid rgba(54, 150, 210, 0.3);
-}
-
-.tb-status-billed {
-  background: rgba(58, 166, 140, 0.15);
-  color: #4BD6B4;
-  border: 1px solid rgba(58, 166, 140, 0.3);
-}
-
-.tb-status-settled {
-  background: rgba(34, 197, 94, 0.15);
-  color: #4ADE80;
-  border: 1px solid rgba(34, 197, 94, 0.3);
-}
-
-.tb-live-feed {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  color: #E2E8F0;
 }
 
 .tb-feed-item {
-  padding: 0.85rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -505,17 +514,18 @@
 .tb-feed-time {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  color: var(--fz-gray-muted);
+  color: #94A3B8;
 }
 
 /* --------------------------------------------------------------------------
-   5. TRUCKBILL HORIZONTAL CAPABILITIES STORYTELLING
+   5. TRUCKBILL HORIZONTAL CAPABILITIES STORYTELLING (CRISP WHITE)
    -------------------------------------------------------------------------- */
 .capabilities-section {
-  background-color: var(--fz-offwhite);
-  color: var(--fz-charcoal);
-  padding: clamp(5rem, 8vw, 8.5rem) 0;
+  background-color: var(--fz-white);
+  color: var(--fz-slate-900);
+  padding: clamp(5rem, 7.5vw, 7.5rem) 0;
   position: relative;
+  border-top: 1px solid var(--fz-light-border);
 }
 
 .capabilities-track {
@@ -533,6 +543,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: var(--shadow-card);
   transition: all 0.3s var(--ease-snappy);
   position: relative;
   overflow: hidden;
@@ -540,8 +551,8 @@
 
 .capability-card:hover {
   transform: translateY(-4px);
-  border-color: #0B0D0F;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  border-color: var(--tb-teal);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .capability-num {
@@ -549,14 +560,15 @@
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--tb-jade-deep);
+  color: var(--tb-teal);
   margin-bottom: 0.85rem;
 }
 
 .capability-card h3 {
-  font-size: 1.55rem;
+  font-size: 1.5rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  color: #0B0D0F;
+  color: var(--fz-slate-900);
 }
 
 .capability-tags {
@@ -571,19 +583,21 @@
   font-size: 0.75rem;
   padding: 0.25rem 0.65rem;
   border-radius: 6px;
-  background: var(--fz-light-surface-subtle);
+  background: var(--fz-offwhite);
   border: 1px solid var(--fz-light-border);
-  color: var(--fz-charcoal);
+  color: var(--fz-slate-700);
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
-   6. AI & INTELLIGENCE ARCHITECTURE (DARK SECTION)
+   6. AI & INTELLIGENCE ARCHITECTURE (CRISP LIGHT PIPELINE)
    -------------------------------------------------------------------------- */
 .ai-section {
-  background-color: var(--fz-black);
-  color: var(--fz-offwhite);
-  padding: clamp(5rem, 8vw, 8.5rem) 0;
+  background-color: var(--fz-offwhite);
+  color: var(--fz-slate-900);
+  padding: clamp(5rem, 7.5vw, 7.5rem) 0;
   position: relative;
+  border-top: 1px solid var(--fz-light-border);
 }
 
 .ai-pipeline-matrix {
@@ -595,29 +609,38 @@
 }
 
 .pipeline-col {
-  padding: 1.75rem;
-  border-radius: 14px;
-  background: var(--fz-charcoal-deep);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2rem 1.75rem;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
 }
 
 .pipeline-col.core-col {
-  background: #1A2026;
-  border: 1px solid rgba(58, 166, 140, 0.35);
-  box-shadow: 0 0 32px rgba(58, 166, 140, 0.12);
+  background: #FFFFFF;
+  border: 2px solid var(--tb-teal);
+  box-shadow: 0 12px 32px rgba(13, 148, 136, 0.15);
   text-align: center;
+}
+
+.pipeline-col h4,
+.pipeline-col.core-col h3 {
+  color: var(--fz-slate-900);
+  font-weight: 800;
 }
 
 .pipeline-arrow {
   color: var(--tb-teal);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   text-align: center;
+  font-weight: bold;
 }
 
 .pipeline-badge {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  padding: 0.2rem 0.5rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -626,15 +649,15 @@
 }
 
 .badge-vision {
-  background: rgba(54, 150, 210, 0.15);
-  color: #64B5F6;
-  border: 1px solid rgba(54, 150, 210, 0.3);
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--tb-azure);
+  border: 1px solid rgba(37, 99, 235, 0.25);
 }
 
 .badge-active {
-  background: rgba(58, 166, 140, 0.15);
-  color: #4BD6B4;
-  border: 1px solid rgba(58, 166, 140, 0.3);
+  background: var(--tb-teal-soft);
+  color: var(--tb-teal);
+  border: 1px solid rgba(13, 148, 136, 0.25);
 }
 
 .pipeline-feature-list {
@@ -651,7 +674,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #D1D5DB;
+  color: var(--fz-slate-700);
 }
 
 .pipeline-feature-list li::before {
@@ -661,12 +684,13 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. TRANSPORTATION ECOSYSTEM GRID
+   7. TRANSPORTATION ECOSYSTEM GRID (CRISP WHITE CHIPS)
    -------------------------------------------------------------------------- */
 .ecosystem-integrations-section {
-  background-color: var(--fz-charcoal-deep);
-  color: var(--fz-offwhite);
-  padding: clamp(5rem, 8vw, 8.5rem) 0;
+  background-color: var(--fz-white);
+  color: var(--fz-slate-900);
+  padding: clamp(5rem, 7.5vw, 7.5rem) 0;
+  border-top: 1px solid var(--fz-light-border);
 }
 
 .integration-chips-grid {
@@ -677,10 +701,11 @@
 }
 
 .integration-chip {
-  padding: 1.25rem;
-  border-radius: 12px;
-  background: #0B0D0F;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1.35rem 1.25rem;
+  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
   display: flex;
   align-items: center;
   gap: 0.85rem;
@@ -688,37 +713,38 @@
 }
 
 .integration-chip:hover {
-  border-color: rgba(58, 166, 140, 0.4);
+  border-color: var(--tb-teal);
   transform: translateY(-2px);
-  background: #14181D;
+  box-shadow: var(--shadow-card-hover);
 }
 
 .integration-chip-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--fz-offwhite);
+  border: 1px solid var(--fz-light-border);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--tb-teal);
-  font-size: 1rem;
+  font-size: 1.15rem;
 }
 
 .integration-chip-name {
   font-size: 0.9375rem;
-  font-weight: 600;
-  color: #FFFFFF;
+  font-weight: 700;
+  color: var(--fz-slate-900);
 }
 
 .integration-chip-type {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
-  color: var(--fz-gray-muted);
+  color: var(--fz-slate-500);
 }
 
 /* --------------------------------------------------------------------------
-   8. ROADMAP TIMELINE
+   8. ROADMAP TIMELINE (MODERN LIGHT TIMELINE)
    -------------------------------------------------------------------------- */
 .roadmap-timeline {
   display: grid;
@@ -729,22 +755,31 @@
 }
 
 .roadmap-col {
-  padding: 2rem 1.5rem;
-  border-radius: 14px;
-  background: var(--fz-charcoal-deep);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.25rem 1.75rem;
+  border-radius: 16px;
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
   position: relative;
+  transition: all 0.25s ease;
 }
 
 .roadmap-col.col-current {
-  border-color: rgba(58, 166, 140, 0.4);
-  background: #171E22;
+  border: 2px solid var(--tb-teal);
+  box-shadow: 0 12px 32px rgba(13, 148, 136, 0.15);
+}
+
+.roadmap-col h3 {
+  color: var(--fz-slate-900);
+  font-weight: 800;
+  margin-top: 0.35rem;
+  margin-bottom: 0.75rem;
 }
 
 .roadmap-phase-tag {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 0.65rem;
@@ -759,7 +794,7 @@
   flex-direction: column;
   gap: 0.75rem;
   font-size: 0.875rem;
-  color: #D1D5DB;
+  color: var(--fz-slate-700);
 }
 
 .roadmap-items-list li {
@@ -772,10 +807,11 @@
   position: absolute;
   left: 0;
   color: var(--tb-teal);
+  font-weight: bold;
 }
 
 /* --------------------------------------------------------------------------
-   9. CUSTOMER SEGMENTS (LIGHT SECTION)
+   9. CUSTOMER SEGMENTS (CRISP WHITE CARDS)
    -------------------------------------------------------------------------- */
 .segments-grid {
   display: grid;
@@ -789,37 +825,40 @@
   border-radius: 16px;
   background: #FFFFFF;
   border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
   transition: all 0.25s var(--ease-snappy);
 }
 
 .segment-card:hover {
   transform: translateY(-4px);
-  border-color: #0B0D0F;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--tb-teal);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .segment-card h3 {
   font-size: 1.45rem;
-  color: #0B0D0F;
+  font-weight: 800;
+  color: var(--fz-slate-900);
   margin-bottom: 0.65rem;
 }
 
 .segment-tagline {
   font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--tb-jade-deep);
+  font-weight: 700;
+  color: var(--tb-teal);
   margin-bottom: 1rem;
 }
 
 /* --------------------------------------------------------------------------
-   10. GLOBAL VISION (DARK WITH WORLD CORRIDORS)
+   10. GLOBAL VISION (WORLD CORRIDORS)
    -------------------------------------------------------------------------- */
 .global-map-container {
   margin-top: 3.5rem;
   padding: 3rem;
   border-radius: 20px;
-  background: #0B0D0F;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--fz-offwhite);
+  border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
 }
@@ -832,26 +871,28 @@
 }
 
 .corridor-card {
-  padding: 1.25rem;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1.5rem 1.25rem;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
 }
 
 .corridor-card h5 {
   font-size: 1.05rem;
-  color: #FFFFFF;
+  font-weight: 700;
+  color: var(--fz-slate-900);
   margin-bottom: 0.25rem;
 }
 
 .corridor-card p {
   font-size: 0.8125rem;
-  color: var(--fz-gray-muted);
+  color: var(--fz-slate-600);
   margin-bottom: 0;
 }
 
 /* --------------------------------------------------------------------------
-   11. HIGH-CONVERTING DEMO REQUEST MODAL
+   11. HIGH-CONVERTING DEMO REQUEST MODAL (CRISP WHITE MODERN)
    -------------------------------------------------------------------------- */
 .fz-modal-backdrop {
   position: fixed;
@@ -859,7 +900,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(15, 23, 42, 0.65);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 2000;
@@ -878,14 +919,14 @@
 }
 
 .fz-modal-dialog {
-  background: #111418;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
   border-radius: 20px;
   max-width: 620px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+  box-shadow: var(--shadow-elevated);
   position: relative;
   transform: translateY(20px) scale(0.97);
   transition: transform 0.3s var(--ease-cinematic);
@@ -900,13 +941,18 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--fz-light-border);
+}
+
+.fz-modal-header h3 {
+  color: var(--fz-slate-900);
+  font-weight: 800;
 }
 
 .fz-modal-close {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
+  background: var(--fz-offwhite);
+  border: 1px solid var(--fz-light-border);
+  color: var(--fz-slate-700);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -918,7 +964,8 @@
 }
 
 .fz-modal-close:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--fz-light-border);
+  color: var(--fz-slate-900);
   transform: scale(1.05);
 }
 
@@ -934,8 +981,8 @@
   display: block;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 500;
-  color: #D1D5DB;
+  font-weight: 700;
+  color: var(--fz-slate-700);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 0.45rem;
@@ -946,10 +993,10 @@
 .fz-textarea {
   width: 100%;
   padding: 0.75rem 1rem;
-  background: #0B0D0F;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--fz-offwhite);
+  border: 1px solid var(--fz-light-border-dark);
   border-radius: 8px;
-  color: #FFFFFF;
+  color: var(--fz-slate-900);
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   transition: all 0.2s ease;
@@ -959,13 +1006,14 @@
 .fz-select:focus,
 .fz-textarea:focus {
   outline: none;
+  background: #FFFFFF;
   border-color: var(--tb-teal);
-  box-shadow: 0 0 0 3px rgba(58, 166, 140, 0.2);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
 }
 
 .fz-select option {
-  background: #111418;
-  color: #FFFFFF;
+  background: #FFFFFF;
+  color: var(--fz-slate-900);
 }
 
 .fz-form-row {
@@ -995,7 +1043,7 @@
   justify-content: center;
   font-size: 1.75rem;
   margin: 0 auto 1.5rem;
-  border: 2px solid rgba(58, 166, 140, 0.4);
+  border: 2px solid rgba(13, 148, 136, 0.35);
 }
 
 /* --------------------------------------------------------------------------
@@ -1007,18 +1055,17 @@
   gap: 1rem;
   padding: 0.85rem 1.35rem;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
+  box-shadow: var(--shadow-card);
   transition: all 0.3s var(--ease-snappy);
 }
 
 .tb-logo-container:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(58, 166, 140, 0.4);
+  background: #FFFFFF;
+  border-color: var(--tb-teal);
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .tb-logo-img {
@@ -1026,7 +1073,6 @@
   max-height: 48px;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 4px 14px rgba(58, 166, 140, 0.25));
 }
 
 .tb-logo-img-lg {
@@ -1045,58 +1091,8 @@
   border-radius: 999px;
   background: var(--tb-teal-soft);
   color: var(--tb-teal);
-  border: 1px solid rgba(58, 166, 140, 0.35);
+  border: 1px solid rgba(13, 148, 136, 0.35);
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-decoration: none;
-  transition: all 0.25s var(--ease-snappy);
+  font-weight: 700;
 }
-
-.tb-external-badge:hover {
-  background: rgba(58, 166, 140, 0.24);
-  color: #FFFFFF;
-  border-color: var(--tb-teal);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(58, 166, 140, 0.2);
-}
-
-.nav-truckbill-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.75rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  color: var(--tb-teal);
-  background: rgba(58, 166, 140, 0.12);
-  border: 1px solid rgba(58, 166, 140, 0.3);
-  padding: 0.35rem 0.75rem;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.nav-truckbill-btn:hover {
-  background: var(--tb-teal);
-  color: #FFFFFF;
-}
-
-.footer-truckbill-card {
-  padding: 1.25rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  transition: all 0.25s ease;
-}
-
-.footer-truckbill-card:hover {
-  border-color: rgba(58, 166, 140, 0.4);
-  background: rgba(255, 255, 255, 0.06);
-}
-

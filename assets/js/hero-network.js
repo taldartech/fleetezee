@@ -1,6 +1,7 @@
 /**
  * FLEETEZEE — Hero Digital Transportation Ecosystem Canvas
  * High-performance, ambient route network with active telematics telemetry pulses.
+ * Optimized for crisp, luminous, modern light-mode backgrounds.
  * Pauses automatically when offscreen to preserve battery and memory.
  */
 
@@ -20,15 +21,15 @@
   const mouse = {
     x: null,
     y: null,
-    radius: 120
+    radius: 130
   };
 
   // Node & Corridor configuration
   const nodes = [];
   const pulses = [];
   const isMobile = window.innerWidth < 768;
-  const nodeCount = isMobile ? 22 : 46;
-  const connectionDistance = isMobile ? 120 : 170;
+  const nodeCount = isMobile ? 22 : 44;
+  const connectionDistance = isMobile ? 120 : 175;
 
   function resize() {
     width = canvas.width = canvas.parentElement.offsetWidth;
@@ -66,10 +67,10 @@
       this.y = Math.random() * height;
       this.vx = (Math.random() - 0.5) * 0.45;
       this.vy = (Math.random() - 0.5) * 0.45;
-      this.radius = Math.random() > 0.85 ? 3 : 1.8;
-      this.isHub = this.radius > 2.5;
-      this.baseAlpha = this.isHub ? 0.7 : 0.35;
-      this.color = this.isHub ? '#3AA68C' : '#8B949E';
+      this.radius = Math.random() > 0.85 ? 3.2 : 2.0;
+      this.isHub = this.radius > 2.8;
+      this.baseAlpha = this.isHub ? 0.85 : 0.45;
+      this.color = this.isHub ? '#0D9488' : '#64748B';
     }
 
     update() {
@@ -102,9 +103,9 @@
       if (this.isHub) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius * 2.5, 0, Math.PI * 2);
-        ctx.strokeStyle = '#3696D2';
-        ctx.lineWidth = 0.8;
-        ctx.globalAlpha = 0.25;
+        ctx.strokeStyle = '#2563EB';
+        ctx.lineWidth = 1;
+        ctx.globalAlpha = 0.35;
         ctx.stroke();
       }
     }
@@ -116,7 +117,7 @@
       this.nodeB = nodeB;
       this.progress = 0;
       this.speed = 0.008 + Math.random() * 0.012;
-      this.color = Math.random() > 0.5 ? '#3AA68C' : '#3696D2';
+      this.color = Math.random() > 0.5 ? '#0D9488' : '#2563EB';
     }
 
     update() {
@@ -129,16 +130,16 @@
       const curY = this.nodeA.y + (this.nodeB.y - this.nodeA.y) * this.progress;
 
       ctx.beginPath();
-      ctx.arc(curX, curY, 2.2, 0, Math.PI * 2);
+      ctx.arc(curX, curY, 2.4, 0, Math.PI * 2);
       ctx.fillStyle = this.color;
-      ctx.globalAlpha = 0.85;
+      ctx.globalAlpha = 0.9;
       ctx.fill();
 
       // Pulse trail
       ctx.beginPath();
-      ctx.arc(curX, curY, 5, 0, Math.PI * 2);
+      ctx.arc(curX, curY, 6, 0, Math.PI * 2);
       ctx.fillStyle = this.color;
-      ctx.globalAlpha = 0.2;
+      ctx.globalAlpha = 0.25;
       ctx.fill();
     }
   }
@@ -153,7 +154,6 @@
   function spawnPulses() {
     if (pulses.length < (isMobile ? 4 : 8) && Math.random() < 0.05) {
       const a = nodes[Math.floor(Math.random() * nodes.length)];
-      // Find a close neighbor
       for (let j = 0; j < nodes.length; j++) {
         const b = nodes[j];
         if (a !== b) {
@@ -187,12 +187,12 @@
         const dist = Math.sqrt(dx * dx + dy * dy);
 
         if (dist < connectionDistance) {
-          const alpha = (1 - dist / connectionDistance) * 0.18;
+          const alpha = (1 - dist / connectionDistance) * 0.22;
           ctx.beginPath();
           ctx.moveTo(nodeA.x, nodeA.y);
           ctx.lineTo(nodeB.x, nodeB.y);
-          ctx.strokeStyle = '#3AA68C';
-          ctx.lineWidth = 0.9;
+          ctx.strokeStyle = '#0D9488';
+          ctx.lineWidth = 1;
           ctx.globalAlpha = alpha;
           ctx.stroke();
         }
@@ -214,7 +214,7 @@
     animationFrameId = requestAnimationFrame(render);
   }
 
-  // IntersectionObserver to pause rendering when hero is not visible
+  // IntersectionObserver to pause rendering when hero is offscreen
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -231,7 +231,6 @@
     observer.observe(canvas.parentElement);
   }
 
-  // Initial trigger
   resize();
   initNodes();
   animationFrameId = requestAnimationFrame(render);

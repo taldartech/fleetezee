@@ -1,9 +1,9 @@
-# Fleetezee — Technology for Modern Transportation
+# FLEETEZEE — Powering the Future of Transportation.
 > Fleetezee is a transportation technology company building digital infrastructure, intelligent cloud workflows, and modern operating systems for the businesses that move goods.
 
 ## Company & Flagship Platform
 - **Organization**: Fleetezee Technologies Pvt Ltd
-- **Mission**: Building the digital infrastructure for modern transportation.
+- **Tagline**: FLEETEZEE - Powering the Future of Transportation.
 - **Flagship Platform**: TruckBill ERP (Comprehensive transport operations and billing operating system)
 - **Primary Functionality**: Automates digital LR (Lorry Receipt / Bilty) generation, trip dispatch & vehicle allocation, market vehicle broker settlements, diesel pump slip reconciliation, driver advances & passbooks, FASTag toll audits, customer GST billing, and Section 194C TDS compliance.
 - **Geographic Coverage**: Pan-India (Delhi-NCR, Mumbai, JNPT, Ahmedabad, Bengaluru, Chennai, Kolkata, Pune, Indore, Ludhiana, Jaipur, Hyderabad).
