@@ -65,18 +65,23 @@
       { id: 'node_kochi', name: 'KOCHI PORT', type: 'metro', nx: 0.33, ny: 0.91, align: 'left' },
       { id: 'node_kanya', name: 'KANYAKUMARI', type: 'metro', nx: 0.40, ny: 0.96, align: 'right' },
 
-      // 5. Eastern Corridor & Coastal Trunk (58% to 76%)
+      // 5. Eastern Corridor & Coastal Trunk (58% to 84%)
       { id: 'node_varanasi', name: 'VARANASI', type: 'metro', nx: 0.58, ny: 0.34, align: 'right' },
       { id: 'node_patna', name: 'PATNA', type: 'metro', nx: 0.64, ny: 0.33, align: 'right' },
+      { id: 'wh_jamshedpur', name: 'JAMSHEDPUR WH', type: 'wh', nx: 0.72, ny: 0.40, align: 'top' },
       { id: 'node_raipur', name: 'RAIPUR', type: 'metro', nx: 0.55, ny: 0.50, align: 'right' },
       { id: 'node_vizag', name: 'VIZAG PORT', type: 'metro', nx: 0.61, ny: 0.64, align: 'right' },
+      { id: 'wh_kakinada', name: 'KAKINADA PORT', type: 'wh', nx: 0.66, ny: 0.68, align: 'right' },
       { id: 'node_bhuban', name: 'BHUBANESWAR', type: 'metro', nx: 0.68, ny: 0.52, align: 'right' },
-      { id: 'wh_dankuni', name: 'DANKUNI WH', type: 'wh', nx: 0.75, ny: 0.43, align: 'top' },
+      { id: 'wh_paradip', name: 'PARADIP PORT', type: 'wh', nx: 0.76, ny: 0.54, align: 'top' },
+      { id: 'wh_dankuni', name: 'DANKUNI WH', type: 'wh', nx: 0.78, ny: 0.43, align: 'top' },
+      { id: 'ty_haldia', name: 'HALDIA DOCK TY', type: 'ty', nx: 0.84, ny: 0.48, align: 'right' },
 
-      // 6. Northeast Arterial Corridor (78% to 96%)
-      { id: 'node_siliguri', name: 'SILIGURI', type: 'metro', nx: 0.81, ny: 0.28, align: 'top' },
-      { id: 'ty_amingaon', name: 'AMINGAON TY', type: 'ty', nx: 0.92, ny: 0.29, align: 'top' },
-      { id: 'node_dibrugarh', name: 'DIBRUGARH', type: 'metro', nx: 0.96, ny: 0.25, align: 'left' }
+      // 6. Northeast Arterial Corridor (80% to 98%)
+      { id: 'node_siliguri', name: 'SILIGURI', type: 'metro', nx: 0.83, ny: 0.26, align: 'top' },
+      { id: 'ty_amingaon', name: 'AMINGAON TY', type: 'ty', nx: 0.91, ny: 0.27, align: 'top' },
+      { id: 'ty_silchar', name: 'SILCHAR TY', type: 'ty', nx: 0.94, ny: 0.34, align: 'right' },
+      { id: 'node_dibrugarh', name: 'DIBRUGARH', type: 'metro', nx: 0.98, ny: 0.23, align: 'left' }
     ];
 
     // Arterial National Highway Corridors Connecting End-to-End
@@ -126,9 +131,16 @@
       ['ty_kalamna', 'node_raipur', 'NH-53'],
       ['node_raipur', 'wh_dankuni', 'NH-53'],
 
-      // Eastern Coastal Arterials NH-16
+      // Eastern Coastal Arterials NH-16 & Maritime Ports
       ['wh_dankuni', 'node_bhuban', 'NH-16'],
+      ['wh_dankuni', 'ty_haldia', 'NH-116'],
+      ['ty_haldia', 'wh_paradip', 'Coastal'],
+      ['wh_paradip', 'node_bhuban', 'NH-53'],
+      ['wh_jamshedpur', 'wh_dankuni', 'NH-18'],
+      ['node_patna', 'wh_jamshedpur', 'NH-20'],
       ['node_bhuban', 'node_vizag', 'NH-16'],
+      ['node_vizag', 'wh_kakinada', 'NH-16'],
+      ['wh_kakinada', 'ty_madhavaram', 'NH-16'],
       ['node_vizag', 'ty_madhavaram', 'NH-16'],
       ['ty_autonagar', 'node_vizag', 'NH-65'],
 
@@ -137,6 +149,8 @@
       ['wh_dankuni', 'node_siliguri', 'NH-12'],
       ['node_siliguri', 'ty_amingaon', 'NH-27'],
       ['ty_amingaon', 'node_dibrugarh', 'NH-15'],
+      ['ty_amingaon', 'ty_silchar', 'NH-27'],
+      ['ty_silchar', 'node_dibrugarh', 'NH-2'],
 
       // Cross-Regional Dense Expressways filling Central & Eastern India
       ['node_lucknow', 'node_raipur', 'NH-30'],
@@ -227,22 +241,23 @@
       const activeNodes = isMobile ? MOBILE_FREIGHT_NODES : FREIGHT_NODES;
       const activeCorridors = isMobile ? MOBILE_CORRIDOR_CONNECTIONS : CORRIDOR_CONNECTIONS;
 
-      // Full-width Pan-India Network: Spans from 4% (West) to 96% (East) so animation is actively visible
-      // directly BEHIND the left hero cards while simultaneously populating the center and right screen
+      // Shift animation a bit to the right (x: 16% to 95%) so the right side is completely filled and energetic,
+      // while Western gateway hubs (Mundra, Porbandar, Aslali, Jaipur, Mumbai) and moving trucks actively cruise
+      // directly under the transparent hero card on the left
       let offsetX, animWidth;
       if (isMobile) {
         offsetX = width * 0.04;
         animWidth = width * 0.92;
       } else if (isTablet) {
-        offsetX = width * 0.05;
-        animWidth = width * 0.90;
+        offsetX = width * 0.08;
+        animWidth = width * 0.88;
       } else if (isLaptop) {
-        offsetX = width * 0.05;
-        animWidth = width * 0.90;
+        offsetX = width * 0.14;
+        animWidth = width * 0.82;
       } else {
-        // Desktop (1200px+): Spans across the entire viewport (x: 5% to 95%)
-        offsetX = width * 0.05;
-        animWidth = width * 0.90;
+        // Desktop (1200px+): Shift a bit to the right (16% to 95%) to eliminate empty space on the right side
+        offsetX = width * 0.16;
+        animWidth = width * 0.80;
       }
 
       const animHeight = height * 0.88;
@@ -449,7 +464,7 @@
 
     function initTrucks() {
       trucks.length = 0;
-      const count = width < 576 ? 10 : (width < 768 ? 16 : 32);
+      const count = width < 576 ? 10 : (width < 768 ? 16 : 36);
       for (let i = 0; i < count; i++) {
         trucks.push(new MovingTruck(i));
       }
