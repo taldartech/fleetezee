@@ -1,0 +1,10 @@
+/* TEAM */
+Organization: Fleetezee Technologies Pvt Ltd
+Email: fleetezee@gmail.com
+Phone: +91 97844 51256, +91 9001010007
+Location: Bengaluru & Jaipur, India
+
+/* SITE */
+Standards: HTML5, CSS3, ES6+, Responsive Design, Schema.org JSON-LD
+Components: Modern Transport ERP, Accessible Modals, SEO & AEO Optimized
+Official Flagship: TruckBill ERP (https://www.truckbill.in/)

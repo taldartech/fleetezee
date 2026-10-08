@@ -1,0 +1,17 @@
+{
+  "name": "Fleetezee — Transport Infrastructure",
+  "short_name": "Fleetezee",
+  "description": "Digital infrastructure and operating software for modern transportation businesses.",
+  "start_url": "https://fleetezee.com/",
+  "display": "standalone",
+  "background_color": "#0B0D0F",
+  "theme_color": "#0B0D0F",
+  "icons": [
+    {
+      "src": "https://fleetezee.com/assets/images/fleetezee-logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -45,3 +45,15 @@
 - **Income Tax**: Automated Section 194C TDS deduction (1% individual/HUF, 2% company) and Pan-10 truck declaration recordkeeping.
 - **E-Way Bill**: E-Way bill number tracking and portal compatibility.
 - **FASTag & Fuel**: Direct toll and petrol pump slip reconciliation.
+
+
+## Canonical Sitemap & Page Hierarchy
+- [Fleetezee — Technology for Modern Transportation](https://fleetezee.com/)
+- [TruckBill ERP — Operating System for Transportation](https://fleetezee.com/truckbill.html)
+- [Transport Solutions — Transporters, Fleet Owners & Brokers](https://fleetezee.com/solutions.html)
+- [Fleet Intelligence & Integration Architecture](https://fleetezee.com/technology.html)
+- [Long-Term Transportation Vision](https://fleetezee.com/vision.html)
+- [About Fleetezee Technologies](https://fleetezee.com/about.html)
+- [Transport Insights, Analytics & Operational Case Studies](https://fleetezee.com/insights.html)
+- [Contact & Schedule TruckBill Walkthrough](https://fleetezee.com/contact.html)
+- [HTML Sitemap — Overview of Fleetezee Pages](https://fleetezee.com/sitemap.html)

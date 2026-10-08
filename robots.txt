@@ -1,8 +1,26 @@
+# Robots.txt for https://fleetezee.com
+# Optimized for Google, Bing, Yahoo, Yandex, Apple, DuckDuckGo & Generative AI Search Engines
+
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.ttf$
+Allow: /*.woff2$
 
-# Search Engine Crawlers
+# Major Search Engine Crawlers
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Mobile
 Allow: /
 
 User-agent: Bingbot
@@ -11,7 +29,16 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
-# AI Answer Engines & LLM Crawlers (AEO)
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# AI Answer Engines & LLM Crawlers (AEO / Generative Search)
 User-agent: GPTBot
 Allow: /
 
@@ -21,13 +48,23 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: anthropic-ai
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Bytespider
 Allow: /
 
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Host: fleetezee.com
 Sitemap: https://fleetezee.com/sitemap.xml

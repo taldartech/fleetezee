@@ -1,0 +1,6 @@
+Contact: mailto:fleetezee@gmail.com
+Contact: tel:+919784451256
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://fleetezee.com/.well-known/security.txt
+Policy: https://fleetezee.com/contact.html

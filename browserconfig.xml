@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square150x150logo src="https://fleetezee.com/assets/images/fleetezee-logo.svg"/>
+      <TileColor>#0B0D0F</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>
