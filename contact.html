@@ -194,18 +194,62 @@
   <main>
     <!-- HERO -->
     <section class="page-hero-section">
-      <canvas class="telematics-bg-canvas" aria-hidden="true"></canvas>
-      <div class="hero-vignette"></div>
       <div class="container-fz position-relative" style="z-index: 3;">
-        <div class="row">
-          <div class="col-lg-9">
+        <div class="row align-items-center g-4 g-xl-5">
+          <div class="col-lg-6 hero-content-col">
             <span class="eyebrow">Direct Connect</span>
             <h1 class="display-hero text-dark mb-3">
-              Ready to move your business forward?
+              Ready to move your <span class="text-teal">business forward?</span>
             </h1>
-            <p class="lead-text mb-0">
+            <p class="lead-text mb-4">
               Schedule a personalized walkthrough of TruckBill ERP, or discuss customized infrastructure deployment for your fleet operations.
             </p>
+            <div class="d-flex align-items-center gap-3 flex-wrap">
+              <a href="tel:+919784451256" class="btn-fz btn-fz-teal btn-fz-md">
+                Call: +91 97844 51256
+              </a>
+              <a href="mailto:fleetezee@gmail.com" class="btn-fz btn-fz-outline-dark btn-fz-md">
+                fleetezee@gmail.com
+              </a>
+            </div>
+
+            <!-- Smart Connector around text synced with India map -->
+            <div class="hero-text-connector d-none d-lg-flex align-items-center gap-2 mt-4">
+              <span class="connector-dot"></span>
+              <span class="connector-line"></span>
+              <span class="connector-label">Dedicated Solution Desk &bull; All National Hubs</span>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Dedicated India Map Telematics Console -->
+          <div class="col-lg-6 hero-visual-col">
+            <div class="telematics-map-console">
+              <div class="telematics-console-header">
+                <div class="console-signal">
+                  <span class="signal-dot"></span>
+                  <span class="signal-text">NATIONAL OPERATIONS DESK</span>
+                </div>
+                <div class="console-metrics">
+                  <span class="console-chip">BHARAT FREIGHT GRID</span>
+                  <span class="console-chip text-teal">24/7 CONNECT</span>
+                </div>
+              </div>
+
+              <div class="telematics-canvas-wrapper">
+                <canvas class="telematics-india-canvas" aria-hidden="true"></canvas>
+              </div>
+
+              <div class="telematics-console-footer">
+                <div class="console-stat-pill">
+                  <span class="stat-label">Active Corridors:</span>
+                  <span class="stat-val">Golden Quad + NH-44</span>
+                </div>
+                <div class="console-stat-pill">
+                  <span class="stat-label">GPS Sync:</span>
+                  <span class="stat-val text-teal">99.98% Real-Time</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

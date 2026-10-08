@@ -186,14 +186,12 @@
   <main>
     <!-- HERO -->
     <section class="page-hero-section">
-      <canvas class="telematics-bg-canvas" aria-hidden="true"></canvas>
-      <div class="hero-vignette"></div>
       <div class="container-fz position-relative" style="z-index: 3;">
-        <div class="row">
-          <div class="col-lg-9">
+        <div class="row align-items-center g-4 g-xl-5">
+          <div class="col-lg-6 hero-content-col">
             <span class="eyebrow">Tailored Solutions</span>
             <h1 class="display-hero text-dark mb-3">
-              Built around the way transportation actually works.
+              Built around the way <span class="text-teal">transportation actually works.</span>
             </h1>
             <p class="lead-text mb-4">
               A private fleet owner operates completely differently from a regional freight broker or a national 3PL. Fleetezee’s architecture adapts to your exact commercial model.
@@ -203,6 +201,44 @@
               <a href="#fleet-owners" class="btn-fz btn-fz-outline-dark btn-fz-sm">Fleet Owners</a>
               <a href="#brokers" class="btn-fz btn-fz-outline-dark btn-fz-sm">Brokers & Agencies</a>
               <a href="#logistics" class="btn-fz btn-fz-outline-dark btn-fz-sm">3PL & Logistics</a>
+            </div>
+
+            <!-- Smart Connector around text synced with India map -->
+            <div class="hero-text-connector d-none d-lg-flex align-items-center gap-2 mt-4">
+              <span class="connector-dot"></span>
+              <span class="connector-line"></span>
+              <span class="connector-label">Tailored Fleet Workflows &bull; Live Corridor Mesh</span>
+            </div>
+          </div>
+
+          <!-- RIGHT COLUMN: Dedicated India Map Telematics Console -->
+          <div class="col-lg-6 hero-visual-col">
+            <div class="telematics-map-console">
+              <div class="telematics-console-header">
+                <div class="console-signal">
+                  <span class="signal-dot"></span>
+                  <span class="signal-text">FLEET SOLUTIONS NETWORK</span>
+                </div>
+                <div class="console-metrics">
+                  <span class="console-chip">BHARAT FREIGHT GRID</span>
+                  <span class="console-chip text-teal">MULTI-MODAL</span>
+                </div>
+              </div>
+
+              <div class="telematics-canvas-wrapper">
+                <canvas class="telematics-india-canvas" aria-hidden="true"></canvas>
+              </div>
+
+              <div class="telematics-console-footer">
+                <div class="console-stat-pill">
+                  <span class="stat-label">Active Corridors:</span>
+                  <span class="stat-val">Golden Quad + NH-44</span>
+                </div>
+                <div class="console-stat-pill">
+                  <span class="stat-label">GPS Sync:</span>
+                  <span class="stat-val text-teal">99.98% Real-Time</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

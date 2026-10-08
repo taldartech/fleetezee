@@ -4,61 +4,246 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. HERO SECTION & CANVAS
+   1. HERO SECTION & STANDARDIZED TELEMATICS CONSOLE
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  min-height: 92vh;
+  min-height: calc(100vh - 72px);
   display: flex;
   align-items: center;
-  padding-top: 8rem;
-  padding-bottom: 5.5rem;
-  background-color: var(--fz-white);
+  padding-top: 7.5rem;
+  padding-bottom: 5rem;
+  background-color: #FFFFFF;
   background-image: 
-    radial-gradient(circle at 78% 25%, rgba(13, 148, 136, 0.08) 0%, rgba(37, 99, 235, 0.05) 35%, transparent 65%),
+    radial-gradient(circle at 85% 30%, rgba(13, 148, 136, 0.05) 0%, rgba(37, 99, 235, 0.03) 40%, transparent 70%),
     linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   overflow: hidden;
-}
-
-#heroCanvas,
-.telematics-bg-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: auto;
 }
 
 .page-hero-section {
   position: relative;
-  min-height: 44vh;
+  min-height: 520px;
   display: flex;
   align-items: center;
-  padding-top: 8rem;
-  padding-bottom: 4rem;
-  background-color: var(--fz-white);
+  padding-top: 7.5rem;
+  padding-bottom: 4.5rem;
+  background-color: #FFFFFF;
   background-image: 
-    radial-gradient(circle at 78% 25%, rgba(13, 148, 136, 0.08) 0%, rgba(37, 99, 235, 0.05) 35%, transparent 65%),
+    radial-gradient(circle at 85% 30%, rgba(13, 148, 136, 0.05) 0%, rgba(37, 99, 235, 0.03) 40%, transparent 70%),
     linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
   overflow: hidden;
 }
 
-.hero-vignette {
+.hero-content-col {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-visual-col {
+  position: relative;
+  z-index: 3;
+}
+
+/* Standardized India Map Telematics Console */
+.telematics-map-console {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  min-height: 500px;
+  max-height: 500px;
+  background: #FFFFFF;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 45px -12px rgba(15, 23, 42, 0.08),
+    0 4px 16px -4px rgba(13, 148, 136, 0.06),
+    0 0 0 1px rgba(13, 148, 136, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.telematics-map-console:hover {
+  box-shadow: 
+    0 25px 50px -12px rgba(15, 23, 42, 0.12),
+    0 8px 24px -4px rgba(13, 148, 136, 0.10),
+    0 0 0 1px rgba(13, 148, 136, 0.25);
+}
+
+.telematics-console-header {
+  padding: 0.75rem 1.25rem;
+  background: #F8FAFC;
+  border-bottom: 1px solid var(--fz-light-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.console-signal {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.signal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0D9488;
+  box-shadow: 0 0 8px rgba(13, 148, 136, 0.8);
+  animation: radarPulse 1.6s infinite ease-out;
+}
+
+.signal-text {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--fz-slate-800);
+  letter-spacing: 0.08em;
+}
+
+.console-metrics {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.console-chip {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.55rem;
+  background: #FFFFFF;
+  border: 1px solid var(--fz-light-border);
+  border-radius: 6px;
+  color: var(--fz-slate-600);
+}
+
+.console-chip.text-teal {
+  color: #0D9488 !important;
+  border-color: rgba(13, 148, 136, 0.25);
+  background: rgba(13, 148, 136, 0.05);
+}
+
+.telematics-canvas-wrapper {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+
+.telematics-canvas-wrapper canvas,
+.telematics-india-canvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at 65% 45%, rgba(13, 148, 136, 0.03) 0%, rgba(248, 250, 252, 0.4) 60%, rgba(255, 255, 255, 0.9) 100%);
-  z-index: 2;
-  pointer-events: none;
+  display: block;
 }
 
-.hero-content {
+.telematics-console-footer {
+  padding: 0.65rem 1.25rem;
+  background: #F8FAFC;
+  border-top: 1px solid var(--fz-light-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+}
+
+.console-stat-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.console-stat-pill .stat-label {
+  color: var(--fz-slate-500);
+}
+
+.console-stat-pill .stat-val {
+  color: var(--fz-slate-800);
+  font-weight: 700;
+}
+
+/* Connector around text synced with India map */
+.badge-live-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(13, 148, 136, 0.1);
+  color: #0D9488;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.badge-live-pulse::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0D9488;
+  box-shadow: 0 0 6px #0D9488;
+  animation: radarPulse 1.8s ease-out infinite;
+}
+
+.hero-text-connector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.85rem;
+  background: rgba(248, 250, 252, 0.85);
+  border: 1px solid var(--fz-light-border);
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.connector-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0D9488;
   position: relative;
-  z-index: 3;
+}
+
+.connector-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #0D9488;
+  animation: radarPulse 1.8s ease-out infinite;
+}
+
+.connector-line {
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, #0D9488, rgba(37, 99, 235, 0.4), transparent);
+}
+
+.connector-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--fz-slate-600);
+  letter-spacing: 0.04em;
+}
+
+@keyframes radarPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.8; }
 }
 
 .hero-badge-pill {
