@@ -539,6 +539,12 @@ a {
   font-size: 0.875rem;
 }
 
+.fz-footer a > img {
+  height: 28px;
+  width: auto;
+  max-width: 100%;
+}
+
 .footer-brand-bio {
   color: #94A3B8;
   font-size: 0.875rem;

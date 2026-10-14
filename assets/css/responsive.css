@@ -105,6 +105,12 @@
     --section-pad-y: 3.5rem;
   }
 
+  .header-logo-link img,
+  .header-logo-link svg {
+    height: 28px;
+    max-width: 215px;
+  }
+
   .hero-section,
   .page-hero-section {
     padding-top: 4.75rem;
