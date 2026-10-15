@@ -63,7 +63,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div>© 2026 Fleetezee Technologies Private Limited. All rights reserved.</div>
+      <div>© 2026 Fleetezee Pvt Limited. All rights reserved.</div>
       <div class="social-links">
         <a href="https://www.linkedin.com/company/fleetezee" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://twitter.com/fleetezee" target="_blank" rel="noopener">Twitter / X</a>

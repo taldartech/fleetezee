@@ -1,5 +1,5 @@
 /* TEAM */
-Organization: Fleetezee Technologies Pvt Ltd
+Organization: Fleetezee Pvt Limited
 Email: fleetezee@gmail.com
 Phone: +91 97844 51256, +91 9001010007
 Location: Bengaluru & Jaipur, India
